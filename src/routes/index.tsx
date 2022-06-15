@@ -1,5 +1,4 @@
 import { Routes, Route } from 'react-router-dom';
-<<<<<<< HEAD
 import RouteLogin from '../layouts/RouteLogin';
 import Login from '../pages/Login';
 import CreateAccount from '../pages/CreateAccount';
@@ -36,16 +35,6 @@ const IndexRoutes = () => (
       <Route path="data-canvas-database" element={<DataCanvasDatabase />} />
     </Route>
     <Route path="application-updated" element={<ApplicationUpdated />} />
-=======
-import DataCanvas from '../pages/DataCanvas';
-import DataCanvasDatabase from '../pages/DataCanvasDatabase';
-
-const IndexRoutes = () => (
-  <Routes>
-    <Route path="" element={<DataCanvas />} />
-    <Route path="data-canvas" element={<DataCanvas />} />
-    <Route path="data-canvas-database" element={<DataCanvasDatabase />} />
->>>>>>> design2code-generated-code
   </Routes>
 );
 export default IndexRoutes;

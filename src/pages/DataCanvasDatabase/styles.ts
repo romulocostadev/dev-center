@@ -13,11 +13,7 @@ export const DataCanvasDatabase = styled.div`
   box-sizing: border-box;
   background-color: rgba(115, 70, 248, 0.019999999552965164);
 `;
-<<<<<<< HEAD
-export const MenuGroup3 = styled.div`
-=======
 export const MenuGroup1 = styled.div`
->>>>>>> design2code-generated-code
   height: 100%;
   width: 240px;
   left: 1184px;
@@ -67,14 +63,7 @@ export const IconOutlinedDown1 = styled.div`
   background-repeat: no-repeat;
 `;
 export const Properties1 = styled(GenericText)`
-<<<<<<< HEAD
-  font-weight: 400;
-  font-size: 12px;
   margin: 0px;
-  width: 169px;
-=======
-  margin: 0px;
->>>>>>> design2code-generated-code
 `;
 
 export const IconOutlinedMenu1 = styled.div`
@@ -84,11 +73,7 @@ export const IconOutlinedMenu1 = styled.div`
   background: url(${IconOutlinedMenu1Image});
   background-repeat: no-repeat;
 `;
-<<<<<<< HEAD
-export const Divider4 = styled.div`
-=======
 export const Divider2 = styled.div`
->>>>>>> design2code-generated-code
   height: 2px;
   width: 242px;
   outline: 1px solid rgba(0, 0, 0, 0.1);
@@ -115,11 +100,7 @@ export const Input4 = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-<<<<<<< HEAD
-export const InputBasic4 = styled.div`
-=======
 export const InputBasic1 = styled.div`
->>>>>>> design2code-generated-code
   height: 32px;
   width: 224px;
   display: flex;
@@ -131,22 +112,12 @@ export const InputBasic1 = styled.div`
   padding: 2px 8px 2px 8px;
 `;
 export const Prefix1 = styled(GenericText)`
-<<<<<<< HEAD
-  font-weight: 400;
-  font-size: 12px;
-=======
->>>>>>> design2code-generated-code
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
   width: 36px;
 `;
 
 export const Input1 = styled(GenericText)`
-<<<<<<< HEAD
-  font-weight: 400;
-  font-size: 12px;
-=======
->>>>>>> design2code-generated-code
   margin: 0px;
   width: 65px;
 `;
@@ -162,22 +133,12 @@ export const Dropdown1 = styled.div`
   padding: 0px 8px 0px 8px;
 `;
 export const Prefix2 = styled(GenericText)`
-<<<<<<< HEAD
-  font-weight: 400;
-  font-size: 12px;
-=======
->>>>>>> design2code-generated-code
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
   width: 30px;
 `;
 
 export const Input2 = styled(GenericText)`
-<<<<<<< HEAD
-  font-weight: 400;
-  font-size: 12px;
-=======
->>>>>>> design2code-generated-code
   margin: 0px;
   width: 160px;
 `;
@@ -189,11 +150,7 @@ export const VectorComponenticonoutlineddir = styled.div`
   background: url(${VectorComponenticonoutlineddirImage});
   background-repeat: no-repeat;
 `;
-<<<<<<< HEAD
-export const Divider5 = styled.div`
-=======
 export const Divider3 = styled.div`
->>>>>>> design2code-generated-code
   height: 2px;
   width: 242px;
   outline: 1px solid rgba(0, 0, 0, 0.1);
@@ -231,22 +188,15 @@ export const DataVector = styled.div`
   background-repeat: no-repeat;
 `;
 export const AInstanceNeedsaDatabase = styled(GenericText)`
-<<<<<<< HEAD
-=======
   font-weight: 500;
   font-size: 16px;
->>>>>>> design2code-generated-code
   color: #7447f9;
   margin: 0px;
   width: 211px;
 `;
 
 export const TextComponentdont = styled(GenericText)`
-<<<<<<< HEAD
-  font-weight: 400;
-=======
   font-size: 16px;
->>>>>>> design2code-generated-code
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
   width: 222px;
