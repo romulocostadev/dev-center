@@ -5,20 +5,24 @@ import {
   MenuGroup,
   FirstSection,
   MenuItem,
-  IconOutlinedProject,
+  ProjectOutlinedIcon,
   Label,
   MenuItem1,
   IconOutlinedPartition,
+  Vector,
   Label1,
   MenuItem2,
   IconOutlinedDatabase,
+  Vector1,
   Label2,
   MenuItem3,
   IconOutlinedApi,
+  Vector2,
   Label3,
   SecondSection,
   MenuItem4,
   Icon,
+  Vector3,
   Label4,
   MenuItem5,
   Icon1,
@@ -32,25 +36,33 @@ const LayoutSiderPage = () => {
       <MenuGroup>
         <FirstSection>
           <MenuItem>
-            <IconOutlinedProject />
+            <ProjectOutlinedIcon />
             <Label>Design</Label>
           </MenuItem>
           <MenuItem1>
-            <IconOutlinedPartition />
+            <IconOutlinedPartition>
+              <Vector />
+            </IconOutlinedPartition>
             <Label1>Workflow</Label1>
           </MenuItem1>
           <MenuItem2>
-            <IconOutlinedDatabase />
+            <IconOutlinedDatabase>
+              <Vector1 />
+            </IconOutlinedDatabase>
             <Label2>Data</Label2>
           </MenuItem2>
           <MenuItem3>
-            <IconOutlinedApi />
+            <IconOutlinedApi>
+              <Vector2 />
+            </IconOutlinedApi>
             <Label3>Plugins</Label3>
           </MenuItem3>
         </FirstSection>
         <SecondSection>
           <MenuItem4>
-            <Icon />
+            <Icon>
+              <Vector3 />
+            </Icon>
             <Label4>Settings</Label4>
           </MenuItem4>
           <MenuItem5>

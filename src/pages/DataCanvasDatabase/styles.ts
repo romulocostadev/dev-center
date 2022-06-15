@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 import { DownOutlined } from '@ant-design/icons';
-import VectorImage from './assets/I1702_154363_125_50061.png';
-import Vector1Image from './assets/I1702_154366_918_110189_1_4801.png';
+import Vector8Image from './assets/I1702_154363_125_50061.png';
+import Vector9Image from './assets/I1702_154366_918_110189_1_4801.png';
 import DataVectorImage from './assets/1702_150552.png';
 import GenericCodeButton from '../../components/Button';
 
@@ -14,7 +14,7 @@ export const DataCanvasDatabase = styled.div`
   box-sizing: border-box;
   background-color: rgba(115, 70, 248, 0.019999999552965164);
 `;
-export const MenuGroup1 = styled.div`
+export const MenuGroup3 = styled.div`
   height: 100%;
   width: 240px;
   left: 1184px;
@@ -61,7 +61,10 @@ export const DownOutlinedIcon = styled(DownOutlined)`
   font-size: 12px;
 `;
 export const Properties1 = styled(GenericText)`
+  font-weight: 400;
+  font-size: 12px;
   margin: 0px;
+  width: 169px;
 `;
 
 export const IconOutlinedMenu1 = styled.div`
@@ -69,7 +72,7 @@ export const IconOutlinedMenu1 = styled.div`
   width: 12px;
   box-sizing: border-box;
 `;
-export const Vector = styled.div`
+export const Vector8 = styled.div`
   height: 8px;
   width: 9px;
   left: 1.3125px;
@@ -77,10 +80,10 @@ export const Vector = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.44999998807907104);
-  background: url(${VectorImage});
+  background: url(${Vector8Image});
   background-repeat: no-repeat;
 `;
-export const Divider2 = styled.div`
+export const Divider4 = styled.div`
   height: 2px;
   width: 242px;
   outline: 1px solid rgba(0, 0, 0, 0.1);
@@ -107,7 +110,7 @@ export const Input4 = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-export const InputBasic1 = styled.div`
+export const InputBasic4 = styled.div`
   height: 32px;
   width: 224px;
   display: flex;
@@ -119,12 +122,16 @@ export const InputBasic1 = styled.div`
   padding: 2px 8px 2px 8px;
 `;
 export const Prefix1 = styled(GenericText)`
+  font-weight: 400;
+  font-size: 12px;
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
   width: 36px;
 `;
 
 export const Input1 = styled(GenericText)`
+  font-weight: 400;
+  font-size: 12px;
   margin: 0px;
   width: 65px;
 `;
@@ -140,12 +147,16 @@ export const Dropdown1 = styled.div`
   padding: 0px 8px 0px 8px;
 `;
 export const Prefix2 = styled(GenericText)`
+  font-weight: 400;
+  font-size: 12px;
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
   width: 30px;
 `;
 
 export const Input2 = styled(GenericText)`
+  font-weight: 400;
+  font-size: 12px;
   margin: 0px;
   width: 160px;
 `;
@@ -155,7 +166,7 @@ export const InstanceComponenticonoutlineddir = styled.div`
   width: 12px;
   box-sizing: border-box;
 `;
-export const Vector1 = styled.div`
+export const Vector9 = styled.div`
   height: 6px;
   width: 9px;
   left: 1.546875px;
@@ -163,10 +174,10 @@ export const Vector1 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #444444;
-  background: url(${Vector1Image});
+  background: url(${Vector9Image});
   background-repeat: no-repeat;
 `;
-export const Divider3 = styled.div`
+export const Divider5 = styled.div`
   height: 2px;
   width: 242px;
   outline: 1px solid rgba(0, 0, 0, 0.1);
@@ -204,15 +215,13 @@ export const DataVector = styled.div`
   background-repeat: no-repeat;
 `;
 export const AInstanceNeedsaDatabase = styled(GenericText)`
-  font-weight: 500;
-  font-size: 16px;
   color: #7447f9;
   margin: 0px;
   width: 211px;
 `;
 
 export const TextComponentdont = styled(GenericText)`
-  font-size: 16px;
+  font-weight: 400;
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
   width: 222px;

@@ -14,12 +14,14 @@ import {
   PostGreSQL,
   Group2069859144864,
   Group,
-  Vector,
-  Vector1,
-  Vector2,
+  Vector14,
+  Vector15,
+  Vector16,
+  Vector17,
   FileWrapper,
   PostgreSQL,
-  VectorComponenticonoutlineddir1,
+  InstanceComponenticonoutlineddir1,
+  Vector18,
   ButtonsButton4,
   Divider7,
 } from './styles';
@@ -41,16 +43,20 @@ const LayoutHeaderPage = () => {
           <Icon7>
             <PostGreSQL>
               <Group2069859144864>
-                <Group />
-                <Vector />
-                <Vector1 />
-                <Vector2 />
+                <Group>
+                  <Vector14 />
+                </Group>
+                <Vector15 />
+                <Vector16 />
+                <Vector17 />
               </Group2069859144864>
             </PostGreSQL>
           </Icon7>
           <FileWrapper>
             <PostgreSQL>PostgreSQL</PostgreSQL>
-            <VectorComponenticonoutlineddir1 />
+            <InstanceComponenticonoutlineddir1>
+              <Vector18 />
+            </InstanceComponenticonoutlineddir1>
           </FileWrapper>
         </File>
         <ButtonsButton4 type="primary">Publish</ButtonsButton4>

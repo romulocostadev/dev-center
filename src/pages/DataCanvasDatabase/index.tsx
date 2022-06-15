@@ -2,26 +2,26 @@ import React from 'react';
 
 import {
   DataCanvasDatabase,
-  MenuGroup1,
+  MenuGroup3,
   CollapseProperties1,
   CollapseItem1,
   CollapseHead1,
   DownOutlinedIcon,
   Properties1,
   IconOutlinedMenu1,
-  Vector,
-  Divider2,
+  Vector8,
+  Divider4,
   CollapseBody1,
   Input4,
-  InputBasic1,
+  InputBasic4,
   Prefix1,
   Input1,
   Dropdown1,
   Prefix2,
   Input2,
   InstanceComponenticonoutlineddir,
-  Vector1,
-  Divider3,
+  Vector9,
+  Divider5,
   AInstanceNeedsADatabase,
   VectorFrame1,
   DataVector,
@@ -33,36 +33,36 @@ import {
 const DataCanvasDatabasePage = () => {
   return (
     <DataCanvasDatabase>
-      <MenuGroup1>
+      <MenuGroup3>
         <CollapseProperties1>
           <CollapseItem1>
             <CollapseHead1>
               <DownOutlinedIcon />
               <Properties1>Properties</Properties1>
               <IconOutlinedMenu1>
-                <Vector />
+                <Vector8 />
               </IconOutlinedMenu1>
             </CollapseHead1>
-            <Divider2 />
+            <Divider4 />
             <CollapseBody1>
               <Input4>
-                <InputBasic1>
+                <InputBasic4>
                   <Prefix1>Name:</Prefix1>
                   <Input1>PostgreSQL</Input1>
-                </InputBasic1>
+                </InputBasic4>
               </Input4>
               <Dropdown1>
                 <Prefix2>Type:</Prefix2>
                 <Input2>PostgreSQL</Input2>
                 <InstanceComponenticonoutlineddir>
-                  <Vector1 />
+                  <Vector9 />
                 </InstanceComponenticonoutlineddir>
               </Dropdown1>
             </CollapseBody1>
-            <Divider3 />
+            <Divider5 />
           </CollapseItem1>
         </CollapseProperties1>
-      </MenuGroup1>
+      </MenuGroup3>
       <AInstanceNeedsADatabase>
         <VectorFrame1>
           <DataVector />

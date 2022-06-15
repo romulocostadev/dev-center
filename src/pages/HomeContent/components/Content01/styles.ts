@@ -1,9 +1,6 @@
 import styled from 'styled-components';
 
-import Frame9Image from '../../assets/1642_149459.png';
 import GenericCodeButton from '../../../../components/Button';
-import Logo4Image from '../../assets/1642_149475.png';
-import Logo6Image from '../../assets/1642_149480.png';
 import GenericText from '../../../../components/Text';
 
 export const Content011 = styled.div`
@@ -68,12 +65,10 @@ export const Frame9 = styled.div`
   width: 478px;
   left: 0px;
   top: 0px;
-  position: inherit;
+  position: absolute;
   box-sizing: border-box;
   border-radius: 12px;
   background-color: #7447f9;
-  background: url(${Frame9Image});
-  background-repeat: no-repeat;
 `;
 export const ButtonsButton8 = styled(GenericCodeButton)`
   width: 76px;
@@ -207,8 +202,6 @@ export const Logo4 = styled.div`
   align-items: flex-start;
   border-radius: 8px;
   background-color: #f6f6f6;
-  background: url(${Logo4Image});
-  background-repeat: no-repeat;
 `;
 export const Logo5 = styled.div`
   height: 100px;
@@ -255,8 +248,6 @@ export const Logo6 = styled.div`
   align-items: flex-start;
   border-radius: 8px;
   background-color: #f6f6f6;
-  background: url(${Logo6Image});
-  background-repeat: no-repeat;
 `;
 export const Logo7 = styled.div`
   height: 100px;

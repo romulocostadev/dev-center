@@ -7,5 +7,4 @@ export const Content02 = styled.div`
   justify-content: center;
   align-items: center;
   background-color: #160c5f;
-  background-repeat: no-repeat;
 `;

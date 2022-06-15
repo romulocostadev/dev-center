@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
-import IconOutlinedProject1Image from './assets/I1702_156334_918_110211.png';
-import IconOutlinedPartition1Image from './assets/I1702_156335_918_110211.png';
-import IconOutlinedDatabase1Image from './assets/I1702_156336_1189_126575.png';
-import IconOutlinedApi1Image from './assets/I1702_156337_918_110211.png';
-import Icon5Image from './assets/I1702_156339_918_110211.png';
+import { ProjectOutlined } from '@ant-design/icons';
+import Vector10Image from './assets/I1702_156335_918_110211_125_50130.png';
+import Vector11Image from './assets/I1702_156336_1189_126575_125_49873.png';
+import Vector12Image from './assets/I1702_156337_918_110211_125_49772.png';
+import Vector13Image from './assets/I1702_156339_918_110211_125_50172.png';
 import Icon6Image from './assets/I1702_156340_918_110211.png';
+
 import GenericText from '../../../components/Text';
 
 export const LayoutSider2 = styled.div`
@@ -48,12 +49,9 @@ export const MenuItem6 = styled.div`
   padding: 10px;
   background-color: #ffffff;
 `;
-export const IconOutlinedProject1 = styled.div`
-  height: 16px;
-  width: 16px;
-  box-sizing: border-box;
-  background: url(${IconOutlinedProject1Image});
-  background-repeat: no-repeat;
+export const ProjectOutlinedIcon = styled(ProjectOutlined)`
+  color: #444444;
+  font-size: 16px;
 `;
 export const Label6 = styled(GenericText)`
   font-weight: 400;
@@ -78,7 +76,16 @@ export const IconOutlinedPartition1 = styled.div`
   height: 16px;
   width: 16px;
   box-sizing: border-box;
-  background: url(${IconOutlinedPartition1Image});
+`;
+export const Vector10 = styled.div`
+  height: 11px;
+  width: 12px;
+  left: 1.75px;
+  top: 2.25px;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #444444;
+  background: url(${Vector10Image});
   background-repeat: no-repeat;
 `;
 export const Label7 = styled(GenericText)`
@@ -104,7 +111,16 @@ export const IconOutlinedDatabase1 = styled.div`
   height: 16px;
   width: 16px;
   box-sizing: border-box;
-  background: url(${IconOutlinedDatabase1Image});
+`;
+export const Vector11 = styled.div`
+  height: 14px;
+  width: 11px;
+  left: 2.5px;
+  top: 1px;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #7447f9;
+  background: url(${Vector11Image});
   background-repeat: no-repeat;
 `;
 export const Label8 = styled(GenericText)`
@@ -130,7 +146,16 @@ export const IconOutlinedApi1 = styled.div`
   height: 16px;
   width: 16px;
   box-sizing: border-box;
-  background: url(${IconOutlinedApi1Image});
+`;
+export const Vector12 = styled.div`
+  height: 13px;
+  width: 13px;
+  left: 1.626953125px;
+  top: 1.6268310546875px;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #444444;
+  background: url(${Vector12Image});
   background-repeat: no-repeat;
 `;
 export const Label9 = styled(GenericText)`
@@ -165,7 +190,16 @@ export const Icon5 = styled.div`
   height: 16px;
   width: 16px;
   box-sizing: border-box;
-  background: url(${Icon5Image});
+`;
+export const Vector13 = styled.div`
+  height: 14px;
+  width: 13px;
+  left: 1.373046875px;
+  top: 0.99658203125px;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #444444;
+  background: url(${Vector13Image});
   background-repeat: no-repeat;
 `;
 export const Label10 = styled(GenericText)`

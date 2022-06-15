@@ -1,5 +1,7 @@
 import React from 'react';
 
+import GenericCodeButton from '../../components/Button';
+
 import {
   DataCanvas,
   CardCreatingAStructure,
@@ -7,21 +9,20 @@ import {
   CreatingAStructureVector,
   CreatingaStructure,
   Asolutionneedsainstance,
-  HandleNewInstance,
-  MenuGroup,
+  MenuGroup2,
   CollapseProperties,
   CollapseItem,
   CollapseHead,
   DownOutlinedIcon,
   Properties,
   MenuOutlinedIcon,
-  Divider,
+  Divider2,
   CollapseBody,
   Input3,
-  InputBasic,
+  InputBasic3,
   Prefix,
   Input,
-  Divider1,
+  Divider3,
 } from './styles';
 
 const DataCanvasPage = () => {
@@ -35,9 +36,9 @@ const DataCanvasPage = () => {
         <Asolutionneedsainstance>
           A solution needs a instance.
         </Asolutionneedsainstance>
-        <HandleNewInstance type="primary">New instance</HandleNewInstance>
+        <GenericCodeButton type="primary">Start learning</GenericCodeButton>
       </CardCreatingAStructure>
-      <MenuGroup>
+      <MenuGroup2>
         <CollapseProperties>
           <CollapseItem>
             <CollapseHead>
@@ -45,19 +46,19 @@ const DataCanvasPage = () => {
               <Properties>Properties</Properties>
               <MenuOutlinedIcon />
             </CollapseHead>
-            <Divider />
+            <Divider2 />
             <CollapseBody>
               <Input3>
-                <InputBasic>
+                <InputBasic3>
                   <Prefix>Name:</Prefix>
                   <Input>SunChemical</Input>
-                </InputBasic>
+                </InputBasic3>
               </Input3>
             </CollapseBody>
-            <Divider1 />
+            <Divider3 />
           </CollapseItem>
         </CollapseProperties>
-      </MenuGroup>
+      </MenuGroup2>
     </DataCanvas>
   );
 };

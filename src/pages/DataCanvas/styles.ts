@@ -44,28 +44,27 @@ export const CreatingAStructureVector = styled.div`
   background-repeat: no-repeat;
 `;
 export const CreatingaStructure = styled(GenericText)`
-  font-weight: 500;
-  font-size: 16px;
   color: #7447f9;
   margin: 0px;
   width: 145px;
 `;
 
 export const Asolutionneedsainstance = styled(GenericText)`
-  font-size: 16px;
+  font-weight: 400;
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
   width: 202px;
 `;
 
-export const HandleNewInstance = styled(GenericCodeButton)`
+export const ButtonsButton5 = styled(GenericCodeButton)`
+  position: static;
   width: 117px;
   height: 32px;
   border-radius: 2px;
   height: 32px;
 `;
 
-export const MenuGroup = styled.div`
+export const MenuGroup2 = styled.div`
   height: 100%;
   width: 240px;
   left: 1184px;
@@ -113,7 +112,10 @@ export const DownOutlinedIcon = styled(DownOutlined)`
 `;
 
 export const Properties = styled(GenericText)`
+  font-weight: 400;
+  font-size: 12px;
   margin: 0px;
+  width: 169px;
 `;
 
 export const MenuOutlinedIcon = styled(MenuOutlined)`
@@ -121,7 +123,7 @@ export const MenuOutlinedIcon = styled(MenuOutlined)`
   font-size: 12px;
 `;
 
-export const Divider = styled.div`
+export const Divider2 = styled.div`
   height: 2px;
   width: 242px;
   outline: 1px solid rgba(0, 0, 0, 0.1);
@@ -148,7 +150,7 @@ export const Input3 = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-export const InputBasic = styled.div`
+export const InputBasic3 = styled.div`
   height: 32px;
   width: 224px;
   display: flex;
@@ -160,17 +162,21 @@ export const InputBasic = styled.div`
   padding: 2px 8px 2px 8px;
 `;
 export const Prefix = styled(GenericText)`
+  font-weight: 400;
+  font-size: 12px;
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
   width: 36px;
 `;
 
 export const Input = styled(GenericText)`
+  font-weight: 400;
+  font-size: 12px;
   margin: 0px;
   width: 72px;
 `;
 
-export const Divider1 = styled.div`
+export const Divider3 = styled.div`
   height: 2px;
   width: 242px;
   outline: 1px solid rgba(0, 0, 0, 0.1);

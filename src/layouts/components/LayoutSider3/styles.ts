@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
-import IconOutlinedCaretDownImage from './assets/I1702_130359_918_110418.png';
-import IconOutlinedFolderOpenImage from './assets/I1702_130359_969_114298.png';
+import { CaretDownOutlined, FolderOpenOutlined } from '@ant-design/icons';
+
 import GenericCodeButton from '../../../components/Button';
-import IconOutlinedFolderOpen1Image from './assets/I1702_130360_969_114294.png';
+import Vector4Image from './assets/I1702_130360_918_110452_125_49372.png';
+import Vector5Image from './assets/I1702_130360_969_114294_125_49985.png';
 import IconOutlinedPlusImage from './assets/I1702_130360_991_120139_125_68244.png';
-import IconOutlinedFolderOpen2Image from './assets/I1702_130361_969_114294.png';
+import Vector6Image from './assets/I1702_130361_918_110452_125_49372.png';
+import Vector7Image from './assets/I1702_130361_969_114294_125_49985.png';
 import IconOutlinedPlus1Image from './assets/I1702_130361_991_120139_125_68244.png';
 import GenericText from '../../../components/Text';
 
@@ -57,13 +59,11 @@ export const Frame1 = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const IconOutlinedCaretDown = styled.div`
-  height: 12px;
-  width: 12px;
-  box-sizing: border-box;
-  background: url(${IconOutlinedCaretDownImage});
-  background-repeat: no-repeat;
+export const CaretDownOutlinedIcon = styled(CaretDownOutlined)`
+  color: #444444;
+  font-size: 12px;
 `;
+
 export const Icon2 = styled.div`
   height: 28px;
   width: 16px;
@@ -73,13 +73,11 @@ export const Icon2 = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-export const IconOutlinedFolderOpen = styled.div`
-  height: 16px;
-  width: 16px;
-  box-sizing: border-box;
-  background: url(${IconOutlinedFolderOpenImage});
-  background-repeat: no-repeat;
+export const FolderOpenOutlinedIcon = styled(FolderOpenOutlined)`
+  color: #444444;
+  font-size: 16px;
 `;
+
 export const ItemWrapper = styled.div`
   height: 20px;
   width: 156px;
@@ -128,6 +126,16 @@ export const IconOutlinedCaretDown1 = styled.div`
   height: 12px;
   width: 12px;
   box-sizing: border-box;
+`;
+export const Vector4 = styled.div`
+  height: 5px;
+  width: 8px;
+  left: 1.875px;
+  top: 3.515625px;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #444444;
+  background: url(${Vector4Image});
   background-repeat: no-repeat;
 `;
 export const Icon3 = styled.div`
@@ -143,7 +151,16 @@ export const IconOutlinedFolderOpen1 = styled.div`
   height: 16px;
   width: 16px;
   box-sizing: border-box;
-  background: url(${IconOutlinedFolderOpen1Image});
+`;
+export const Vector5 = styled.div`
+  height: 10px;
+  width: 14px;
+  left: 1px;
+  top: 2.875px;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #444444;
+  background: url(${Vector5Image});
   background-repeat: no-repeat;
 `;
 export const ItemWrapper1 = styled.div`
@@ -214,6 +231,16 @@ export const IconOutlinedCaretDown2 = styled.div`
   height: 12px;
   width: 12px;
   box-sizing: border-box;
+`;
+export const Vector6 = styled.div`
+  height: 5px;
+  width: 8px;
+  left: 1.875px;
+  top: 3.515625px;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #444444;
+  background: url(${Vector6Image});
   background-repeat: no-repeat;
 `;
 export const Icon4 = styled.div`
@@ -229,7 +256,16 @@ export const IconOutlinedFolderOpen2 = styled.div`
   height: 16px;
   width: 16px;
   box-sizing: border-box;
-  background: url(${IconOutlinedFolderOpen2Image});
+`;
+export const Vector7 = styled.div`
+  height: 10px;
+  width: 14px;
+  left: 1px;
+  top: 2.875px;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #444444;
+  background: url(${Vector7Image});
   background-repeat: no-repeat;
 `;
 export const ItemWrapper2 = styled.div`
