@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
+import { DownOutlined, MenuOutlined } from '@ant-design/icons';
+
 import CreatingAStructureVectorImage from './assets/1702_147631.png';
 import GenericCodeButton from '../../components/Button';
-import IconOutlinedDownImage from './assets/1702_147696.png';
-import IconOutlinedMenuImage from './assets/1702_147698.png';
 import GenericText from '../../components/Text';
 
 export const DataCanvas = styled.div`
@@ -44,27 +44,28 @@ export const CreatingAStructureVector = styled.div`
   background-repeat: no-repeat;
 `;
 export const CreatingaStructure = styled(GenericText)`
+  font-weight: 500;
+  font-size: 16px;
   color: #7447f9;
   margin: 0px;
   width: 145px;
 `;
 
 export const Asolutionneedsainstance = styled(GenericText)`
-  font-weight: 400;
+  font-size: 16px;
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
   width: 202px;
 `;
 
-export const ButtonsButton5 = styled(GenericCodeButton)`
-  position: static;
+export const HandleNewInstance = styled(GenericCodeButton)`
   width: 117px;
   height: 32px;
   border-radius: 2px;
   height: 32px;
 `;
 
-export const MenuGroup2 = styled.div`
+export const MenuGroup = styled.div`
   height: 100%;
   width: 240px;
   left: 1184px;
@@ -106,28 +107,23 @@ export const CollapseHead = styled.div`
   padding: 10px 16px 10px 16px;
   background-color: #ffffff;
 `;
-export const IconOutlinedDown = styled.div`
-  height: 12px;
-  width: 12px;
-  box-sizing: border-box;
-  background: url(${IconOutlinedDownImage});
-  background-repeat: no-repeat;
-`;
-export const Properties = styled(GenericText)`
-  font-weight: 400;
+static;
+export const DownOutlinedIcon = styled(DownOutlined)`
+  color: #000000;
   font-size: 12px;
-  margin: 0px;
-  width: 169px;
 `;
 
-export const IconOutlinedMenu = styled.div`
-  height: 12px;
-  width: 12px;
-  box-sizing: border-box;
-  background: url(${IconOutlinedMenuImage});
-  background-repeat: no-repeat;
+export const Properties = styled(GenericText)`
+  margin: 0px;
 `;
-export const Divider2 = styled.div`
+
+static;
+export const MenuOutlinedIcon = styled(MenuOutlined)`
+  color: #000000;
+  font-size: 12px;
+`;
+
+export const Divider = styled.div`
   height: 2px;
   width: 242px;
   outline: 1px solid rgba(0, 0, 0, 0.1);
@@ -154,7 +150,7 @@ export const Input3 = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-export const InputBasic3 = styled.div`
+export const InputBasic = styled.div`
   height: 32px;
   width: 224px;
   display: flex;
@@ -166,21 +162,17 @@ export const InputBasic3 = styled.div`
   padding: 2px 8px 2px 8px;
 `;
 export const Prefix = styled(GenericText)`
-  font-weight: 400;
-  font-size: 12px;
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
   width: 36px;
 `;
 
 export const Input = styled(GenericText)`
-  font-weight: 400;
-  font-size: 12px;
   margin: 0px;
   width: 72px;
 `;
 
-export const Divider3 = styled.div`
+export const Divider1 = styled.div`
   height: 2px;
   width: 242px;
   outline: 1px solid rgba(0, 0, 0, 0.1);

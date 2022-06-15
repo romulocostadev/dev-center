@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-import IconOutlinedDown1Image from './assets/1702_154361.png';
-import IconOutlinedMenu1Image from './assets/1702_154363.png';
-import VectorComponenticonoutlineddirImage from './assets/I1702_154366_918_110189.png';
+import { DownOutlined } from '@ant-design/icons';
+import VectorImage from './assets/I1702_154363_125_50061.png';
+import Vector1Image from './assets/I1702_154366_918_110189_1_4801.png';
 import DataVectorImage from './assets/1702_150552.png';
 import GenericCodeButton from '../../components/Button';
+
 import GenericText from '../../components/Text';
 
 export const DataCanvasDatabase = styled.div`
@@ -55,12 +56,10 @@ export const CollapseHead1 = styled.div`
   padding: 10px 16px 10px 16px;
   background-color: #ffffff;
 `;
-export const IconOutlinedDown1 = styled.div`
-  height: 12px;
-  width: 12px;
-  box-sizing: border-box;
-  background: url(${IconOutlinedDown1Image});
-  background-repeat: no-repeat;
+static;
+export const DownOutlinedIcon = styled(DownOutlined)`
+  color: #000000;
+  font-size: 12px;
 `;
 export const Properties1 = styled(GenericText)`
   margin: 0px;
@@ -70,7 +69,16 @@ export const IconOutlinedMenu1 = styled.div`
   height: 12px;
   width: 12px;
   box-sizing: border-box;
-  background: url(${IconOutlinedMenu1Image});
+`;
+export const Vector = styled.div`
+  height: 8px;
+  width: 9px;
+  left: 1.3125px;
+  top: 1.875px;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.44999998807907104);
+  background: url(${VectorImage});
   background-repeat: no-repeat;
 `;
 export const Divider2 = styled.div`
@@ -143,11 +151,20 @@ export const Input2 = styled(GenericText)`
   width: 160px;
 `;
 
-export const VectorComponenticonoutlineddir = styled.div`
+export const InstanceComponenticonoutlineddir = styled.div`
   height: 12px;
   width: 12px;
   box-sizing: border-box;
-  background: url(${VectorComponenticonoutlineddirImage});
+`;
+export const Vector1 = styled.div`
+  height: 6px;
+  width: 9px;
+  left: 1.546875px;
+  top: 3px;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #444444;
+  background: url(${Vector1Image});
   background-repeat: no-repeat;
 `;
 export const Divider3 = styled.div`

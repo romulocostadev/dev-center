@@ -6,9 +6,10 @@ import {
   CollapseProperties1,
   CollapseItem1,
   CollapseHead1,
-  IconOutlinedDown1,
+  DownOutlinedIcon,
   Properties1,
   IconOutlinedMenu1,
+  Vector,
   Divider2,
   CollapseBody1,
   Input4,
@@ -18,7 +19,8 @@ import {
   Dropdown1,
   Prefix2,
   Input2,
-  VectorComponenticonoutlineddir,
+  InstanceComponenticonoutlineddir,
+  Vector1,
   Divider3,
   AInstanceNeedsADatabase,
   VectorFrame1,
@@ -35,9 +37,11 @@ const DataCanvasDatabasePage = () => {
         <CollapseProperties1>
           <CollapseItem1>
             <CollapseHead1>
-              <IconOutlinedDown1 />
+              <DownOutlinedIcon />
               <Properties1>Properties</Properties1>
-              <IconOutlinedMenu1 />
+              <IconOutlinedMenu1>
+                <Vector />
+              </IconOutlinedMenu1>
             </CollapseHead1>
             <Divider2 />
             <CollapseBody1>
@@ -50,7 +54,9 @@ const DataCanvasDatabasePage = () => {
               <Dropdown1>
                 <Prefix2>Type:</Prefix2>
                 <Input2>PostgreSQL</Input2>
-                <VectorComponenticonoutlineddir />
+                <InstanceComponenticonoutlineddir>
+                  <Vector1 />
+                </InstanceComponenticonoutlineddir>
               </Dropdown1>
             </CollapseBody1>
             <Divider3 />
