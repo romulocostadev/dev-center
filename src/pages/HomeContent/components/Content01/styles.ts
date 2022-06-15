@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-import Frame9Image from './assets/1642_149459.png';
+import Frame9Image from '../../assets/1642_149459.png';
 import GenericCodeButton from '../../../../components/Button';
-import Logo4Image from './assets/1642_149475.png';
-import Logo6Image from './assets/1642_149480.png';
+import Logo4Image from '../../assets/1642_149475.png';
+import Logo6Image from '../../assets/1642_149480.png';
 import GenericText from '../../../../components/Text';
 
 export const Content011 = styled.div`

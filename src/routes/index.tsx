@@ -3,7 +3,7 @@ import RouteLogin from '../layouts/RouteLogin';
 import Login from '../pages/Login';
 import CreateAccount from '../pages/CreateAccount';
 import RecoveryPassword from '../pages/RecoveryPassword';
-import Home from '../layouts/Home';
+import Home from '../layouts/Home1';
 import HomeContent from '../pages/HomeContent';
 import Application from '../layouts/Application';
 import ApplicationContent from '../pages/ApplicationContent';
