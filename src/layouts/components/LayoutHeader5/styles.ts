@@ -1,196 +1,196 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-import Vector14840549090885Image from './assets/1702_161575.png' 
-import Vector14Image from './assets/I1702_161585_962_111297.png' 
-import Vector15Image from './assets/I1702_161585_962_111298.png' 
-import Vector16Image from './assets/I1702_161585_962_111299.png' 
-import Vector17Image from './assets/I1702_161585_962_111300.png' 
-import Vector18Image from './assets/I1702_161588_1_4801.png' 
-import GenericCodeButton from '../../../components/Button'
+import Vector14840549090885Image from './assets/1702_161575.png';
+import Vector14Image from './assets/I1702_161585_962_111297.png';
+import Vector15Image from './assets/I1702_161585_962_111298.png';
+import Vector16Image from './assets/I1702_161585_962_111299.png';
+import Vector17Image from './assets/I1702_161585_962_111300.png';
+import Vector18Image from './assets/I1702_161588_1_4801.png';
+import GenericCodeButton from '../../../components/Button';
+import GenericText from '../../../components/Text';
 
 export const LayoutHeader2 = styled.div`
-height: 48px;
-width: 1920px;
-display: flex;
-flex-direction: column;
-box-sizing: border-box;
-justify-content: center;
-align-items: center;
-  background-color: #FFFFFF;
+  height: 48px;
+  width: 1920px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
 `;
 export const Header2 = styled.div`
-justify-content: space-between;
-height: 48px;
-width: 1920px;
-display: flex;
-box-sizing: border-box;
-justify-content: space-between;
-align-items: center;
-  padding: 0px 16.0px 0px 0px;
+  justify-content: space-between;
+  height: 48px;
+  width: 1920px;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 16px 0px 0px;
 `;
 export const Beatrix2 = styled.div`
-height: 48px;
-width: 116px;
-display: flex;
-flex-direction: column;
-box-sizing: border-box;
-gap: 10.0px;
-justify-content: flex-start;
-align-items: flex-start;
-    padding: 16.0px;
+  height: 48px;
+  width: 116px;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 16px;
 `;
 export const Vector14840549090885 = styled.div`
-height: 16px;
-width: 84px;
-box-sizing: border-box;
+  height: 16px;
+  width: 84px;
+  box-sizing: border-box;
   background: url(${Vector14840549090885Image});
   background-repeat: no-repeat;
 `;
 export const File = styled.div`
-height: 24px;
-width: 217px;
-display: flex;
-box-sizing: border-box;
-gap: 8.0px;
-justify-content: flex-start;
-align-items: flex-start;
+  height: 24px;
+  width: 217px;
+  display: flex;
+  box-sizing: border-box;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: flex-start;
 `;
 export const TypeWrapper = styled.div`
-height: 24px;
-width: 79px;
-display: flex;
-box-sizing: border-box;
-gap: 10.0px;
-justify-content: flex-start;
-align-items: center;
+  height: 24px;
+  width: 79px;
+  display: flex;
+  box-sizing: border-box;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
 `;
-import GenericText from '../../../components/Text'
 export const DBInstances = styled(GenericText)`
-        font-weight: 400;
-        font-size: 14px;
-        color: rgba(0, 0, 0, 0.45) ;
-        margin: 0px;
-      width: 80px;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+  margin: 0px;
+  width: 80px;
 `;
 
 export const DividerWrapper = styled.div`
-height: 24px;
-width: 7px;
-display: flex;
-box-sizing: border-box;
-gap: 10.0px;
-justify-content: flex-start;
-align-items: center;
+  height: 24px;
+  width: 7px;
+  display: flex;
+  box-sizing: border-box;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
 `;
 export const TextComponent = styled(GenericText)`
-      font-weight: 400;
-      color: rgba(0, 0, 0, 0.45) ;
-      margin: 0px;
-    width: 8px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.45);
+  margin: 0px;
+  width: 8px;
 `;
 
 export const Icon7 = styled.div`
-height: 24px;
-width: 16px;
-display: flex;
-box-sizing: border-box;
-gap: 8.0px;
-justify-content: flex-start;
-align-items: center;
+  height: 24px;
+  width: 16px;
+  display: flex;
+  box-sizing: border-box;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
 `;
 export const PostGreSQL = styled.div`
-height: 16px;
-width: 16px;
-box-sizing: border-box;
+  height: 16px;
+  width: 16px;
+  box-sizing: border-box;
 `;
 export const Group2069859144864 = styled.div`
-height: 16px;
-width: 16px;
-left: 0px;
-top: 9.1552734375e-05px;
-position: absolute;
-box-sizing: border-box;
+  height: 16px;
+  width: 16px;
+  left: 0px;
+  top: 9.1552734375e-5px;
+  position: absolute;
+  box-sizing: border-box;
 `;
 export const Group = styled.div`
-height: 15px;
-width: 15px;
-left: 0.6953125px;
-top: 0.663482666015625px;
-position: absolute;
-box-sizing: border-box;
+  height: 15px;
+  width: 15px;
+  left: 0.6953125px;
+  top: 0.663482666015625px;
+  position: absolute;
+  box-sizing: border-box;
 `;
 export const Vector14 = styled.div`
-height: 15px;
-width: 15px;
-left: 0px;
-top: 0px;
-position: absolute;
-box-sizing: border-box;
+  height: 15px;
+  width: 15px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  box-sizing: border-box;
   background-color: #444444;
   background: url(${Vector14Image});
   background-repeat: no-repeat;
 `;
 export const Vector15 = styled.div`
-height: 16px;
-width: 16px;
-left: 0px;
-top: 0px;
-position: absolute;
-box-sizing: border-box;
+  height: 16px;
+  width: 16px;
+  left: 0px;
+  top: 0px;
+  position: absolute;
+  box-sizing: border-box;
   background-color: #000000;
   background: url(${Vector15Image});
   background-repeat: no-repeat;
 `;
 export const Vector16 = styled.div`
-height: 15px;
-width: 15px;
-left: 0.69140625px;
-top: 0.663238525390625px;
-position: absolute;
-box-sizing: border-box;
+  height: 15px;
+  width: 15px;
+  left: 0.69140625px;
+  top: 0.663238525390625px;
+  position: absolute;
+  box-sizing: border-box;
   background-color: #346892;
   background: url(${Vector16Image});
   background-repeat: no-repeat;
 `;
 export const Vector17 = styled.div`
-height: 15px;
-width: 15px;
-left: 0.44921875px;
-top: 0.417388916015625px;
-position: absolute;
-box-sizing: border-box;
-  background-color: #FFFFFF;
+  height: 15px;
+  width: 15px;
+  left: 0.44921875px;
+  top: 0.417388916015625px;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #ffffff;
   background: url(${Vector17Image});
   background-repeat: no-repeat;
 `;
 export const FileWrapper = styled.div`
-height: 24px;
-width: 91px;
-display: flex;
-box-sizing: border-box;
-gap: 4.0px;
-justify-content: flex-start;
-align-items: center;
+  height: 24px;
+  width: 91px;
+  display: flex;
+  box-sizing: border-box;
+  gap: 4px;
+  justify-content: flex-start;
+  align-items: center;
 `;
 export const PostgreSQL = styled(GenericText)`
   font-size: 14px;
-  color: #7447F9;
+  color: #7447f9;
   margin: 0px;
-width: 76px;
+  width: 76px;
 `;
 
 export const InstanceComponenticonoutlineddir1 = styled.div`
-height: 12px;
-width: 12px;
-box-sizing: border-box;
+  height: 12px;
+  width: 12px;
+  box-sizing: border-box;
 `;
 export const Vector18 = styled.div`
-height: 6px;
-width: 9px;
-left: 1.546875px;
-top: 3px;
-position: absolute;
-box-sizing: border-box;
+  height: 6px;
+  width: 9px;
+  left: 1.546875px;
+  top: 3px;
+  position: absolute;
+  box-sizing: border-box;
   background-color: #444444;
   background: url(${Vector18Image});
   background-repeat: no-repeat;
@@ -203,8 +203,8 @@ export const ButtonsButton4 = styled(GenericCodeButton)`
 `;
 
 export const Divider7 = styled.div`
-height: 2px;
-width: 1922px;
-outline: 1px solid rgba(0, 0, 0, 0.1) ;
-outline-offset: -0.5px;
+  height: 2px;
+  width: 1922px;
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  outline-offset: -0.5px;
 `;
