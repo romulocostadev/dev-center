@@ -14,7 +14,7 @@ export const PageHeader = styled.div`
   width: 1920px;
   left: 0px;
   top: 0px;
-  position: absolute;
+  position: inherit;
   display: flex;
   box-sizing: border-box;
   gap: 24px;

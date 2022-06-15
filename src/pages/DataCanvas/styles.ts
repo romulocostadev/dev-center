@@ -107,7 +107,6 @@ export const CollapseHead = styled.div`
   padding: 10px 16px 10px 16px;
   background-color: #ffffff;
 `;
-static;
 export const DownOutlinedIcon = styled(DownOutlined)`
   color: #000000;
   font-size: 12px;
@@ -117,7 +116,6 @@ export const Properties = styled(GenericText)`
   margin: 0px;
 `;
 
-static;
 export const MenuOutlinedIcon = styled(MenuOutlined)`
   color: #000000;
   font-size: 12px;

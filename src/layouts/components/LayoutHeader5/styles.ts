@@ -108,7 +108,7 @@ export const Group2069859144864 = styled.div`
   width: 16px;
   left: 0px;
   top: 9.1552734375e-5px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
 `;
 export const Group = styled.div`
@@ -116,7 +116,7 @@ export const Group = styled.div`
   width: 15px;
   left: 0.6953125px;
   top: 0.663482666015625px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background: url(${GroupImage});
   background-repeat: no-repeat;
@@ -126,7 +126,7 @@ export const Vector = styled.div`
   width: 16px;
   left: 0px;
   top: 0px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: #000000;
   background: url(${VectorImage});
@@ -137,7 +137,7 @@ export const Vector1 = styled.div`
   width: 15px;
   left: 0.69140625px;
   top: 0.663238525390625px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: #346892;
   background: url(${Vector1Image});

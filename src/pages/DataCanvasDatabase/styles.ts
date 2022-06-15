@@ -56,7 +56,6 @@ export const CollapseHead1 = styled.div`
   padding: 10px 16px 10px 16px;
   background-color: #ffffff;
 `;
-static;
 export const DownOutlinedIcon = styled(DownOutlined)`
   color: #000000;
   font-size: 12px;

@@ -3,10 +3,8 @@ import styled from 'styled-components';
 import IconOutlinedCaretDownImage from './assets/I1702_130359_918_110418.png';
 import IconOutlinedFolderOpenImage from './assets/I1702_130359_969_114298.png';
 import GenericCodeButton from '../../../components/Button';
-import IconOutlinedCaretDown1Image from './assets/I1702_130360_918_110452.png';
 import IconOutlinedFolderOpen1Image from './assets/I1702_130360_969_114294.png';
 import IconOutlinedPlusImage from './assets/I1702_130360_991_120139_125_68244.png';
-import IconOutlinedCaretDown2Image from './assets/I1702_130361_918_110452.png';
 import IconOutlinedFolderOpen2Image from './assets/I1702_130361_969_114294.png';
 import IconOutlinedPlus1Image from './assets/I1702_130361_991_120139_125_68244.png';
 import GenericText from '../../../components/Text';
@@ -130,7 +128,6 @@ export const IconOutlinedCaretDown1 = styled.div`
   height: 12px;
   width: 12px;
   box-sizing: border-box;
-  background: url(${IconOutlinedCaretDown1Image});
   background-repeat: no-repeat;
 `;
 export const Icon3 = styled.div`
@@ -217,7 +214,6 @@ export const IconOutlinedCaretDown2 = styled.div`
   height: 12px;
   width: 12px;
   box-sizing: border-box;
-  background: url(${IconOutlinedCaretDown2Image});
   background-repeat: no-repeat;
 `;
 export const Icon4 = styled.div`
