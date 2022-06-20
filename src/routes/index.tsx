@@ -8,6 +8,7 @@ import DataCanvas from '../pages/DataCanvas';
 
 const IndexRoutes = () => (
   <Routes>
+    <Route path="/" element={<Solution />} />
     <Route path="/solutions" element={<Solution />}>
       <Route index element={<List />} />
     </Route>
