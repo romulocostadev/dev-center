@@ -5,6 +5,7 @@ import Application from '../layouts/Application';
 import Home from '../pages/Home';
 import CanvasLayout from '../layouts/CanvasLayout';
 import DataCanvas from '../pages/DataCanvas';
+import Index from '../pages/ComponentsExample';
 
 const IndexRoutes = () => (
   <Routes>
@@ -17,6 +18,7 @@ const IndexRoutes = () => (
         <Route index element={<DataCanvas />} />
       </Route>
     </Route>
+    <Route path="/components-example" element={<Index />} />
   </Routes>
 );
 export default IndexRoutes;
