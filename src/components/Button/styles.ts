@@ -2,6 +2,6 @@ import styled from 'styled-components';
 import { Button } from 'antd';
 
 export const GenericButtonStyle = styled(Button)`
-  width: 117px;
+  width: 123px;
   position: static;
 `;

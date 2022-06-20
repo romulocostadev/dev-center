@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { CaretDownOutlined, FolderOpenOutlined } from '@ant-design/icons';
 
 import GenericCodeButton from '../../../components/Button';
-import Vector4Image from './assets/I1702_130360_918_110452_125_49372.png';
-import Vector5Image from './assets/I1702_130360_969_114294_125_49985.png';
+import Vector9Image from './assets/I1702_130360_918_110452_125_49372.png';
+import Vector10Image from './assets/I1702_130360_969_114294_125_49985.png';
 import IconOutlinedPlusImage from './assets/I1702_130360_991_120139_125_68244.png';
-import Vector6Image from './assets/I1702_130361_918_110452_125_49372.png';
-import Vector7Image from './assets/I1702_130361_969_114294_125_49985.png';
+import Vector11Image from './assets/I1702_130361_918_110452_125_49372.png';
+import Vector12Image from './assets/I1702_130361_969_114294_125_49985.png';
 import IconOutlinedPlus1Image from './assets/I1702_130361_991_120139_125_68244.png';
 import GenericText from '../../../components/Text';
 
@@ -59,12 +59,13 @@ export const Frame1 = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 export const CaretDownOutlinedIcon = styled(CaretDownOutlined)`
   color: #444444;
   font-size: 12px;
 `;
 
-export const Icon2 = styled.div`
+export const Icon3 = styled.div`
   height: 28px;
   width: 16px;
   display: flex;
@@ -73,6 +74,7 @@ export const Icon2 = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
+
 export const FolderOpenOutlinedIcon = styled(FolderOpenOutlined)`
   color: #444444;
   font-size: 16px;
@@ -95,7 +97,7 @@ export const Database = styled(GenericText)`
   width: 153px;
 `;
 
-export const ButtonsButton3 = styled(GenericCodeButton)`
+export const ButtonsButton1 = styled(GenericCodeButton)`
   width: 16px;
   height: 16px;
   border-radius: 2px;
@@ -127,7 +129,7 @@ export const IconOutlinedCaretDown1 = styled.div`
   width: 12px;
   box-sizing: border-box;
 `;
-export const Vector4 = styled.div`
+export const Vector9 = styled.div`
   height: 5px;
   width: 8px;
   left: 1.875px;
@@ -135,10 +137,10 @@ export const Vector4 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #444444;
-  background: url(${Vector4Image});
+  background: url(${Vector9Image});
   background-repeat: no-repeat;
 `;
-export const Icon3 = styled.div`
+export const Icon4 = styled.div`
   height: 28px;
   width: 16px;
   display: flex;
@@ -152,7 +154,7 @@ export const IconOutlinedFolderOpen1 = styled.div`
   width: 16px;
   box-sizing: border-box;
 `;
-export const Vector5 = styled.div`
+export const Vector10 = styled.div`
   height: 10px;
   width: 14px;
   left: 1px;
@@ -160,7 +162,7 @@ export const Vector5 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #444444;
-  background: url(${Vector5Image});
+  background: url(${Vector10Image});
   background-repeat: no-repeat;
 `;
 export const ItemWrapper1 = styled.div`
@@ -180,7 +182,7 @@ export const Database1 = styled(GenericText)`
   width: 137px;
 `;
 
-export const ButtonsButton15 = styled.div`
+export const ButtonsButton8 = styled.div`
   height: 16px;
   width: 16px;
   display: flex;
@@ -191,7 +193,7 @@ export const ButtonsButton15 = styled.div`
   align-items: center;
   border-radius: 2px;
 `;
-export const Content10 = styled.div`
+export const Content6 = styled.div`
   height: 16px;
   width: 16px;
   display: flex;
@@ -232,7 +234,7 @@ export const IconOutlinedCaretDown2 = styled.div`
   width: 12px;
   box-sizing: border-box;
 `;
-export const Vector6 = styled.div`
+export const Vector11 = styled.div`
   height: 5px;
   width: 8px;
   left: 1.875px;
@@ -240,10 +242,10 @@ export const Vector6 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #444444;
-  background: url(${Vector6Image});
+  background: url(${Vector11Image});
   background-repeat: no-repeat;
 `;
-export const Icon4 = styled.div`
+export const Icon5 = styled.div`
   height: 28px;
   width: 16px;
   display: flex;
@@ -257,7 +259,7 @@ export const IconOutlinedFolderOpen2 = styled.div`
   width: 16px;
   box-sizing: border-box;
 `;
-export const Vector7 = styled.div`
+export const Vector12 = styled.div`
   height: 10px;
   width: 14px;
   left: 1px;
@@ -265,7 +267,7 @@ export const Vector7 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #444444;
-  background: url(${Vector7Image});
+  background: url(${Vector12Image});
   background-repeat: no-repeat;
 `;
 export const ItemWrapper2 = styled.div`
@@ -285,7 +287,7 @@ export const Database2 = styled(GenericText)`
   width: 137px;
 `;
 
-export const ButtonsButton16 = styled.div`
+export const ButtonsButton9 = styled.div`
   height: 16px;
   width: 16px;
   display: flex;
@@ -296,7 +298,7 @@ export const ButtonsButton16 = styled.div`
   align-items: center;
   border-radius: 2px;
 `;
-export const Content11 = styled.div`
+export const Content7 = styled.div`
   height: 16px;
   width: 16px;
   display: flex;

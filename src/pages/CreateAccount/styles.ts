@@ -15,7 +15,7 @@ export const CreateAccount = styled.div`
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.08),
     32px 32px 32px rgba(0, 0, 0, 0.08), 64px 64px 64px rgba(0, 0, 0, 0.05);
 `;
-export const Login2 = styled.div`
+export const Login5 = styled.div`
   height: 500px;
   width: 400px;
   display: flex;
@@ -25,7 +25,7 @@ export const Login2 = styled.div`
   padding: 48px;
   background-color: #ffffff;
 `;
-export const Content4 = styled.div`
+export const Content2 = styled.div`
   height: 244px;
   width: 304px;
   display: flex;
@@ -57,7 +57,6 @@ export const ViceriForm1 = styled(Form)`
   gap: 8px;
   justify-content: flex-start;
   align-items: flex-start;
-  cursor: pointer;
 `;
 export const Actions2 = styled.div`
   height: 32px;
@@ -67,7 +66,7 @@ export const Actions2 = styled.div`
   justify-content: flex-end;
   align-items: flex-start;
 `;
-export const ButtonsButton1 = styled(GenericCodeButton)`
+export const Create1 = styled(GenericCodeButton)`
   width: 73px;
   height: 32px;
   border-radius: 2px;
@@ -84,7 +83,7 @@ export const CreateaAccount1 = styled.div`
   padding: 48px 48px 158px 48px;
   background-color: #f7f1ff;
 `;
-export const Content5 = styled.div`
+export const Content3 = styled.div`
   height: 182px;
   width: 304px;
   display: flex;
@@ -141,32 +140,9 @@ export const Actions3 = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-export const ButtonsButton13 = styled.div`
-  height: 32px;
+export const Login1 = styled(GenericCodeButton)`
   width: 67px;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  gap: 8px;
-  justify-content: flex-start;
-  align-items: center;
+  height: 32px;
   border-radius: 2px;
-  padding: 5px 16px 5px 16px;
-  background-color: #7447f9;
-`;
-export const Content6 = styled.div`
-  height: 22px;
-  width: 35px;
-  display: flex;
-  box-sizing: border-box;
-  gap: 8px;
-  justify-content: flex-start;
-  align-items: center;
-`;
-export const Button2 = styled(GenericText)`
-  font-weight: 400;
-  font-size: 14px;
-  color: #ffffff;
-  margin: 0px;
-  width: 36px;
+  height: 32px;
 `;

@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 import Vector14840549090885Image from './assets/1702_161575.png';
-import Vector14Image from './assets/I1702_161585_962_111297.png';
-import Vector15Image from './assets/I1702_161585_962_111298.png';
-import Vector16Image from './assets/I1702_161585_962_111299.png';
-import Vector17Image from './assets/I1702_161585_962_111300.png';
-import Vector18Image from './assets/I1702_161588_1_4801.png';
+import Vector19Image from './assets/I1702_161585_962_111297.png';
+import Vector20Image from './assets/I1702_161585_962_111298.png';
+import Vector21Image from './assets/I1702_161585_962_111299.png';
+import Vector22Image from './assets/I1702_161585_962_111300.png';
+import Vector23Image from './assets/I1702_161588_1_4801.png';
 import GenericCodeButton from '../../../components/Button';
 import GenericText from '../../../components/Text';
 
@@ -47,7 +47,7 @@ export const Vector14840549090885 = styled.div`
   background: url(${Vector14840549090885Image});
   background-repeat: no-repeat;
 `;
-export const File = styled.div`
+export const File1 = styled.div`
   height: 24px;
   width: 217px;
   display: flex;
@@ -56,7 +56,7 @@ export const File = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-export const TypeWrapper = styled.div`
+export const TypeWrapper1 = styled.div`
   height: 24px;
   width: 79px;
   display: flex;
@@ -65,7 +65,7 @@ export const TypeWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-export const DBInstances = styled(GenericText)`
+export const DBInstances1 = styled(GenericText)`
   font-weight: 400;
   font-size: 14px;
   color: rgba(0, 0, 0, 0.45);
@@ -73,7 +73,7 @@ export const DBInstances = styled(GenericText)`
   width: 80px;
 `;
 
-export const DividerWrapper = styled.div`
+export const DividerWrapper1 = styled.div`
   height: 24px;
   width: 7px;
   display: flex;
@@ -82,14 +82,14 @@ export const DividerWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-export const TextComponent = styled(GenericText)`
+export const TextComponent1 = styled(GenericText)`
   font-weight: 400;
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
   width: 8px;
 `;
 
-export const Icon7 = styled.div`
+export const Icon8 = styled.div`
   height: 24px;
   width: 16px;
   display: flex;
@@ -98,12 +98,12 @@ export const Icon7 = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-export const PostGreSQL = styled.div`
+export const PostGreSQL1 = styled.div`
   height: 16px;
   width: 16px;
   box-sizing: border-box;
 `;
-export const Group2069859144864 = styled.div`
+export const Group20698591448641 = styled.div`
   height: 16px;
   width: 16px;
   left: 0px;
@@ -111,7 +111,7 @@ export const Group2069859144864 = styled.div`
   position: absolute;
   box-sizing: border-box;
 `;
-export const Group = styled.div`
+export const Group1 = styled.div`
   height: 15px;
   width: 15px;
   left: 0.6953125px;
@@ -119,7 +119,7 @@ export const Group = styled.div`
   position: absolute;
   box-sizing: border-box;
 `;
-export const Vector14 = styled.div`
+export const Vector19 = styled.div`
   height: 15px;
   width: 15px;
   left: 0px;
@@ -127,10 +127,10 @@ export const Vector14 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #444444;
-  background: url(${Vector14Image});
+  background: url(${Vector19Image});
   background-repeat: no-repeat;
 `;
-export const Vector15 = styled.div`
+export const Vector20 = styled.div`
   height: 16px;
   width: 16px;
   left: 0px;
@@ -138,10 +138,10 @@ export const Vector15 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #000000;
-  background: url(${Vector15Image});
+  background: url(${Vector20Image});
   background-repeat: no-repeat;
 `;
-export const Vector16 = styled.div`
+export const Vector21 = styled.div`
   height: 15px;
   width: 15px;
   left: 0.69140625px;
@@ -149,10 +149,10 @@ export const Vector16 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #346892;
-  background: url(${Vector16Image});
+  background: url(${Vector21Image});
   background-repeat: no-repeat;
 `;
-export const Vector17 = styled.div`
+export const Vector22 = styled.div`
   height: 15px;
   width: 15px;
   left: 0.44921875px;
@@ -160,10 +160,10 @@ export const Vector17 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #ffffff;
-  background: url(${Vector17Image});
+  background: url(${Vector22Image});
   background-repeat: no-repeat;
 `;
-export const FileWrapper = styled.div`
+export const FileWrapper1 = styled.div`
   height: 24px;
   width: 91px;
   display: flex;
@@ -172,19 +172,19 @@ export const FileWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-export const PostgreSQL = styled(GenericText)`
+export const PostgreSQL1 = styled(GenericText)`
   font-size: 14px;
   color: #7447f9;
   margin: 0px;
   width: 76px;
 `;
 
-export const InstanceComponenticonoutlineddir1 = styled.div`
+export const InstanceComponenticonoutlineddir2 = styled.div`
   height: 12px;
   width: 12px;
   box-sizing: border-box;
 `;
-export const Vector18 = styled.div`
+export const Vector23 = styled.div`
   height: 6px;
   width: 9px;
   left: 1.546875px;
@@ -192,10 +192,10 @@ export const Vector18 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #444444;
-  background: url(${Vector18Image});
+  background: url(${Vector23Image});
   background-repeat: no-repeat;
 `;
-export const ButtonsButton4 = styled(GenericCodeButton)`
+export const ButtonsButton2 = styled(GenericCodeButton)`
   width: 79px;
   height: 32px;
   border-radius: 2px;

@@ -5,24 +5,24 @@ import {
   Header2,
   Beatrix2,
   Vector14840549090885,
-  File,
-  TypeWrapper,
-  DBInstances,
-  DividerWrapper,
-  TextComponent,
-  Icon7,
-  PostGreSQL,
-  Group2069859144864,
-  Group,
-  Vector14,
-  Vector15,
-  Vector16,
-  Vector17,
-  FileWrapper,
-  PostgreSQL,
-  InstanceComponenticonoutlineddir1,
-  Vector18,
-  ButtonsButton4,
+  File1,
+  TypeWrapper1,
+  DBInstances1,
+  DividerWrapper1,
+  TextComponent1,
+  Icon8,
+  PostGreSQL1,
+  Group20698591448641,
+  Group1,
+  Vector19,
+  Vector20,
+  Vector21,
+  Vector22,
+  FileWrapper1,
+  PostgreSQL1,
+  InstanceComponenticonoutlineddir2,
+  Vector23,
+  ButtonsButton2,
   Divider7,
 } from './styles';
 
@@ -33,33 +33,33 @@ const LayoutHeaderPage = () => {
         <Beatrix2>
           <Vector14840549090885 />
         </Beatrix2>
-        <File>
-          <TypeWrapper>
-            <DBInstances>DBInstances</DBInstances>
-          </TypeWrapper>
-          <DividerWrapper>
-            <TextComponent>/</TextComponent>
-          </DividerWrapper>
-          <Icon7>
-            <PostGreSQL>
-              <Group2069859144864>
-                <Group>
-                  <Vector14 />
-                </Group>
-                <Vector15 />
-                <Vector16 />
-                <Vector17 />
-              </Group2069859144864>
-            </PostGreSQL>
-          </Icon7>
-          <FileWrapper>
-            <PostgreSQL>PostgreSQL</PostgreSQL>
-            <InstanceComponenticonoutlineddir1>
-              <Vector18 />
-            </InstanceComponenticonoutlineddir1>
-          </FileWrapper>
-        </File>
-        <ButtonsButton4 type="primary">Publish</ButtonsButton4>
+        <File1>
+          <TypeWrapper1>
+            <DBInstances1>DBInstances</DBInstances1>
+          </TypeWrapper1>
+          <DividerWrapper1>
+            <TextComponent1>/</TextComponent1>
+          </DividerWrapper1>
+          <Icon8>
+            <PostGreSQL1>
+              <Group20698591448641>
+                <Group1>
+                  <Vector19 />
+                </Group1>
+                <Vector20 />
+                <Vector21 />
+                <Vector22 />
+              </Group20698591448641>
+            </PostGreSQL1>
+          </Icon8>
+          <FileWrapper1>
+            <PostgreSQL1>PostgreSQL</PostgreSQL1>
+            <InstanceComponenticonoutlineddir2>
+              <Vector23 />
+            </InstanceComponenticonoutlineddir2>
+          </FileWrapper1>
+        </File1>
+        <ButtonsButton2 type="primary">Publish</ButtonsButton2>
       </Header2>
       <Divider7 />
     </LayoutHeader2>

@@ -1,50 +1,40 @@
 import React from 'react';
 
-import { useNavigate } from 'react-router-dom';
 import { Typography } from 'antd';
 import GenericFormItem from '../../components/FormItem';
 import GenericInput from '../../components/Input';
+import GenericInputPassword from '../../components/InputPassword';
+import GenericCodeButton from '../../components/Button';
 
 import {
-  Login,
-  Login1,
+  Login3,
+  Login4,
   Content,
   Title,
   Welcomeback,
   ViceriForm,
   Actions,
-  ButtonsButton11,
-  Content1,
-  Button,
-  ButtonsButton,
+  Login,
   CreateaAccount,
-  Content2,
+  Content1,
   Logo,
   Vector1484054909088,
   Text1,
   Comecreatethefuture,
   TextComponentjoin,
   Actions1,
-  ButtonsButton12,
-  Content3,
-  Button1,
+  Create,
 } from './styles';
 
 const LoginPage = () => {
-  let navigate = useNavigate();
-
-  const navigateToLogin = () => {
-    navigate('/login');
-  };
-
   return (
-    <Login>
-      <Login1>
+    <Login3>
+      <Login4>
         <Content>
           <Title>
             <Welcomeback>Welcome back!</Welcomeback>
           </Title>
-          <ViceriForm layout="vertical" onClick={navigateToLogin}>
+          <ViceriForm layout="vertical">
             <GenericFormItem
               label={<Typography.Text ellipsis>E-mail</Typography.Text>}
               name="email"
@@ -52,24 +42,20 @@ const LoginPage = () => {
               <GenericInput placeholder="E-mail" />
             </GenericFormItem>
             <GenericFormItem
-              label={<Typography.Text ellipsis>E-mail</Typography.Text>}
-              name="email"
+              label={<Typography.Text ellipsis>Password</Typography.Text>}
+              name="password"
             >
-              <GenericInput placeholder="E-mail" />
+              <GenericInputPassword placeholder="Password" />
             </GenericFormItem>
           </ViceriForm>
           <Actions>
-            <ButtonsButton11>
-              <Content1>
-                <Button>Recovery Password</Button>
-              </Content1>
-            </ButtonsButton11>
-            <ButtonsButton type="primary">Login</ButtonsButton>
+            <GenericCodeButton type="link">Recovery Password</GenericCodeButton>
+            <Login type="primary">Login</Login>
           </Actions>
         </Content>
-      </Login1>
+      </Login4>
       <CreateaAccount>
-        <Content2>
+        <Content1>
           <Logo>
             <Vector1484054909088 />
           </Logo>
@@ -80,15 +66,11 @@ const LoginPage = () => {
             </TextComponentjoin>
           </Text1>
           <Actions1>
-            <ButtonsButton12>
-              <Content3>
-                <Button1>Create</Button1>
-              </Content3>
-            </ButtonsButton12>
+            <Create type="primary">Create</Create>
           </Actions1>
-        </Content2>
+        </Content1>
       </CreateaAccount>
-    </Login>
+    </Login3>
   );
 };
 

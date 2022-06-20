@@ -1,49 +1,40 @@
 import React from 'react';
 
-import { useNavigate } from 'react-router-dom';
 import { Typography } from 'antd';
 import GenericFormItem from '../../components/FormItem';
 import GenericInput from '../../components/Input';
 
 import {
   RecoveryPassword,
-  Login3,
-  Content7,
+  Login6,
+  Content4,
   Title2,
   Recoveringyourpassword,
   ViceriForm2,
   Actions4,
-  ButtonsButton2,
+  Recovery,
   CreateaAccount2,
-  Content8,
+  Content5,
   Logo2,
   Vector14840549090882,
   Text3,
   TextComponentdid,
   Wererelievedtohearthat,
   Actions5,
-  ButtonsButton14,
-  Content9,
-  Button3,
+  Login2,
 } from './styles';
 
 const RecoveryPasswordPage = () => {
-  let navigate = useNavigate();
-
-  const navigateToLogin = () => {
-    navigate('/login');
-  };
-
   return (
     <RecoveryPassword>
-      <Login3>
-        <Content7>
+      <Login6>
+        <Content4>
           <Title2>
             <Recoveringyourpassword>
               Recovering your password
             </Recoveringyourpassword>
           </Title2>
-          <ViceriForm2 onClick={navigateToLogin}>
+          <ViceriForm2>
             <GenericFormItem
               label={<Typography.Text ellipsis>E-mail</Typography.Text>}
               name="email"
@@ -52,12 +43,12 @@ const RecoveryPasswordPage = () => {
             </GenericFormItem>
           </ViceriForm2>
           <Actions4>
-            <ButtonsButton2 type="primary">Recovery</ButtonsButton2>
+            <Recovery type="primary">Recovery</Recovery>
           </Actions4>
-        </Content7>
-      </Login3>
+        </Content4>
+      </Login6>
       <CreateaAccount2>
-        <Content8>
+        <Content5>
           <Logo2>
             <Vector14840549090882 />
           </Logo2>
@@ -68,13 +59,9 @@ const RecoveryPasswordPage = () => {
             </Wererelievedtohearthat>
           </Text3>
           <Actions5>
-            <ButtonsButton14>
-              <Content9>
-                <Button3>Login</Button3>
-              </Content9>
-            </ButtonsButton14>
+            <Login2 type="primary">Login</Login2>
           </Actions5>
-        </Content8>
+        </Content5>
       </CreateaAccount2>
     </RecoveryPassword>
   );

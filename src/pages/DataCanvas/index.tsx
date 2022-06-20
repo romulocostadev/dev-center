@@ -1,7 +1,5 @@
 import React from 'react';
 
-import GenericCodeButton from '../../components/Button';
-
 import {
   DataCanvas,
   CardCreatingAStructure,
@@ -9,6 +7,7 @@ import {
   CreatingAStructureVector,
   CreatingaStructure,
   Asolutionneedsainstance,
+  HandleNewInstance,
   MenuGroup2,
   CollapseProperties,
   CollapseItem,
@@ -36,7 +35,7 @@ const DataCanvasPage = () => {
         <Asolutionneedsainstance>
           A solution needs a instance.
         </Asolutionneedsainstance>
-        <GenericCodeButton type="primary">Start learning</GenericCodeButton>
+        <HandleNewInstance type="primary">New instance</HandleNewInstance>
       </CardCreatingAStructure>
       <MenuGroup2>
         <CollapseProperties>

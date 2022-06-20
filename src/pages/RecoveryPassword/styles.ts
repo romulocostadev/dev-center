@@ -16,7 +16,7 @@ export const RecoveryPassword = styled.div`
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.08),
     32px 32px 32px rgba(0, 0, 0, 0.08), 64px 64px 64px rgba(0, 0, 0, 0.05);
 `;
-export const Login3 = styled.div`
+export const Login6 = styled.div`
   height: 500px;
   width: 400px;
   display: flex;
@@ -26,7 +26,7 @@ export const Login3 = styled.div`
   padding: 48px;
   background-color: #ffffff;
 `;
-export const Content7 = styled.div`
+export const Content4 = styled.div`
   height: 124px;
   width: 304px;
   display: flex;
@@ -58,7 +58,6 @@ export const ViceriForm2 = styled(Form)`
   gap: 8px;
   justify-content: flex-start;
   align-items: flex-start;
-  cursor: pointer;
 `;
 export const Actions4 = styled.div`
   height: 32px;
@@ -68,7 +67,7 @@ export const Actions4 = styled.div`
   justify-content: flex-end;
   align-items: flex-start;
 `;
-export const ButtonsButton2 = styled(GenericCodeButton)`
+export const Recovery = styled(GenericCodeButton)`
   width: 89px;
   height: 32px;
   border-radius: 2px;
@@ -85,7 +84,7 @@ export const CreateaAccount2 = styled.div`
   padding: 48px 48px 158px 48px;
   background-color: #f7f1ff;
 `;
-export const Content8 = styled.div`
+export const Content5 = styled.div`
   height: 182px;
   width: 304px;
   display: flex;
@@ -142,32 +141,9 @@ export const Actions5 = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-export const ButtonsButton14 = styled.div`
-  height: 32px;
+export const Login2 = styled(GenericCodeButton)`
   width: 67px;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  gap: 8px;
-  justify-content: flex-start;
-  align-items: center;
+  height: 32px;
   border-radius: 2px;
-  padding: 5px 16px 5px 16px;
-  background-color: #7447f9;
-`;
-export const Content9 = styled.div`
-  height: 22px;
-  width: 35px;
-  display: flex;
-  box-sizing: border-box;
-  gap: 8px;
-  justify-content: flex-start;
-  align-items: center;
-`;
-export const Button3 = styled(GenericText)`
-  font-weight: 400;
-  font-size: 14px;
-  color: #ffffff;
-  margin: 0px;
-  width: 36px;
+  height: 32px;
 `;

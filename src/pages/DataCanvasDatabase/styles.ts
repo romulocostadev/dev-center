@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 import { DownOutlined } from '@ant-design/icons';
-import Vector8Image from './assets/I1702_154363_125_50061.png';
-import Vector9Image from './assets/I1702_154366_918_110189_1_4801.png';
+import Vector13Image from './assets/I1702_154363_125_50061.png';
+import Vector14Image from './assets/I1702_154366_918_110189_1_4801.png';
 import DataVectorImage from './assets/1702_150552.png';
 import GenericCodeButton from '../../components/Button';
 
@@ -56,6 +56,7 @@ export const CollapseHead1 = styled.div`
   padding: 10px 16px 10px 16px;
   background-color: #ffffff;
 `;
+
 export const DownOutlinedIcon = styled(DownOutlined)`
   color: #000000;
   font-size: 12px;
@@ -72,7 +73,7 @@ export const IconOutlinedMenu1 = styled.div`
   width: 12px;
   box-sizing: border-box;
 `;
-export const Vector8 = styled.div`
+export const Vector13 = styled.div`
   height: 8px;
   width: 9px;
   left: 1.3125px;
@@ -80,7 +81,7 @@ export const Vector8 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.44999998807907104);
-  background: url(${Vector8Image});
+  background: url(${Vector13Image});
   background-repeat: no-repeat;
 `;
 export const Divider4 = styled.div`
@@ -161,12 +162,12 @@ export const Input2 = styled(GenericText)`
   width: 160px;
 `;
 
-export const InstanceComponenticonoutlineddir = styled.div`
+export const InstanceComponenticonoutlineddir1 = styled.div`
   height: 12px;
   width: 12px;
   box-sizing: border-box;
 `;
-export const Vector9 = styled.div`
+export const Vector14 = styled.div`
   height: 6px;
   width: 9px;
   left: 1.546875px;
@@ -174,7 +175,7 @@ export const Vector9 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #444444;
-  background: url(${Vector9Image});
+  background: url(${Vector14Image});
   background-repeat: no-repeat;
 `;
 export const Divider5 = styled.div`
@@ -228,6 +229,7 @@ export const TextComponentdont = styled(GenericText)`
 `;
 
 export const HandleNewDatabase = styled(GenericCodeButton)`
+  position: static;
   width: 123px;
   height: 32px;
   border-radius: 2px;

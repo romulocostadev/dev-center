@@ -5,7 +5,7 @@ import GenericCodeButton from '../../components/Button';
 import Vector1484054909088Image from './assets/1521_130435.png';
 import GenericText from '../../components/Text';
 
-export const Login = styled.div`
+export const Login3 = styled.div`
   height: 500px;
   width: 800px;
   display: flex;
@@ -15,7 +15,7 @@ export const Login = styled.div`
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.08),
     32px 32px 32px rgba(0, 0, 0, 0.08), 64px 64px 64px rgba(0, 0, 0, 0.05);
 `;
-export const Login1 = styled.div`
+export const Login4 = styled.div`
   height: 500px;
   width: 400px;
   display: flex;
@@ -56,7 +56,6 @@ export const ViceriForm = styled(Form)`
   gap: 8px;
   justify-content: flex-start;
   align-items: flex-start;
-  cursor: pointer;
 `;
 export const Actions = styled.div`
   justify-content: space-between;
@@ -67,35 +66,15 @@ export const Actions = styled.div`
   justify-content: space-between;
   align-items: flex-start;
 `;
-export const ButtonsButton11 = styled.div`
-  height: 22px;
+export const ButtonsButton = styled(GenericCodeButton)`
+  position: static;
   width: 123px;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  gap: 8px;
-  justify-content: flex-start;
-  align-items: center;
+  height: 22px;
   border-radius: 2px;
-`;
-export const Content1 = styled.div`
   height: 22px;
-  width: 123px;
-  display: flex;
-  box-sizing: border-box;
-  gap: 8px;
-  justify-content: flex-start;
-  align-items: center;
-`;
-export const Button = styled(GenericText)`
-  font-weight: 400;
-  font-size: 14px;
-  color: #7447f9;
-  margin: 0px;
-  width: 124px;
 `;
 
-export const ButtonsButton = styled(GenericCodeButton)`
+export const Login = styled(GenericCodeButton)`
   width: 67px;
   height: 32px;
   border-radius: 2px;
@@ -112,7 +91,7 @@ export const CreateaAccount = styled.div`
   padding: 48px 48px 158px 48px;
   background-color: #f7f1ff;
 `;
-export const Content2 = styled.div`
+export const Content1 = styled.div`
   height: 182px;
   width: 304px;
   display: flex;
@@ -169,32 +148,9 @@ export const Actions1 = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-export const ButtonsButton12 = styled.div`
-  height: 32px;
+export const Create = styled(GenericCodeButton)`
   width: 73px;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  gap: 8px;
-  justify-content: flex-start;
-  align-items: center;
+  height: 32px;
   border-radius: 2px;
-  padding: 5px 16px 5px 16px;
-  background-color: #7447f9;
-`;
-export const Content3 = styled.div`
-  height: 22px;
-  width: 41px;
-  display: flex;
-  box-sizing: border-box;
-  gap: 8px;
-  justify-content: flex-start;
-  align-items: center;
-`;
-export const Button1 = styled(GenericText)`
-  font-weight: 400;
-  font-size: 14px;
-  color: #ffffff;
-  margin: 0px;
-  width: 42px;
+  height: 32px;
 `;

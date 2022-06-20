@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 import { ProjectOutlined } from '@ant-design/icons';
-import Vector10Image from './assets/I1702_156335_918_110211_125_50130.png';
-import Vector11Image from './assets/I1702_156336_1189_126575_125_49873.png';
-import Vector12Image from './assets/I1702_156337_918_110211_125_49772.png';
-import Vector13Image from './assets/I1702_156339_918_110211_125_50172.png';
-import Icon6Image from './assets/I1702_156340_918_110211.png';
+import Vector15Image from './assets/I1702_156335_918_110211_125_50130.png';
+import Vector16Image from './assets/I1702_156336_1189_126575_125_49873.png';
+import Vector17Image from './assets/I1702_156337_918_110211_125_49772.png';
+import Vector18Image from './assets/I1702_156339_918_110211_125_50172.png';
+import Icon7Image from './assets/I1702_156340_918_110211.png';
 
 import GenericText from '../../../components/Text';
 
@@ -49,6 +49,7 @@ export const MenuItem6 = styled.div`
   padding: 10px;
   background-color: #ffffff;
 `;
+
 export const ProjectOutlinedIcon = styled(ProjectOutlined)`
   color: #444444;
   font-size: 16px;
@@ -77,7 +78,7 @@ export const IconOutlinedPartition1 = styled.div`
   width: 16px;
   box-sizing: border-box;
 `;
-export const Vector10 = styled.div`
+export const Vector15 = styled.div`
   height: 11px;
   width: 12px;
   left: 1.75px;
@@ -85,7 +86,7 @@ export const Vector10 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #444444;
-  background: url(${Vector10Image});
+  background: url(${Vector15Image});
   background-repeat: no-repeat;
 `;
 export const Label7 = styled(GenericText)`
@@ -112,7 +113,7 @@ export const IconOutlinedDatabase1 = styled.div`
   width: 16px;
   box-sizing: border-box;
 `;
-export const Vector11 = styled.div`
+export const Vector16 = styled.div`
   height: 14px;
   width: 11px;
   left: 2.5px;
@@ -120,7 +121,7 @@ export const Vector11 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #7447f9;
-  background: url(${Vector11Image});
+  background: url(${Vector16Image});
   background-repeat: no-repeat;
 `;
 export const Label8 = styled(GenericText)`
@@ -147,7 +148,7 @@ export const IconOutlinedApi1 = styled.div`
   width: 16px;
   box-sizing: border-box;
 `;
-export const Vector12 = styled.div`
+export const Vector17 = styled.div`
   height: 13px;
   width: 13px;
   left: 1.626953125px;
@@ -155,7 +156,7 @@ export const Vector12 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #444444;
-  background: url(${Vector12Image});
+  background: url(${Vector17Image});
   background-repeat: no-repeat;
 `;
 export const Label9 = styled(GenericText)`
@@ -186,12 +187,12 @@ export const MenuItem10 = styled.div`
   padding: 10px;
   background-color: #ffffff;
 `;
-export const Icon5 = styled.div`
+export const Icon6 = styled.div`
   height: 16px;
   width: 16px;
   box-sizing: border-box;
 `;
-export const Vector13 = styled.div`
+export const Vector18 = styled.div`
   height: 14px;
   width: 13px;
   left: 1.373046875px;
@@ -199,7 +200,7 @@ export const Vector13 = styled.div`
   position: absolute;
   box-sizing: border-box;
   background-color: #444444;
-  background: url(${Vector13Image});
+  background: url(${Vector18Image});
   background-repeat: no-repeat;
 `;
 export const Label10 = styled(GenericText)`
@@ -221,11 +222,11 @@ export const MenuItem11 = styled.div`
   padding: 10px;
   background-color: #ffffff;
 `;
-export const Icon6 = styled.div`
+export const Icon7 = styled.div`
   height: 16px;
   width: 16px;
   box-sizing: border-box;
-  background: url(${Icon6Image});
+  background: url(${Icon7Image});
   background-repeat: no-repeat;
 `;
 export const Label11 = styled(GenericText)`

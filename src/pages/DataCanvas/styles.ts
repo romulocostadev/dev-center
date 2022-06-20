@@ -56,8 +56,7 @@ export const Asolutionneedsainstance = styled(GenericText)`
   width: 202px;
 `;
 
-export const ButtonsButton5 = styled(GenericCodeButton)`
-  position: static;
+export const HandleNewInstance = styled(GenericCodeButton)`
   width: 117px;
   height: 32px;
   border-radius: 2px;
@@ -106,6 +105,7 @@ export const CollapseHead = styled.div`
   padding: 10px 16px 10px 16px;
   background-color: #ffffff;
 `;
+
 export const DownOutlinedIcon = styled(DownOutlined)`
   color: #000000;
   font-size: 12px;

@@ -1,49 +1,41 @@
 import React from 'react';
 
-import { useNavigate } from 'react-router-dom';
 import { Typography } from 'antd';
 import GenericFormItem from '../../components/FormItem';
 import GenericInput from '../../components/Input';
+import GenericInputPassword from '../../components/InputPassword';
 
 import {
   CreateAccount,
-  Login2,
-  Content4,
+  Login5,
+  Content2,
   Title1,
   TextComponentcreating,
   ViceriForm1,
   Actions2,
-  ButtonsButton1,
+  Create1,
   CreateaAccount1,
-  Content5,
+  Content3,
   Logo1,
   Vector14840549090881,
   Text2,
   Alreadyhaveanaccount,
   Wearewaitingforyou,
   Actions3,
-  ButtonsButton13,
-  Content6,
-  Button2,
+  Login1,
 } from './styles';
 
 const CreateAccountPage = () => {
-  let navigate = useNavigate();
-
-  const navigateToLogin = () => {
-    navigate('/login');
-  };
-
   return (
     <CreateAccount>
-      <Login2>
-        <Content4>
+      <Login5>
+        <Content2>
           <Title1>
             <TextComponentcreating>
               Creating an account to the future!
             </TextComponentcreating>
           </Title1>
-          <ViceriForm1 onClick={navigateToLogin}>
+          <ViceriForm1>
             <GenericFormItem
               label={<Typography.Text ellipsis>E-mail</Typography.Text>}
               name="email"
@@ -51,25 +43,27 @@ const CreateAccountPage = () => {
               <GenericInput placeholder="E-mail" />
             </GenericFormItem>
             <GenericFormItem
-              label={<Typography.Text ellipsis>E-mail</Typography.Text>}
-              name="email"
+              label={<Typography.Text ellipsis>Password</Typography.Text>}
+              name="password"
             >
-              <GenericInput placeholder="E-mail" />
+              <GenericInputPassword placeholder="Password" />
             </GenericFormItem>
             <GenericFormItem
-              label={<Typography.Text ellipsis>E-mail</Typography.Text>}
-              name="email"
+              label={
+                <Typography.Text ellipsis>Confirm password</Typography.Text>
+              }
+              name="confirmPassword"
             >
-              <GenericInput placeholder="E-mail" />
+              <GenericInputPassword placeholder="Confirm password" />
             </GenericFormItem>
           </ViceriForm1>
           <Actions2>
-            <ButtonsButton1 type="primary">Create</ButtonsButton1>
+            <Create1 type="primary">Create</Create1>
           </Actions2>
-        </Content4>
-      </Login2>
+        </Content2>
+      </Login5>
       <CreateaAccount1>
-        <Content5>
+        <Content3>
           <Logo1>
             <Vector14840549090881 />
           </Logo1>
@@ -80,13 +74,9 @@ const CreateAccountPage = () => {
             <Wearewaitingforyou>We are waiting for you.</Wearewaitingforyou>
           </Text2>
           <Actions3>
-            <ButtonsButton13>
-              <Content6>
-                <Button2>Login</Button2>
-              </Content6>
-            </ButtonsButton13>
+            <Login1 type="primary">Login</Login1>
           </Actions3>
-        </Content5>
+        </Content3>
       </CreateaAccount1>
     </CreateAccount>
   );

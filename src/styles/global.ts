@@ -50,8 +50,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .ant-form-item {
-    margin-bottom: 0px !important; 
-  } 
+    margin-bottom: 0px !important;
+  }
 
   .ant-collapse > .ant-collapse-item > .ant-collapse-header {
     padding: 0px
@@ -62,12 +62,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .ant-menu-sub.ant-menu-inline, .ant-menu-submenu-arrow, .ant-menu .ant-menu-item, .ant-menu{
-    background: #000 !important; 
+    background: #000 !important;
     color: #fff !important;
-  }
-
-  .ant-tabs-nav{
-    margin-bottom: 0px !important;
   }
 
 `;
