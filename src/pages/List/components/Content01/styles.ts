@@ -65,7 +65,7 @@ export const Frame9 = styled.div`
   width: 478px;
   left: 0px;
   top: 0px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   border-radius: 12px;
   background-color: #7447f9;

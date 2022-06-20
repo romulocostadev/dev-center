@@ -106,9 +106,7 @@ export const PostGreSQL = styled.div`
 export const Group2069859144864 = styled.div`
   height: 16px;
   width: 16px;
-  left: 0px;
-  top: 8.58306884765625e-5px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
 `;
 export const Group = styled.div`
@@ -116,7 +114,7 @@ export const Group = styled.div`
   width: 15px;
   left: 0.6953125px;
   top: 0.6634883880615234px;
-  position: absolute;
+  position: static;
   box-sizing: border-box;
 `;
 export const Vector4 = styled.div`
@@ -189,7 +187,7 @@ export const Vector8 = styled.div`
   width: 9px;
   left: 1.546875px;
   top: 3px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: #444444;
   background: url(${Vector8Image});

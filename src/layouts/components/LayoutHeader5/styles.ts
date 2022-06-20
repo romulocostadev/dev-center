@@ -108,7 +108,7 @@ export const Group20698591448641 = styled.div`
   width: 16px;
   left: 0px;
   top: 9.1552734375e-5px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
 `;
 export const Group1 = styled.div`
@@ -116,7 +116,7 @@ export const Group1 = styled.div`
   width: 15px;
   left: 0.6953125px;
   top: 0.663482666015625px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
 `;
 export const Vector19 = styled.div`
@@ -124,7 +124,7 @@ export const Vector19 = styled.div`
   width: 15px;
   left: 0px;
   top: 0px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: #444444;
   background: url(${Vector19Image});
@@ -135,7 +135,7 @@ export const Vector20 = styled.div`
   width: 16px;
   left: 0px;
   top: 0px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: #000000;
   background: url(${Vector20Image});
@@ -146,7 +146,7 @@ export const Vector21 = styled.div`
   width: 15px;
   left: 0.69140625px;
   top: 0.663238525390625px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: #346892;
   background: url(${Vector21Image});
@@ -157,7 +157,7 @@ export const Vector22 = styled.div`
   width: 15px;
   left: 0.44921875px;
   top: 0.417388916015625px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: #ffffff;
   background: url(${Vector22Image});
@@ -189,7 +189,7 @@ export const Vector23 = styled.div`
   width: 9px;
   left: 1.546875px;
   top: 3px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: #444444;
   background: url(${Vector23Image});

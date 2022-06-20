@@ -83,7 +83,7 @@ export const Vector = styled.div`
   width: 12px;
   left: 1.75px;
   top: 2.25px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: #444444;
   background: url(${VectorImage});
@@ -118,7 +118,7 @@ export const Vector1 = styled.div`
   width: 11px;
   left: 2.5px;
   top: 1px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: #7447f9;
   background: url(${Vector1Image});
@@ -153,7 +153,7 @@ export const Vector2 = styled.div`
   width: 13px;
   left: 1.626953125px;
   top: 1.6268157958984375px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: #444444;
   background: url(${Vector2Image});
@@ -197,7 +197,7 @@ export const Vector3 = styled.div`
   width: 13px;
   left: 1.373046875px;
   top: 0.99664306640625px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: #444444;
   background: url(${Vector3Image});

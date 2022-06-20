@@ -19,7 +19,7 @@ export const MenuGroup3 = styled.div`
   width: 240px;
   left: 1184px;
   top: 0px;
-  position: absolute;
+  position: inherit;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -78,7 +78,7 @@ export const Vector13 = styled.div`
   width: 9px;
   left: 1.3125px;
   top: 1.875px;
-  position: absolute;
+  position: inherit;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.44999998807907104);
   background: url(${Vector13Image});
