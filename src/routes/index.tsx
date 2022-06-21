@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { Routes, Route } from 'react-router-dom';
 import Solution from '../layouts/Solution';
 import List from '../pages/List';
