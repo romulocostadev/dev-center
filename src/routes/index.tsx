@@ -7,10 +7,37 @@ import Home from '../pages/Home';
 import CanvasLayout from '../layouts/CanvasLayout';
 import DataCanvas from '../pages/DataCanvas';
 import Index from '../pages/ComponentsExample';
+import { setModalData } from '../store/modal/modalSlice';
+import { useAppDispatch } from '../store/reduxHooks';
+
+const Teste = () => {
+  const dispatch = useAppDispatch();
+
+  const handleClickModal = () => {
+    dispatch(setModalData({ visible: true, title: 'Kairo' }));
+  };
+
+  const handleClickModal2 = () => {
+    dispatch(setModalData({ visible: true, title: 'Romulo' }));
+  };
+  return (
+    <>
+      <button type="button" onClick={handleClickModal}>
+        Abrir modal diferente
+      </button>
+
+      <button type="button" onClick={handleClickModal2}>
+        Abrir modal diferente
+      </button>
+    </>
+  );
+};
 
 const IndexRoutes = () => (
   <Routes>
     <Route path="/" element={<Solution />} />
+    <Route path="/teste" element={<Teste />} />
+
     <Route path="/solutions" element={<Solution />}>
       <Route index element={<List />} />
     </Route>
