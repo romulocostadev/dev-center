@@ -9,4 +9,21 @@ export const handlers = [
       }),
     );
   }),
+
+  rest.post('http://localhost/login', (req, res, ctx) => {
+    return res(
+      ctx.delay(200),
+      ctx.json({
+        user: {
+          firstName: 'Test',
+          lastName: 'User',
+        },
+        token: '123',
+      }),
+    );
+  }),
+
+  rest.get('http://localhost/user/romulo', (req, res, ctx) => {
+    return res(ctx.delay(200), ctx.json({ name: 'romulo' }));
+  }),
 ];
