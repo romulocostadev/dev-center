@@ -7,10 +7,6 @@ import LayoutHeader3 from '../components/LayoutHeader3';
 import { Application, Content, Body, Sider, Header } from './styles';
 
 const ApplicationPage = () => {
-  function handlePublish() {
-    console.log('foo');
-  }
-
   return (
     <Application>
       <Sider>

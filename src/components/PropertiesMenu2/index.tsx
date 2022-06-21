@@ -33,8 +33,6 @@ import {
   Actions,
   ButtonsButton22,
   ButtonsButton23,
-  Content,
-  Button171,
   Divider2,
 } from './styles';
 

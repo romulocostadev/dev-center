@@ -27,10 +27,6 @@ import {
 } from './styles';
 
 const LayoutHeaderPage = () => {
-  function handlePublish() {
-    console.log('foo');
-  }
-
   return (
     <LayoutHeader1>
       <Header1>

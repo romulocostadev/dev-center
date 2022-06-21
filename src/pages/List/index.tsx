@@ -6,10 +6,6 @@ import Content02 from './components/Content02';
 import { List, PageHeader, Home, TabGroupPane, TabGroup } from './styles';
 
 const ListPage = () => {
-  function handleNewSolution() {
-    console.log('foo');
-  }
-
   return (
     <List>
       <PageHeader>

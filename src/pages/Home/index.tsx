@@ -27,10 +27,6 @@ import {
 } from './styles';
 
 const HomePage = () => {
-  function handleCreateData() {
-    console.log('foo');
-  }
-
   return (
     <Home1>
       <Title3>
