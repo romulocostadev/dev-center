@@ -83,6 +83,7 @@ export const Divider = styled.div`
 `;
 export const Frame26 = styled.div`
   height: 158px;
+  max-height: 158px;
   width: 336px;
   display: flex;
   flex-direction: column;
