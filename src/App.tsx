@@ -7,6 +7,7 @@ import GlobalStyle from './styles/global';
 import LayoutRoutes from './routes';
 import { store } from './store/store';
 import Modal from './components/Modal/Index';
+import './locales/i18n.js';
 
 function App() {
   return (
