@@ -1,5 +1,6 @@
 import React from 'react';
 import { Form, Modal } from 'antd';
+import { useTranslation } from 'react-i18next';
 import getModalConfig from '../../../../utils/modalConfig';
 import {
   Content011,
@@ -43,12 +44,13 @@ import { setModalData } from '../../../../store/modal/modalSlice';
 
 const Page = () => {
   const dispatch = useAppDispatch();
+  const { t, i18n } = useTranslation();
 
   const showModalNewSolution = () => {
     dispatch(
       setModalData({
         visible: true,
-        title: 'Romulo',
+        title: t('modal-new-entity-title'),
         nodes: <ModalNewSolution />,
       }),
     );
