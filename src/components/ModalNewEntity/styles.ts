@@ -83,7 +83,7 @@ export const Divider = styled.div`
 `;
 export const Frame26 = styled.div`
   height: 158px;
-  width: 368px;
+  width: 336px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

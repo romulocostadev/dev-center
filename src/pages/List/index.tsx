@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Content01 from './components/Content01';
-import Content02 from './components/Content02';
+import Content01 from './components/Solutions';
+import Content02 from './components/Template';
 
 import { List, PageHeader, Home, TabGroupPane, TabGroup } from './styles';
 

@@ -57,10 +57,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0px
   }
 
-  .ant-btn{
-    padding: 0px !important;
-  }
-
+  
   .ant-menu-sub.ant-menu-inline, .ant-menu-submenu-arrow, .ant-menu .ant-menu-item, .ant-menu{
     background: #000 !important;
     color: #fff !important;
@@ -68,6 +65,17 @@ const GlobalStyle = createGlobalStyle`
 
   .ant-tabs-nav{
     margin-bottom: 0px !important;
+  }
+  .ant-modal-content{
+    border-radius: 8px !important;
+  }
+
+  .ant-modal-confirm-content{
+    margin-top: 0px !important;
+  }
+
+  .ant-modal-confirm-btns{
+    margin-top: 6px !important;
   }
 
 `;

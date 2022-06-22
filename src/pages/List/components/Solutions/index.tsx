@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from 'antd';
+import { Form, Modal } from 'antd';
 import getModalConfig from '../../../../utils/modalConfig';
 import {
   Content011,
@@ -37,16 +37,18 @@ import {
   ButtonsButton7,
 } from './styles';
 
-import {
-  ModalContent,
-  ModalHeader,
-} from '../../../../components/ModalNewEntity';
+import ModalNewSolution from '../../../../components/ModalNewSolution';
 
 const Page = () => {
+  const [form] = Form.useForm();
   const [modal, contextHolder] = Modal.useModal();
   const showModalNewSolution = () => {
-    const handleOk = () => {
-      console.log('foo handle ok');
+    const handleSubmit = (params: any) => {
+      console.log('foo handle ok', form.getFieldsValue(), params);
+      params = () => {
+        console.log('oi');
+      };
+      return params;
     };
 
     const handleCancel = () => {
@@ -54,11 +56,10 @@ const Page = () => {
     };
     modal.confirm(
       getModalConfig({
-        title: 'teste',
-        handleOk,
-        handleCancel,
-        modalContent: <ModalContent />,
-        modalHeader: <ModalHeader />,
+        title: 'New Solution',
+        onOk: handleSubmit,
+        onCancel: handleCancel,
+        content: <ModalNewSolution onFinish={handleSubmit} form={form} />,
       }),
     );
   };

@@ -1,19 +1,23 @@
+import { ModalFuncProps } from 'antd';
+
 const getConfig = ({
   title,
-  handleOk,
-  handleCancel,
-  modalContent,
-  modalHeader,
-}: any) => {
+  onOk,
+  onCancel,
+  cancelText,
+  content,
+}: ModalFuncProps): ModalFuncProps => {
   return {
     title,
-    header: modalHeader,
     closable: true,
-    content: modalContent,
-    width: '500px',
-    onOk: handleOk,
-    onCancel: handleCancel,
-    cancelText: 'text',
+    content,
+    width: '368px',
+    onOk,
+    onCancel,
+    cancelText,
+    icon: null,
+    bodyStyle: { padding: '24px' },
+    maskStyle: { borderRadius: '15px' },
   };
 };
 
