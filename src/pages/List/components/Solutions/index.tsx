@@ -48,8 +48,8 @@ const Page = () => {
     dispatch(
       setModalData({
         visible: true,
-        title: 'Romulo',
-        nodes: <ModalNewSolution />,
+        title: 'New Solution',
+        content: <ModalNewSolution />,
       }),
     );
   };

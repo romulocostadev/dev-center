@@ -1,54 +1,53 @@
 import { Form } from 'antd';
-import React from 'react';
+import React, { useState } from 'react';
 import { setModalData } from '../../store/modal/modalSlice';
 import { useAppDispatch } from '../../store/reduxHooks';
+import { GenericButtonWithLoadingStyle } from '../ButtonWithLoading/styles';
 import GenericFormItem from '../FormItem';
 
 import {
   FormNewSolution,
-  Frame26,
-  Frame32,
+  Frame26 as InputsWrapper,
+  Frame32 as Frame,
   InputBasic5,
-  Divider1,
-  Frame30,
-  ButtonsButton21,
+  Frame30 as FormFooter,
 } from './styles';
 
 const ModalNewSolution = () => {
+  const [confirmLoading, setConfirmLoading] = useState(false);
   const dispatch = useAppDispatch();
   const handleSubmit = (values: any) => {
     console.log('foo handle ok', values);
-    dispatch(
-      setModalData({
-        visible: false,
-      }),
-    );
+    setConfirmLoading(true);
+    setTimeout(() => {
+      dispatch(
+        setModalData({
+          visible: false,
+        }),
+      );
+      setConfirmLoading(false);
+    }, 4000);
   };
 
-  const handleCancel = (values: any) => {
-    dispatch(
-      setModalData({
-        visible: false,
-      }),
-    );
-  };
   return (
-    <Frame26>
-      <Frame32>
-        <FormNewSolution onFinish={handleSubmit}>
-          <GenericFormItem name="teste">
+    <FormNewSolution onFinish={handleSubmit}>
+      <InputsWrapper>
+        <Frame>
+          <GenericFormItem name="teste" rule>
             <InputBasic5 placeholder="Give me a nice name" />
           </GenericFormItem>
-          <Divider1 />
-          <Frame30>
-            <ButtonsButton21 onClick={handleCancel}>Cancel</ButtonsButton21>
-            <ButtonsButton21 type="primary" htmlType="submit">
-              Create
-            </ButtonsButton21>
-          </Frame30>
-        </FormNewSolution>
-      </Frame32>
-    </Frame26>
+        </Frame>
+      </InputsWrapper>
+      <FormFooter className="ant-modal-footer">
+        <GenericButtonWithLoadingStyle
+          type="primary"
+          htmlType="submit"
+          loading={confirmLoading}
+        >
+          Create
+        </GenericButtonWithLoadingStyle>
+      </FormFooter>
+    </FormNewSolution>
   );
 };
 

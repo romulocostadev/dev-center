@@ -66,8 +66,12 @@ const GlobalStyle = createGlobalStyle`
   .ant-tabs-nav{
     margin-bottom: 0px !important;
   }
-  .ant-modal-content{
+  .ant-modal-body, .ant-modal-content{
     border-radius: 8px !important;
+  }
+
+  .ant-modal-header{
+    border-radius: 8px 8px 0px 0px !important;
   }
 
   .ant-modal-confirm-content{
@@ -76,6 +80,14 @@ const GlobalStyle = createGlobalStyle`
 
   .ant-modal-confirm-btns{
     margin-top: 6px !important;
+  }
+
+  .ant-modal-body{
+    padding: 0px !important;
+  }
+  .ant-modal-footer{
+    width: auto !important;
+    margin-top: 0px !important;
   }
 
 `;
