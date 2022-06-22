@@ -5,8 +5,8 @@ import { useAppDispatch, useAppSelector } from '../../store/reduxHooks';
 import { setModalData } from '../../store/modal/modalSlice';
 // import { Container } from './styles';
 
-const Modal = () => {
-  const { visible, title } = useAppSelector(state => state.modal);
+const Modal = ({ children }: any) => {
+  const { visible, title, nodes } = useAppSelector(state => state.modal);
   const dispatch = useAppDispatch();
 
   const handleOk = () => {
@@ -27,10 +27,10 @@ const Modal = () => {
           visible={visible}
           onOk={handleOk}
           onCancel={handleCancel}
+          footer={null}
+          width="410px"
         >
-          <p>Some contents...</p>
-          <p>Some contents...</p>
-          <p>Some contents...</p>
+          {nodes}
         </ModalAnt>
       )}
     </>

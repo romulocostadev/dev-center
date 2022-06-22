@@ -38,35 +38,24 @@ import {
 } from './styles';
 
 import ModalNewSolution from '../../../../components/ModalNewSolution';
+import { useAppDispatch } from '../../../../store/reduxHooks';
+import { setModalData } from '../../../../store/modal/modalSlice';
 
 const Page = () => {
-  const [form] = Form.useForm();
-  const [modal, contextHolder] = Modal.useModal();
-  const showModalNewSolution = () => {
-    const handleSubmit = (params: any) => {
-      console.log('foo handle ok', form.getFieldsValue(), params);
-      params = () => {
-        console.log('oi');
-      };
-      return params;
-    };
+  const dispatch = useAppDispatch();
 
-    const handleCancel = () => {
-      console.log('foo handleCancel');
-    };
-    modal.confirm(
-      getModalConfig({
-        title: 'New Solution',
-        onOk: handleSubmit,
-        onCancel: handleCancel,
-        content: <ModalNewSolution onFinish={handleSubmit} form={form} />,
+  const showModalNewSolution = () => {
+    dispatch(
+      setModalData({
+        visible: true,
+        title: 'Romulo',
+        nodes: <ModalNewSolution />,
       }),
     );
   };
 
   return (
     <>
-      {contextHolder}
       <Content011>
         <LessonsCard1>
           <Lessons2>
