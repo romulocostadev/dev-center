@@ -6,6 +6,7 @@ import GlobalStyle from './styles/global';
 
 import LayoutRoutes from './routes';
 import { store } from './store/store';
+import Modal from './components/Modal/Index';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Provider store={store}>
         <GlobalStyle />
         <LayoutRoutes />
+        <Modal />
       </Provider>
     </BrowserRouter>
   );
