@@ -1,5 +1,6 @@
 import { Form } from 'antd';
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { setModalData } from '../../store/modal/modalSlice';
 import { useAppDispatch } from '../../store/reduxHooks';
 import { GenericButtonWithLoadingStyle } from '../ButtonWithLoading/styles';
@@ -14,6 +15,8 @@ import {
 } from './styles';
 
 const ModalNewSolution = () => {
+  const { t } = useTranslation();
+
   const [confirmLoading, setConfirmLoading] = useState(false);
   const dispatch = useAppDispatch();
   const handleSubmit = (values: any) => {
@@ -35,7 +38,7 @@ const ModalNewSolution = () => {
         <Frame>
           <GenericFormItem
             name="teste"
-            rules={[{ required: true, message: 'regionalizar' }]}
+            rules={[{ required: true, message: t('required-field') }]}
           >
             <InputBasic placeholder="Give me a nice name" />
           </GenericFormItem>
@@ -47,7 +50,7 @@ const ModalNewSolution = () => {
           htmlType="submit"
           loading={confirmLoading}
         >
-          Create
+          {t('button-create-title')}
         </GenericButtonWithLoadingStyle>
       </FormFooter>
     </FormNewSolution>

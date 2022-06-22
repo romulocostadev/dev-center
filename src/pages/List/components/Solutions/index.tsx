@@ -35,10 +35,13 @@ import {
 import ModalNewSolution from '../../../../components/ModalNewSolution';
 import { useAppDispatch } from '../../../../store/reduxHooks';
 import { setModalData } from '../../../../store/modal/modalSlice';
+import { useGetSolutionQuery } from '../../../../services/solution';
 
 const Page = () => {
   const dispatch = useAppDispatch();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
+
+  const { data: solutions } = useGetSolutionQuery();
 
   const showModalNewSolution = () => {
     dispatch(
@@ -85,20 +88,17 @@ const Page = () => {
           <Lastmodified>last modified</Lastmodified>
         </Sorter>
         <MySolutions>
-          <SolutionCard>
-            <ProjectLogo />
-            <CardTextContainer>
-              <CardTitle>Veiling</CardTitle>
-              <CardData>Apr 18, 2022, 13:56</CardData>
-            </CardTextContainer>
-          </SolutionCard>
-          <SolutionCard>
-            <ProjectLogo />
-            <CardTextContainer>
-              <CardTitle>Iris</CardTitle>
-              <CardData>Apr 17, 2022, 13:56</CardData>
-            </CardTextContainer>
-          </SolutionCard>
+          {solutions?.map(solution => {
+            return (
+              <SolutionCard>
+                <ProjectLogo />
+                <CardTextContainer>
+                  <CardTitle>{solution.Name}</CardTitle>
+                  <CardData>{solution.CreatedUtc}</CardData>
+                </CardTextContainer>
+              </SolutionCard>
+            );
+          })}
         </MySolutions>
       </SolutionsList>
       <BreadcrumbLink />

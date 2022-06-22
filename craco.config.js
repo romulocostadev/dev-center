@@ -34,7 +34,11 @@ module.exports = {
       return jestConfig;
     },
   },
-
+  devServer: {
+    proxy: {
+      '/solution/api/solution': 'https://loadbalancer.bea.internal',
+    },
+  },
   plugins: [
     {
       plugin: CracoLessPlugin,

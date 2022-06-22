@@ -90,6 +90,11 @@ const GlobalStyle = createGlobalStyle`
     margin-top: 0px !important;
   }
 
+  .ant-form-item-explain{
+    margin-top: 2px !important;
+    margin-left: 2px !important;
+  }
+
 `;
 
 export default GlobalStyle;

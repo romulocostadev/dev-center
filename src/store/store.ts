@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { api } from '../services/solution';
 import authSlice from './auth/authSlice';
 import modalSlice from './modal/modalSlice';
 import counterSlice from './solution/solutionSlice';
@@ -9,6 +10,7 @@ export const store = configureStore({
     solution: counterSlice,
     auth: authSlice,
     modal: modalSlice,
+    [api.reducerPath]: api.reducer,
     // comments: commentsReducer,
     // users: usersReducer,
   },
