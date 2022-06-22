@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import GenericCodeButton from '../../../../components/Button';
 import GenericText from '../../../../components/Text';
 
-export const Content011 = styled.div`
+export const SolutionWrapper = styled.div`
   height: 100%;
   width: 1920px;
   display: flex;
@@ -15,7 +15,7 @@ export const Content011 = styled.div`
   padding: 24px 360px 24px 360px;
   background-color: rgba(115, 70, 248, 0.019999999552965164);
 `;
-export const LessonsCard1 = styled.div`
+export const LessonsCard = styled.div`
   height: 134px;
   width: 1202px;
   display: flex;
@@ -29,7 +29,7 @@ export const LessonsCard1 = styled.div`
   padding: 16px;
   background-color: #ffffff;
 `;
-export const Lessons2 = styled.div`
+export const LessonsWrapper = styled.div`
   height: 24px;
   width: 1168px;
   display: flex;
@@ -38,7 +38,7 @@ export const Lessons2 = styled.div`
   justify-content: flex-start;
   align-items: center;
 `;
-export const Lessons1 = styled(GenericText)`
+export const Lessons = styled(GenericText)`
   color: #7447f9;
   margin: 0px;
   width: 61px;
@@ -53,14 +53,14 @@ export const Bar = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-export const Logo3 = styled.div`
+export const Logo = styled.div`
   height: 16px;
   width: 1000px;
   box-sizing: border-box;
   border-radius: 12px;
   background-color: #f6f6f6;
 `;
-export const Frame9 = styled.div`
+export const BarContainer = styled.div`
   height: 16px;
   width: 478px;
   left: 0px;
@@ -70,7 +70,7 @@ export const Frame9 = styled.div`
   border-radius: 12px;
   background-color: #7447f9;
 `;
-export const ButtonsButton5 = styled(GenericCodeButton)`
+export const ButtonStartLesson = styled(GenericCodeButton)`
   width: 76px;
   height: 22px;
   border-radius: 2px;
@@ -92,7 +92,7 @@ export const Creatingdata = styled(GenericText)`
   width: 86px;
 `;
 
-export const Howtocreateadataworkflow = styled(GenericText)`
+export const HowtoCreateaDataWorkFlow = styled(GenericText)`
   font-weight: 400;
   font-size: 12px;
   color: rgba(0, 0, 0, 0.45);
@@ -100,14 +100,14 @@ export const Howtocreateadataworkflow = styled(GenericText)`
   width: 1060px;
 `;
 
-export const ButtonsButton6 = styled(GenericCodeButton)`
+export const ButtonViewAllLessons = styled(GenericCodeButton)`
   width: 100px;
   height: 22px;
   border-radius: 2px;
   height: 22px;
 `;
 
-export const Solutions1 = styled.div`
+export const SolutionsListWrapper = styled.div`
   height: 348px;
   width: 1200px;
   display: flex;
@@ -117,7 +117,7 @@ export const Solutions1 = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-export const Title4 = styled.div`
+export const TitleContainer = styled.div`
   justify-content: space-between;
   height: 38px;
   width: 1200px;
@@ -180,7 +180,7 @@ export const MySolutions = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-export const Solution02 = styled.div`
+export const SolutionCard = styled.div`
   height: 242px;
   width: 226px;
   display: flex;
@@ -194,7 +194,7 @@ export const Solution02 = styled.div`
   padding: 12px;
   background-color: #ffffff;
 `;
-export const Logo4 = styled.div`
+export const ProjectLogo = styled.div`
   height: 100px;
   width: 200px;
   box-sizing: border-box;
@@ -203,7 +203,7 @@ export const Logo4 = styled.div`
   border-radius: 8px;
   background-color: #f6f6f6;
 `;
-export const Logo5 = styled.div`
+export const CardTextContainer = styled.div`
   height: 100px;
   width: 200px;
   display: flex;
@@ -212,13 +212,13 @@ export const Logo5 = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-export const Veiling = styled(GenericText)`
+export const CardTitle = styled(GenericText)`
   font-size: 14px;
   margin: 0px;
   width: 201px;
 `;
 
-export const Apr1820221356 = styled(GenericText)`
+export const CardData = styled(GenericText)`
   font-weight: 400;
   font-size: 12px;
   color: rgba(0, 0, 0, 0.45);

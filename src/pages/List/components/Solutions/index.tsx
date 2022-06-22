@@ -1,38 +1,32 @@
 import React from 'react';
-import { Form, Modal } from 'antd';
+
 import { useTranslation } from 'react-i18next';
-import getModalConfig from '../../../../utils/modalConfig';
 import {
-  Content011 as SolutionWrapper,
-  LessonsCard1 as LessonsCard,
-  Lessons2 as LessonsWrapper,
-  Lessons1 as Lessons,
+  SolutionWrapper,
+  LessonsCard,
+  LessonsWrapper,
+  Lessons,
   Bar,
-  Logo3 as Logo,
-  Frame9 as BarContainer,
-  ButtonsButton5 as ButtonStartLesson,
+  Logo,
+  BarContainer,
+  ButtonStartLesson,
   Stage,
   Creatingdata,
-  Howtocreateadataworkflow as HowtoCreateaDataWorkFlow,
-  ButtonsButton6 as ButtonViewAllLessons,
-  Solutions1 as SolutionsList,
-  Title4 as TitleContainer,
+  HowtoCreateaDataWorkFlow,
+  ButtonViewAllLessons,
+  SolutionsListWrapper,
+  TitleContainer,
   Solutions,
   NewSolutionButton,
   Sorter,
   Sortby,
   Name,
   Lastmodified,
-  MySolutions,
-  Solution02 as SolutionCard,
-  Logo4 as ProjectLogo,
-  Logo5 as CardTextContainer,
-  Veiling as CardTitle,
-  Apr1820221356 as CardData,
   BreadcrumbLink,
 } from './styles';
 
 import ModalNewSolution from '../../../../components/ModalNewSolution';
+import SolutionList from '../../../../components/SolutionList';
 import { useAppDispatch } from '../../../../store/reduxHooks';
 import { setModalData } from '../../../../store/modal/modalSlice';
 import { useGetSolutionQuery } from '../../../../services/solution';
@@ -52,7 +46,6 @@ const Page = () => {
       }),
     );
   };
-
   return (
     <SolutionWrapper>
       <LessonsCard>
@@ -75,7 +68,7 @@ const Page = () => {
           View all lessons
         </ButtonViewAllLessons>
       </LessonsCard>
-      <SolutionsList>
+      <SolutionsListWrapper>
         <TitleContainer>
           <Solutions>Solutions</Solutions>
           <NewSolutionButton type="primary" onClick={showModalNewSolution}>
@@ -87,20 +80,8 @@ const Page = () => {
           <Name>name</Name>
           <Lastmodified>last modified</Lastmodified>
         </Sorter>
-        <MySolutions>
-          {solutions?.map(solution => {
-            return (
-              <SolutionCard>
-                <ProjectLogo />
-                <CardTextContainer>
-                  <CardTitle>{solution.Name}</CardTitle>
-                  <CardData>{solution.CreatedUtc}</CardData>
-                </CardTextContainer>
-              </SolutionCard>
-            );
-          })}
-        </MySolutions>
-      </SolutionsList>
+        <SolutionList />
+      </SolutionsListWrapper>
       <BreadcrumbLink />
     </SolutionWrapper>
   );
