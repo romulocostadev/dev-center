@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
-import { Button, Form } from 'antd';
+import { Form } from 'antd';
 import GenericInput from '../Input';
-import GenericCodeButton from '../Button';
-import { GenericButtonWithLoadingStyle } from '../ButtonWithLoading/styles';
 
-export const Frame26 = styled.div`
+export const InputsWrapper = styled.div`
   width: 306px;
   display: flex;
   flex-direction: column;
@@ -16,7 +14,7 @@ export const Frame26 = styled.div`
   background-color: #ffffff;
   padding: 24px 24px;
 `;
-export const Frame32 = styled.div`
+export const Frame = styled.div`
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -26,12 +24,12 @@ export const Frame32 = styled.div`
   align-items: flex-start;
 `;
 
-export const InputBasic5 = styled(GenericInput)`
+export const InputBasic = styled(GenericInput)`
   width: 320px;
 `;
 export const FormNewSolution = styled(Form)``;
 
-export const Frame30 = styled.div`
+export const FormFooter = styled.div`
   height: 73px;
   width: 345px;
   display: flex;

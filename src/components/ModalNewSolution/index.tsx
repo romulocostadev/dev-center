@@ -7,10 +7,10 @@ import GenericFormItem from '../FormItem';
 
 import {
   FormNewSolution,
-  Frame26 as InputsWrapper,
-  Frame32 as Frame,
-  InputBasic5,
-  Frame30 as FormFooter,
+  InputsWrapper,
+  Frame,
+  InputBasic,
+  FormFooter,
 } from './styles';
 
 const ModalNewSolution = () => {
@@ -33,8 +33,11 @@ const ModalNewSolution = () => {
     <FormNewSolution onFinish={handleSubmit}>
       <InputsWrapper>
         <Frame>
-          <GenericFormItem name="teste" rule>
-            <InputBasic5 placeholder="Give me a nice name" />
+          <GenericFormItem
+            name="teste"
+            rules={[{ required: true, message: 'regionalizar' }]}
+          >
+            <InputBasic placeholder="Give me a nice name" />
           </GenericFormItem>
         </Frame>
       </InputsWrapper>
