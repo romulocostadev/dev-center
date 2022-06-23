@@ -13,6 +13,10 @@ export interface SolutionsResponse {
   ModifiedUtc: Date;
   Id: string;
 }
+export interface SolutionsPost {
+  Name: string;
+  TemplateId: string;
+}
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
@@ -25,11 +29,19 @@ export const api = createApi({
       return headers;
     },
   }),
+
   endpoints: builder => ({
     getSolution: builder.query<SolutionsResponse[], void>({
       query: () => '/solution/api/solution',
     }),
+    addSolution: builder.mutation<SolutionsResponse, Partial<SolutionsPost>>({
+      query: body => ({
+        url: '/solution/api/solution',
+        method: 'POST',
+        body,
+      }),
+    }),
   }),
 });
 
-export const { useGetSolutionQuery } = api;
+export const { useGetSolutionQuery, useAddSolutionMutation } = api;
