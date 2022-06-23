@@ -3,7 +3,7 @@ import React from 'react';
 import { Outlet } from 'react-router-dom';
 import LayoutHeader1 from '../components/LayoutHeader1';
 
-import { Solution, Content, Body, Header } from './styles';
+import { Solution, Content, Body, Header, BackgroundLayout } from './styles';
 
 const SolutionPage = () => {
   return (
@@ -13,6 +13,7 @@ const SolutionPage = () => {
           <LayoutHeader1 />
         </Header>
         <Content>
+          <BackgroundLayout />
           <Outlet />
         </Content>
       </Body>

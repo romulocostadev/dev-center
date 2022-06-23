@@ -17,7 +17,7 @@ export interface LoginRequest {
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://loadbalancer.bea.internal/',
+    baseUrl: 'https://stage10.beatrix.io/',
     // prepareHeaders: (headers, { getState }) => {
     //   // By default, if we have a token in the store, let's use that for authenticated requests
     //   // const { token } = (getState() as RootState)?.auth;

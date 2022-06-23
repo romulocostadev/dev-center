@@ -4,16 +4,16 @@ import Vector14840549090883Image from './assets/1531_133338.png';
 
 export const LayoutHeader = styled.div`
   height: 48px;
-  width: 1920px;
+  /* max-width: 1920px; */
   display: flex;
   box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
+  justify-content: start;
+  align-items: flex-start;
   background-color: #ffffff;
 `;
 export const Header = styled.div`
   height: 48px;
-  width: 1920px;
+  /* max-width: 1920px; */
   display: flex;
   box-sizing: border-box;
   justify-content: flex-start;

@@ -16,7 +16,7 @@ export interface SolutionsResponse {
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://b7f2-45-65-222-229.sa.ngrok.io/',
+    baseUrl: 'https://stage10.beatrix.io/',
     prepareHeaders: (headers, { getState }) => {
       const { token } = (getState() as RootState)?.auth;
       if (token) {

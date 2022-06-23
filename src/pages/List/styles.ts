@@ -5,13 +5,13 @@ import GenericText from '../../components/Text';
 
 export const List = styled.div`
   height: 100%;
-  width: 1920px;
+  /* width: 1920px; */
   box-sizing: border-box;
   background-color: #ffffff;
 `;
 export const PageHeader = styled.div`
   height: 86px;
-  width: 1920px;
+  /* width: 1920px; */
   left: 0px;
   top: 0px;
   position: inherit;
@@ -20,7 +20,7 @@ export const PageHeader = styled.div`
   gap: 24px;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 24px 360px 24px 360px;
+  padding: 24px 0px 24px 0px;
   background-color: #ffffff;
 `;
 export const Home = styled(GenericText)`
@@ -31,10 +31,10 @@ export const Home = styled(GenericText)`
 
 export const TabGroup = styled(Tabs).attrs({
   tabBarStyle: {
-    padding: '0px 360.0px 0px 360.0px',
+    padding: '0px 0px 0px 0px',
   },
 })`
-  width: 1920px;
+  /* width: 1920px; */
 `;
 
 export const TabGroupPane = styled(Tabs.TabPane)``;

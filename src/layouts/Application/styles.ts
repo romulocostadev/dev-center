@@ -10,11 +10,12 @@ export const Application = styled.div`
 export const Sider = styled.div``;
 
 export const Body = styled.div`
-  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
   display: flex;
-  flex: 1;
-  height: 100vh;
-  width: 100vw;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Header = styled.div``;
