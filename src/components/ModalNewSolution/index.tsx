@@ -42,7 +42,7 @@ const ModalNewSolution = () => {
       .catch(error => {
         notification.error({
           message: t('error-title'),
-          description: error.data.title,
+          description: error.data.title || t('error-default-message'),
         });
       });
   };
@@ -55,7 +55,7 @@ const ModalNewSolution = () => {
             name="name"
             rules={[{ required: true, message: t('required-field') }]}
           >
-            <InputBasic placeholder="Give me a nice name" />
+            <InputBasic placeholder={t('solution-name-input-title')} />
           </GenericFormItem>
         </Frame>
       </InputsWrapper>

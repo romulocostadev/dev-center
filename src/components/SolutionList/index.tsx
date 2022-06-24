@@ -30,7 +30,7 @@ const Page = () => {
     dispatch(
       setModalData({
         visible: true,
-        title: t('modal-new-entity-title'),
+        title: t('modal-new-solution'),
         content: <ModalNewSolution />,
       }),
     );

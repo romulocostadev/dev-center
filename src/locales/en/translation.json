@@ -1,6 +1,7 @@
 {
   "name": "Nome",
   "modal-new-entity-title": "New Entity",
+  "modal-new-solution": "New Solution",
   "required-field": "Required field",
   "button-create-title": "Create",
   "date-time-format": "MMM dd, yyyy, HH:mm",
@@ -11,6 +12,8 @@
   "sort-by-last-modified": "last modified",
   "sort-by-creation": "creation",
   "error-title": "Validation Errors",
-  "sucess-title": "Sucess!",
-  "sucess-message": "Operation performed successfully!"
+  "error-default-message": "There was an error sending the request!",
+  "sucess-title": "Success!",
+  "sucess-message": "Operation performed successfully!",
+  "solution-name-input-title": "Give me "
 }
