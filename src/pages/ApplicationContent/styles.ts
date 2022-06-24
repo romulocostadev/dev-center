@@ -7,8 +7,6 @@ import Undrawdatainputfxv21Image from './assets/1531_154770.png';
 import GenericText from '../../components/Text';
 
 export const ApplicationContent = styled.div`
-  height: 100%;
-  width: 1852px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;

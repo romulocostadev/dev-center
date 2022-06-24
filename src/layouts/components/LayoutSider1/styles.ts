@@ -17,6 +17,7 @@ export const LayoutSider = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   background-color: #9a71ff;
+  border-right: 1px solid rgba(0, 0, 0, 0.1) !important;
 `;
 export const MenuGroup = styled.div`
   height: 100%;
@@ -27,6 +28,7 @@ export const MenuGroup = styled.div`
   justify-content: space-between;
   align-items: flex-start;
   background-color: #ffffff;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
 `;
 export const FirstSection = styled.div`
   height: 256px;

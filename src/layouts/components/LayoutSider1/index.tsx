@@ -1,77 +1,53 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
+import { menuConfigList, menuList } from '../../../utils/constants';
 
-import {
-  LayoutSider,
-  MenuGroup,
-  FirstSection,
-  MenuItem,
-  ProjectOutlinedIcon,
-  Label,
-  MenuItem1,
-  IconOutlinedPartition,
-  Vector,
-  Label1,
-  MenuItem2,
-  IconOutlinedDatabase,
-  Vector1,
-  Label2,
-  MenuItem3,
-  IconOutlinedApi,
-  Vector2,
-  Label3,
-  SecondSection,
-  MenuItem4,
-  Icon,
-  Vector3,
-  Label4,
-  MenuItem5,
-  Icon1,
-  Label5,
-  Divider,
-} from './styles';
+import MenuItem from '../MenuItem';
+
+import { LayoutSider, MenuGroup, FirstSection, SecondSection } from './styles';
 
 const LayoutSiderPage = () => {
+  let activeMenu = '';
+
+  const path = useLocation();
+
+  if (path.pathname.includes('design')) {
+    activeMenu = 'design';
+  }
+  if (path.pathname.includes('workflow')) {
+    activeMenu = 'workflow';
+  }
+  if (path.pathname.includes('data')) {
+    activeMenu = 'data';
+  }
+  if (path.pathname.includes('plugins')) {
+    activeMenu = 'plugins';
+  }
+  if (path.pathname.includes('settings')) {
+    activeMenu = 'plugins';
+  }
+  if (path.pathname.includes('plugins')) {
+    activeMenu = 'plugins';
+  }
+
   return (
     <LayoutSider>
       <MenuGroup>
         <FirstSection>
-          <MenuItem>
-            <ProjectOutlinedIcon />
-            <Label>Design</Label>
-          </MenuItem>
-          <MenuItem1>
-            <IconOutlinedPartition>
-              <Vector />
-            </IconOutlinedPartition>
-            <Label1>Workflow</Label1>
-          </MenuItem1>
-          <MenuItem2>
-            <IconOutlinedDatabase>
-              <Vector1 />
-            </IconOutlinedDatabase>
-            <Label2>Data</Label2>
-          </MenuItem2>
-          <MenuItem3>
-            <IconOutlinedApi>
-              <Vector2 />
-            </IconOutlinedApi>
-            <Label3>Plugins</Label3>
-          </MenuItem3>
+          {menuList.map(menuListItem => {
+            return (
+              <MenuItem label={menuListItem.label} pathActive={activeMenu} />
+            );
+          })}
         </FirstSection>
         <SecondSection>
-          <MenuItem4>
-            <Icon>
-              <Vector3 />
-            </Icon>
-            <Label4>Settings</Label4>
-          </MenuItem4>
-          <MenuItem5>
-            <Icon1 />
-            <Label5>Help</Label5>
-          </MenuItem5>
+          {menuConfigList.map(menuListItem => {
+            return (
+              <MenuItem label={menuListItem.label} pathActive={activeMenu} />
+            );
+          })}
         </SecondSection>
       </MenuGroup>
-      <Divider />
     </LayoutSider>
   );
 };

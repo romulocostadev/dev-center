@@ -43,12 +43,12 @@ const LayoutHeaderPage = () => {
           <Icon2>
             <PostGreSQL>
               <Group2069859144864>
-                <Group>
+                {/* <Group>
                   <Vector4 />
                 </Group>
                 <Vector5 />
                 <Vector6 />
-                <Vector7 />
+                <Vector7 /> */}
               </Group2069859144864>
             </PostGreSQL>
           </Icon2>
@@ -61,7 +61,6 @@ const LayoutHeaderPage = () => {
         </File>
         <Publish type="primary">Publish</Publish>
       </Header1>
-      <Divider1 />
     </LayoutHeader1>
   );
 };

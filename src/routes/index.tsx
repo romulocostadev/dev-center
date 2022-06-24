@@ -17,6 +17,9 @@ const IndexRoutes = () => (
     </Route>
     <Route path="/solution" element={<Application />}>
       <Route path=":id/home" element={<Home />} />
+      <Route path=":id/design" element={<Home />} />
+      <Route path=":id/workflow" element={<Home />} />
+      <Route path=":id/plugins" element={<Home />} />
       <Route path=":id/data" element={<CanvasLayout />}>
         <Route index element={<DataCanvas />} />
       </Route>

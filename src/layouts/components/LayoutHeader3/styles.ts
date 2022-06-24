@@ -10,8 +10,6 @@ import GenericCodeButton from '../../../components/Button';
 import GenericText from '../../../components/Text';
 
 export const LayoutHeader1 = styled.div`
-  height: 48px;
-  width: 1920px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -22,12 +20,13 @@ export const LayoutHeader1 = styled.div`
 export const Header1 = styled.div`
   justify-content: space-between;
   height: 48px;
-  width: 1920px;
+  width: 100%;
   display: flex;
   box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
   padding: 0px 16px 0px 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `;
 export const Beatrix1 = styled.div`
   height: 48px;
@@ -202,7 +201,7 @@ export const Publish = styled(GenericCodeButton)`
 
 export const Divider1 = styled.div`
   height: 2px;
-  width: 1922px;
+  width: 100%;
   outline: 1px solid rgba(0, 0, 0, 0.1);
   outline-offset: -0.5px;
 `;

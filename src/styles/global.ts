@@ -57,7 +57,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0px
   }
 
-  
+
   .ant-menu-sub.ant-menu-inline, .ant-menu-submenu-arrow, .ant-menu .ant-menu-item, .ant-menu{
     background: #000 !important;
     color: #fff !important;
@@ -93,6 +93,10 @@ const GlobalStyle = createGlobalStyle`
   .ant-form-item-explain{
     margin-top: 2px !important;
     margin-left: 2px !important;
+  }
+
+  iframe {
+    display: none;
   }
 
 `;

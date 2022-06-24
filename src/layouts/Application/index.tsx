@@ -9,16 +9,18 @@ import { Application, Content, Body, Sider, Header } from './styles';
 const ApplicationPage = () => {
   return (
     <Application>
-      <Sider>
-        <LayoutSider1 />
-      </Sider>
+      <Header>
+        <LayoutHeader3 />
+      </Header>
       <Body>
-        <Header>
-          <LayoutHeader3 />
-        </Header>
+        {/* <div> */}
+        <Sider>
+          <LayoutSider1 />
+        </Sider>
         <Content>
           <Outlet />
         </Content>
+        {/* </div> */}
       </Body>
     </Application>
   );
