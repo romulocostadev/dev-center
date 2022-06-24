@@ -3,5 +3,5 @@
   "modal-new-entity-title": "New Entity",
   "required-field": "Required field",
   "button-create-title": "Create",
-  "date-time-format": "dd/MM/yyyy HH:mm"
+  "date-time-format": "MMM dd, yyyy, HH:mm"
 }

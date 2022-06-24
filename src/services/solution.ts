@@ -13,10 +13,14 @@ export interface SolutionsResponse {
   ModifiedUtc: Date;
   Id: string;
 }
+export interface SolutionsPost {
+  Name: string;
+  TemplateId: string;
+}
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://b7f2-45-65-222-229.sa.ngrok.io/',
+    baseUrl: 'https://stage10.beatrix.io/',
     prepareHeaders: (headers, { getState }) => {
       const { token } = (getState() as RootState)?.auth;
       if (token) {
@@ -25,11 +29,19 @@ export const api = createApi({
       return headers;
     },
   }),
+
   endpoints: builder => ({
-    getSolution: builder.query<SolutionsResponse[], void>({
+    getSolutions: builder.query<SolutionsResponse[], void>({
       query: () => '/solution/api/solution',
+    }),
+    addSolution: builder.mutation<SolutionsResponse, Partial<SolutionsPost>>({
+      query: body => ({
+        url: '/solution/api/solution',
+        method: 'POST',
+        body,
+      }),
     }),
   }),
 });
 
-export const { useGetSolutionQuery } = api;
+export const { useGetSolutionsQuery, useAddSolutionMutation } = api;

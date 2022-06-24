@@ -94,6 +94,9 @@ const GlobalStyle = createGlobalStyle`
     margin-top: 2px !important;
     margin-left: 2px !important;
   }
+  iframe{
+    display:none;
+  }
 
   iframe {
     display: none;

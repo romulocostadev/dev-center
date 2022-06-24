@@ -5,19 +5,19 @@ import GenericText from '../../../../components/Text';
 
 export const SolutionWrapper = styled.div`
   height: 100%;
-  width: 1920px;
+  /* width: 1920px; */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   gap: 48px;
   justify-content: flex-start;
   align-items: center;
-  padding: 24px 360px 24px 360px;
+  padding: 24px 0px 24px 0px;
   background-color: rgba(115, 70, 248, 0.019999999552965164);
 `;
 export const LessonsCard = styled.div`
   height: 134px;
-  width: 1202px;
+  /* width: 1202px; */
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -31,7 +31,7 @@ export const LessonsCard = styled.div`
 `;
 export const LessonsWrapper = styled.div`
   height: 24px;
-  width: 1168px;
+  /* width: 1168px; */
   display: flex;
   box-sizing: border-box;
   gap: 16px;
@@ -46,7 +46,7 @@ export const Lessons = styled(GenericText)`
 
 export const Bar = styled.div`
   height: 16px;
-  width: 1000px;
+  /* width: 1000px; */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -79,7 +79,7 @@ export const ButtonStartLesson = styled(GenericCodeButton)`
 
 export const Stage = styled.div`
   height: 22px;
-  width: 1168px;
+  /* width: 1168px; */
   display: flex;
   box-sizing: border-box;
   gap: 24px;
@@ -109,7 +109,7 @@ export const ButtonViewAllLessons = styled(GenericCodeButton)`
 
 export const SolutionsListWrapper = styled.div`
   height: 348px;
-  width: 1200px;
+  /* width: 1200px; */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -117,60 +117,6 @@ export const SolutionsListWrapper = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 `;
-export const TitleContainer = styled.div`
-  justify-content: space-between;
-  height: 38px;
-  width: 1200px;
-  display: flex;
-  box-sizing: border-box;
-  justify-content: space-between;
-  align-items: center;
-`;
-export const Solutions = styled(GenericText)`
-  font-size: 30px;
-  margin: 0px;
-  width: 128px;
-`;
-
-export const NewSolutionButton = styled(GenericCodeButton)`
-  width: 114px;
-  height: 32px;
-  border-radius: 2px;
-  height: 32px;
-`;
-
-export const Sorter = styled.div`
-  height: 22px;
-  width: 1200px;
-  display: flex;
-  box-sizing: border-box;
-  gap: 16px;
-  justify-content: flex-start;
-  align-items: flex-start;
-`;
-export const Sortby = styled(GenericText)`
-  font-weight: 400;
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.45);
-  margin: 0px;
-  width: 45px;
-`;
-
-export const Name = styled(GenericText)`
-  font-weight: 400;
-  font-size: 14px;
-  color: #7447f9;
-  margin: 0px;
-  width: 37px;
-`;
-
-export const Lastmodified = styled(GenericText)`
-  font-weight: 400;
-  font-size: 14px;
-  margin: 0px;
-  width: 82px;
-`;
-
 export const MySolutions = styled.div`
   height: 240px;
   width: 1200px;

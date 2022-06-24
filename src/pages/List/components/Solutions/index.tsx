@@ -15,37 +15,13 @@ import {
   HowtoCreateaDataWorkFlow,
   ButtonViewAllLessons,
   SolutionsListWrapper,
-  TitleContainer,
-  Solutions,
-  NewSolutionButton,
-  Sorter,
-  Sortby,
-  Name,
-  Lastmodified,
   BreadcrumbLink,
 } from './styles';
 
-import ModalNewSolution from '../../../../components/ModalNewSolution';
 import SolutionList from '../../../../components/SolutionList';
 import { useAppDispatch } from '../../../../store/reduxHooks';
-import { setModalData } from '../../../../store/modal/modalSlice';
-import { useGetSolutionQuery } from '../../../../services/solution';
 
 const Page = () => {
-  const dispatch = useAppDispatch();
-  const { t } = useTranslation();
-
-  const { data: solutions } = useGetSolutionQuery();
-
-  const showModalNewSolution = () => {
-    dispatch(
-      setModalData({
-        visible: true,
-        title: t('modal-new-entity-title'),
-        content: <ModalNewSolution />,
-      }),
-    );
-  };
   return (
     <SolutionWrapper>
       <LessonsCard>
@@ -69,17 +45,6 @@ const Page = () => {
         </ButtonViewAllLessons>
       </LessonsCard>
       <SolutionsListWrapper>
-        <TitleContainer>
-          <Solutions>Solutions</Solutions>
-          <NewSolutionButton type="primary" onClick={showModalNewSolution}>
-            New solution
-          </NewSolutionButton>
-        </TitleContainer>
-        <Sorter>
-          <Sortby>Sort by</Sortby>
-          <Name>name</Name>
-          <Lastmodified>last modified</Lastmodified>
-        </Sorter>
         <SolutionList />
       </SolutionsListWrapper>
       <BreadcrumbLink />

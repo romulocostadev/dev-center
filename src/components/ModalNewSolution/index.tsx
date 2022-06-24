@@ -1,6 +1,7 @@
 import { Form } from 'antd';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useAddSolutionMutation } from '../../services/solution';
 import { setModalData } from '../../store/modal/modalSlice';
 import { useAppDispatch } from '../../store/reduxHooks';
 import { GenericButtonWithLoadingStyle } from '../ButtonWithLoading/styles';
@@ -16,20 +17,22 @@ import {
 
 const ModalNewSolution = () => {
   const { t } = useTranslation();
-
-  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [
+    addSolution, // This is the mutation trigger
+    { isLoading }, // This is the destructured mutation result
+  ] = useAddSolutionMutation();
   const dispatch = useAppDispatch();
   const handleSubmit = (values: any) => {
-    console.log('foo handle ok', values);
-    setConfirmLoading(true);
-    setTimeout(() => {
-      dispatch(
-        setModalData({
-          visible: false,
-        }),
-      );
-      setConfirmLoading(false);
-    }, 4000);
+    const res = addSolution({
+      Name: values.name,
+      TemplateId: '83E96851-D5FC-4290-8D37-B6625363174F',
+    });
+    console.log('foo handle ok', res);
+    dispatch(
+      setModalData({
+        visible: false,
+      }),
+    );
   };
 
   return (
@@ -37,7 +40,7 @@ const ModalNewSolution = () => {
       <InputsWrapper>
         <Frame>
           <GenericFormItem
-            name="teste"
+            name="name"
             rules={[{ required: true, message: t('required-field') }]}
           >
             <InputBasic placeholder="Give me a nice name" />
@@ -48,7 +51,7 @@ const ModalNewSolution = () => {
         <GenericButtonWithLoadingStyle
           type="primary"
           htmlType="submit"
-          loading={confirmLoading}
+          loading={isLoading}
         >
           {t('button-create-title')}
         </GenericButtonWithLoadingStyle>
