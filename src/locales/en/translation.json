@@ -3,5 +3,10 @@
   "modal-new-entity-title": "New Entity",
   "required-field": "Required field",
   "button-create-title": "Create",
-  "date-time-format": "MMM dd, yyyy, HH:mm"
+  "date-time-format": "MMM dd, yyyy, HH:mm",
+  "solutions-title": "Solutions",
+  "new-solution-btn": "New solution",
+  "sort-by": "Sort by:",
+  "sort-by-name": "name",
+  "sort-by-last-modified": "last modified"
 }

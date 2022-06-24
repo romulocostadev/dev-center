@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import {
   LayoutHeader1,
@@ -27,10 +28,15 @@ import {
 } from './styles';
 
 const LayoutHeaderPage = () => {
+  let navigate = useNavigate();
+
+  const navigateToHome = () => {
+    navigate(`/solutions`);
+  };
   return (
     <LayoutHeader1>
       <Header1>
-        <Beatrix1>
+        <Beatrix1 onClick={navigateToHome}>
           <Vector14840549090884 />
         </Beatrix1>
         <File>

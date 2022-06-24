@@ -6,7 +6,7 @@ export const Solution = styled.div`
   min-height: 100vh;
   height: 100%;
   background-color: #fcfbff;
-  width: 100vw;
+  width: 100%;
 `;
 
 export const Body = styled.div`

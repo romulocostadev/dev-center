@@ -1,4 +1,6 @@
 import { t } from 'i18next';
+import { useNavigate } from 'react-router-dom';
+import { SolutionsResponse } from '../../services/solution';
 import getFormatedDateTime from '../../utils/dateUtils';
 import {
   SolutionCard,
@@ -9,8 +11,12 @@ import {
 } from './styles';
 
 const Card = ({ solution }: any) => {
+  let navigate = useNavigate();
+  const onClick = () => {
+    navigate(`/solution/${solution.Id}/home`);
+  };
   return (
-    <SolutionCard>
+    <SolutionCard onClick={onClick}>
       <ProjectLogo />
       <CardTextContainer>
         <CardTitle>{solution.Name}</CardTitle>

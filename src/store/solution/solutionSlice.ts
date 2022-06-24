@@ -2,12 +2,10 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { api as solutionApi, SolutionsResponse } from '../../services/solution';
 import type { RootState } from '../store';
 
-// Define a type for the slice state
 interface SolutionProps {
   solutions: SolutionsResponse[];
 }
 
-// Define the initial state using that type
 const initialState: SolutionProps = {
   solutions: [],
 };
@@ -16,7 +14,11 @@ export const counterSlice = createSlice({
   name: 'counter',
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
-  reducers: {},
+  reducers: {
+    setSolutions: (state, action: PayloadAction<any>) => {
+      state.solutions = action.payload.solutions;
+    },
+  },
   extraReducers: builder => {
     builder.addMatcher(
       solutionApi.endpoints.getSolutions.matchFulfilled,
@@ -33,7 +35,18 @@ export const counterSlice = createSlice({
   },
 });
 
-// Other code such as selectors can use the imported `RootState` type
-// export const selectCount = (state: RootState) => state.solution.value;
+export const { setSolutions } = counterSlice.actions;
+
+export const solutionsSortByName = (state: RootState) => {
+  return state.solution.solutions
+    ?.slice()
+    .sort((a, b) => a.Name.localeCompare(b.Name));
+};
+
+export const solutionsSortByDate = (state: RootState) => {
+  return state.solution.solutions
+    ?.slice()
+    .sort((a, b) => a.Name.localeCompare(b.Name));
+};
 
 export default counterSlice.reducer;

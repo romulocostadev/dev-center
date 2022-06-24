@@ -22,12 +22,12 @@ const ModalNewSolution = () => {
     { isLoading }, // This is the destructured mutation result
   ] = useAddSolutionMutation();
   const dispatch = useAppDispatch();
-  const handleSubmit = (values: any) => {
-    const res = addSolution({
+  const handleSubmit = async (values: any) => {
+    const res = await addSolution({
       Name: values.name,
-      TemplateId: '83E96851-D5FC-4290-8D37-B6625363174F',
+      TemplateId: process.env.REACT_APP_TEMPLATE_ID,
     });
-    console.log('foo handle ok', res);
+    console.log('foo handle ok', res, process.env);
     dispatch(
       setModalData({
         visible: false,
