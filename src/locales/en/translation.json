@@ -8,5 +8,9 @@
   "new-solution-btn": "New solution",
   "sort-by": "Sort by:",
   "sort-by-name": "name",
-  "sort-by-last-modified": "last modified"
+  "sort-by-last-modified": "last modified",
+  "sort-by-creation": "creation",
+  "error-title": "Validation Errors",
+  "sucess-title": "Sucess!",
+  "sucess-message": "Operation performed successfully!"
 }

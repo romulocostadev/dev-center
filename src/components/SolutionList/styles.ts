@@ -59,7 +59,18 @@ export const Name = styled(GenericText)<SortItemProps>`
   font-weight: 400;
   font-size: 14px;
   margin: 0px;
-  width: 37px;
+  width: 40px;
+  &:hover {
+    cursor: pointer;
+  }
+  color: ${props => (props.active ? '#7447f9' : 'black')};
+`;
+
+export const Creation = styled(GenericText)<SortItemProps>`
+  font-weight: 400;
+  font-size: 14px;
+  margin: 0px;
+  width: 55px;
   &:hover {
     cursor: pointer;
   }

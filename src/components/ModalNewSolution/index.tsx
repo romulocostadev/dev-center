@@ -1,4 +1,4 @@
-import { Form } from 'antd';
+import { Form, notification } from 'antd';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAddSolutionMutation } from '../../services/solution';
@@ -22,17 +22,29 @@ const ModalNewSolution = () => {
     { isLoading }, // This is the destructured mutation result
   ] = useAddSolutionMutation();
   const dispatch = useAppDispatch();
-  const handleSubmit = async (values: any) => {
-    const res = await addSolution({
+  const handleSubmit = (values: any) => {
+    addSolution({
       Name: values.name,
       TemplateId: process.env.REACT_APP_TEMPLATE_ID,
-    });
-    console.log('foo handle ok', res, process.env);
-    dispatch(
-      setModalData({
-        visible: false,
-      }),
-    );
+    })
+      .unwrap()
+      .then(() => {
+        dispatch(
+          setModalData({
+            visible: false,
+          }),
+        );
+        notification.success({
+          message: t('sucess-title'),
+          description: t('sucess-message'),
+        });
+      })
+      .catch(error => {
+        notification.error({
+          message: t('error-title'),
+          description: error.data.title,
+        });
+      });
   };
 
   return (

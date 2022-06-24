@@ -12,6 +12,7 @@ import {
   Sortby,
   Name,
   Lastmodified,
+  Creation,
 } from './styles';
 
 import ModalNewSolution from '../ModalNewSolution';
@@ -24,7 +25,7 @@ const Page = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
   const solutions = useAppSelector(state => state.solution.solutions);
-  const [order, setOrder] = useState<string>('date');
+  const [order, setOrder] = useState<string>('creation');
   const handleShowModalNewSolution = () => {
     dispatch(
       setModalData({
@@ -53,6 +54,19 @@ const Page = () => {
         solutions: solutions?.slice().sort((a, b) => {
           const dateA = new Date(a.ModifiedUtc).getTime();
           const dateB = new Date(b.ModifiedUtc).getTime();
+          return dateB - dateA;
+        }),
+      }),
+    );
+  };
+
+  const handleOrderByCreation = () => {
+    setOrder('creation');
+    dispatch(
+      setSolutions({
+        solutions: solutions?.slice().sort((a, b) => {
+          const dateA = new Date(a.CreatedUtc).getTime();
+          const dateB = new Date(b.CreatedUtc).getTime();
           return dateA - dateB;
         }),
       }),
@@ -70,6 +84,9 @@ const Page = () => {
       </TitleContainer>
       <Sorter>
         <Sortby>{t('sort-by')}</Sortby>
+        <Creation onClick={handleOrderByCreation} active={order === 'creation'}>
+          {t('sort-by-creation')}
+        </Creation>
         <Name onClick={handleOrderByName} active={order === 'name'}>
           {t('sort-by-name')}
         </Name>
