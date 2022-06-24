@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { Skeleton } from 'antd';
-import { useGetSolutionQuery } from '../../services/solution';
+import { useEffect } from 'react';
+import { useGetSolutionsQuery } from '../../services/solution';
 import SolutionCard from '../SolutionCard';
 
 import {
@@ -15,7 +16,7 @@ import {
 } from './styles';
 
 import ModalNewSolution from '../ModalNewSolution';
-import { useAppDispatch } from '../../store/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../store/reduxHooks';
 import { setModalData } from '../../store/modal/modalSlice';
 import SolutionCardSkeleton from '../Skeletons/SolutionCardSkeleton';
 
@@ -32,7 +33,8 @@ const Page = () => {
     );
   };
 
-  const { data: solutions, isLoading } = useGetSolutionQuery();
+  const solutions = useAppSelector(state => state.solution.solutions);
+  const { isLoading } = useGetSolutionsQuery();
   return (
     <>
       <TitleContainer>

@@ -31,7 +31,7 @@ export const api = createApi({
   }),
 
   endpoints: builder => ({
-    getSolution: builder.query<SolutionsResponse[], void>({
+    getSolutions: builder.query<SolutionsResponse[], void>({
       query: () => '/solution/api/solution',
     }),
     addSolution: builder.mutation<SolutionsResponse, Partial<SolutionsPost>>({
@@ -44,4 +44,4 @@ export const api = createApi({
   }),
 });
 
-export const { useGetSolutionQuery, useAddSolutionMutation } = api;
+export const { useGetSolutionsQuery, useAddSolutionMutation } = api;

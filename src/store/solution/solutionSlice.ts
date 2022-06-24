@@ -1,40 +1,39 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { api as solutionApi, SolutionsResponse } from '../../services/solution';
 import type { RootState } from '../store';
 
 // Define a type for the slice state
-interface CounterState {
-  value: number;
+interface SolutionProps {
+  solutions: SolutionsResponse[];
 }
 
 // Define the initial state using that type
-const initialState: CounterState = {
-  value: 2,
+const initialState: SolutionProps = {
+  solutions: [],
 };
 
 export const counterSlice = createSlice({
   name: 'counter',
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
-  reducers: {
-    increment: state => {
-      state.value += 1;
-    },
-    decrement: state => {
-      state.value -= 1;
-    },
-    // Use the PayloadAction type to declare the contents of `action.payload`
-    incrementByAmount: (state, action: PayloadAction<number>) => {
-      state.value += action.payload;
-    },
+  reducers: {},
+  extraReducers: builder => {
+    builder.addMatcher(
+      solutionApi.endpoints.getSolutions.matchFulfilled,
+      (state, { payload }) => {
+        state.solutions = payload;
+      },
+    );
+    builder.addMatcher(
+      solutionApi.endpoints.addSolution.matchFulfilled,
+      (state, { payload }) => {
+        state.solutions.push(payload);
+      },
+    );
   },
-  // extraReducers: (builder) => {
-  //   builder.addMatcher()
-  // }
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
-
 // Other code such as selectors can use the imported `RootState` type
-export const selectCount = (state: RootState) => state.solution.value;
+// export const selectCount = (state: RootState) => state.solution.value;
 
 export default counterSlice.reducer;
