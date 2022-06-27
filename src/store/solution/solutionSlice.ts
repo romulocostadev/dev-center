@@ -32,6 +32,14 @@ export const counterSlice = createSlice({
         state.solutions.push(payload);
       },
     );
+    builder.addMatcher(
+      solutionApi.endpoints.deleteSolution.matchFulfilled,
+      (state, action) => {
+        state.solutions = state.solutions.filter(
+          x => x.Id !== action.meta.arg.originalArgs.Uid,
+        );
+      },
+    );
   },
 });
 

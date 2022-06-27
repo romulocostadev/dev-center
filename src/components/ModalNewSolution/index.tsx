@@ -1,6 +1,7 @@
 import { Form, notification } from 'antd';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate } from 'react-router-dom';
 import { useAddSolutionMutation } from '../../services/solution';
 import { setModalData } from '../../store/modal/modalSlice';
 import { useAppDispatch } from '../../store/reduxHooks';
@@ -17,6 +18,8 @@ import {
 
 const ModalNewSolution = () => {
   const { t } = useTranslation();
+  const navigate = useNavigate();
+
   const [
     addSolution, // This is the mutation trigger
     { isLoading }, // This is the destructured mutation result
@@ -28,16 +31,17 @@ const ModalNewSolution = () => {
       TemplateId: process.env.REACT_APP_TEMPLATE_ID,
     })
       .unwrap()
-      .then(() => {
+      .then(res => {
+        notification.success({
+          message: t('sucess-title'),
+          description: t('sucess-message'),
+        });
         dispatch(
           setModalData({
             visible: false,
           }),
         );
-        notification.success({
-          message: t('sucess-title'),
-          description: t('sucess-message'),
-        });
+        navigate(`/solution/${res.Id}/home`);
       })
       .catch(error => {
         notification.error({
