@@ -26,5 +26,14 @@
   "error-default-message": "There was an error sending the request!",
   "sucess-title": "Success!",
   "sucess-message": "Operation performed successfully!",
-  "solution-name-input-title": "Give me "
+  "solution-name-input-title": "Give me a nice name",
+  "solution-rename-title": "Rename",
+  "solution-edit-title": "Rename Solution",
+  "solution-edit-message": "This feature is not yet available. Try again later.",
+  "solution-delete-title": "Delete",
+  "solution-delete-message": "Are you sure you want to delete this solution?",
+  "button-yes-title": "Yes",
+  "button-no-title": "No",
+  "button-cancel-title": "Cancel",
+  "button-ok-title": "Ok"
 }

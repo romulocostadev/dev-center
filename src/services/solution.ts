@@ -19,6 +19,10 @@ export interface SolutionsPost {
   TemplateId: string;
 }
 
+export interface SolutionsDelete {
+  Uid: string;
+}
+
 export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://stage10.beatrix.io/',
@@ -41,7 +45,20 @@ export const api = createApi({
         body,
       }),
     }),
+    deleteSolution: builder.mutation<void, Partial<SolutionsDelete>>({
+      query: body => ({
+        url: `/solution/api/solution/${body.Uid}`,
+        method: 'PATCH',
+        body: {
+          Enabled: false,
+        },
+      }),
+    }),
   }),
 });
 
-export const { useGetSolutionsQuery, useAddSolutionMutation } = api;
+export const {
+  useGetSolutionsQuery,
+  useAddSolutionMutation,
+  useDeleteSolutionMutation,
+} = api;

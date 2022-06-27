@@ -63,43 +63,31 @@ const GlobalStyle = createGlobalStyle`
     color: #fff !important;
   }
 
-  .ant-tabs-nav{
-    margin-bottom: 0px !important;
-  }
-  .ant-modal-body, .ant-modal-content{
-    border-radius: 8px !important;
-  }
-
-  .ant-modal-header{
-    border-radius: 8px 8px 0px 0px !important;
-  }
-
-  .ant-modal-confirm-content{
-    margin-top: 0px !important;
-  }
-
-  .ant-modal-confirm-btns{
-    margin-top: 6px !important;
-  }
-
-  .ant-modal-body{
+  .ant-modal .ant-modal-body{
     padding: 0px !important;
   }
-  .ant-modal-footer{
+  .ant-modal .ant-modal-footer{
     width: auto !important;
     margin-top: 0px !important;
   }
-
-  .ant-form-item-explain{
-    margin-top: 2px !important;
-    margin-left: 2px !important;
+  .original .ant-modal-body{
+    padding: 20px !important;
+  }
+  .original .ant-modal-footer{
   }
   iframe{
     display:none;
   }
-
-  iframe {
-    display: none;
+.ant-tabs-nav{
+  margin-bottom: 0px !important;
+}
+.ant-slide-up-appear, .ant-slide-up-enter, .ant-slide-up-leave {
+    animation-duration: 0s !important;
+}
+.nonanimating-button{
+  & [ant-click-animating-without-extra-node]:after {
+    animation: 0s !important;
+    // border-color: transparent !important;
   }
 
   .MuiTreeItem-label{
@@ -146,6 +134,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto' !important;
   }
 
+}
 `;
 
 export default GlobalStyle;

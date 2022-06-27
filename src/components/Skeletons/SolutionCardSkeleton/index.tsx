@@ -1,19 +1,16 @@
-import { Skeleton } from 'antd';
 import { SkeletonCardContainer, SkeletonCard } from './styles';
 
 const SolutionCardSkeleton = ({ isLoading }: any) => {
   return (
-    <>
-      {isLoading && (
+    isLoading && (
+      <>
         <SkeletonCardContainer>
-          {[1, 2, 3].map(() => (
-            <SkeletonCard>
-              <Skeleton active paragraph={{ rows: 4 }} />
-            </SkeletonCard>
+          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(() => (
+            <SkeletonCard />
           ))}
         </SkeletonCardContainer>
-      )}
-    </>
+      </>
+    )
   );
 };
 

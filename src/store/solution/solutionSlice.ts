@@ -421,6 +421,14 @@ export const counterSlice = createSlice({
         };
       },
     );
+    builder.addMatcher(
+      solutionApi.endpoints.deleteSolution.matchFulfilled,
+      (state, action) => {
+        state.solutions = state.solutions.filter(
+          x => x.Id !== action.meta.arg.originalArgs.Uid,
+        );
+      },
+    );
   },
 });
 
