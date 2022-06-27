@@ -175,7 +175,7 @@ const initialState: SolutionProps = {
                     ],
                     children: [
                       {
-                        key: '6',
+                        id: '6',
                         title: 'Order',
                       },
                     ],
@@ -185,7 +185,7 @@ const initialState: SolutionProps = {
                     title: 'CustomerDb',
                     nodes: [
                       {
-                        key: 'ent-2',
+                        id: 'ent-2',
                         type: 'selectorNode',
                         data: {
                           elementType: 'entity',
@@ -262,7 +262,7 @@ const initialState: SolutionProps = {
                         },
                       },
                       {
-                        key: 'ent-3',
+                        id: 'ent-3',
                         type: 'output',
                         data: {
                           elementType: 'entity',
@@ -296,7 +296,7 @@ const initialState: SolutionProps = {
                         targetPosition: 'left',
                       },
                       {
-                        key: 'ent-4',
+                        id: 'ent-4',
                         type: 'output',
                         data: {
                           elementType: 'entity',

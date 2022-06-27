@@ -388,20 +388,19 @@ const LayoutSiderPage = () => {
         defaultExpandedKeys={['1']}
         onSelect={onSelect}
         onCheck={onCheck}
-        onRightClick={foo => console.log(foo)}
         treeData={[solution] as DataNode}
-        titleRender={node => (
-          <div>
-            {node.title}{' '}
-            <button
-              type="button"
-              style={{ zIndex: 9999999 }}
-              onClick={() => console.log('oi')}
-            >
-              ...
-            </button>{' '}
-          </div>
-        )}
+        // titleRender={node => (
+        //   <div>
+        //     {node.title}{' '}
+        //     <button
+        //       type="button"
+        //       style={{ zIndex: 9999999 }}
+        //       onClick={() => console.log('oi')}
+        //     >
+        //       ...
+        //     </button>{' '}
+        //   </div>
+        // )}
       />
     );
   };
