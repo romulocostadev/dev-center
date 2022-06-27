@@ -8,7 +8,7 @@ import GenericText from '../../components/Text';
 
 export const DataCanvas = styled.div`
   height: 100%;
-  width: 99%;
+  /* width: 99%; */
   display: flex;
   justify-content: flex-end;
   /* box-sizing: border-box; */

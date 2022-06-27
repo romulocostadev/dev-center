@@ -24,7 +24,7 @@ import { setSolutions } from '../../store/solution/solutionSlice';
 const Page = () => {
   const dispatch = useAppDispatch();
   const { t } = useTranslation();
-  const solutions = useAppSelector(state => state.solution.solutions);
+  const solutions = useAppSelector(state => state.solutions.solutions);
   const [order, setOrder] = useState<string>('creation');
   const handleShowModalNewSolution = () => {
     dispatch(

@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { REHYDRATE } from 'redux-persist';
 import { RootState } from '../store/store';
 
 export interface SolutionsResponse {
@@ -29,7 +30,6 @@ export const api = createApi({
       return headers;
     },
   }),
-
   endpoints: builder => ({
     getSolutions: builder.query<SolutionsResponse[], void>({
       query: () => '/solution/api/solution',

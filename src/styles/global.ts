@@ -1,7 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-import 'react-complex-tree/lib/style.css';
-
 const GlobalStyle = createGlobalStyle`
 
   * {
