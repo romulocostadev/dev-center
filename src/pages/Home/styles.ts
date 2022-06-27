@@ -14,7 +14,10 @@ export const Home1 = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 24px 0px 24px 0px;
-  background-color: #ffffff;
+  /* background-color: rgb(255, 255, 255); */
+  background-color: rgba(115, 70, 248, 0.02);
+  width: 100%;
+  height: 100%;
 `;
 export const Title3 = styled.div`
   height: 68px;
@@ -30,7 +33,7 @@ export const WelcometoBeatrix = styled(GenericText)`
   font-size: 24px;
   color: #7447f9;
   margin: 0px;
-  width: 216px;
+  width: 222px;
 `;
 
 export const Seehowtogetstarted = styled(GenericText)`

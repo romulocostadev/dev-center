@@ -7,6 +7,8 @@ import {
   OutlinedPartitionIcon,
   DatabaseOutlinedIcon,
   ApiOutlinedIcon,
+  QuestionCircleOutlinedIcon,
+  SettingOutlinedIcon,
 } from './styles';
 
 interface MenuItemProps {
@@ -47,6 +49,20 @@ const MenuItem = ({ label, pathActive }: MenuItemProps) => {
           <ApiOutlinedIcon style={{ color: hasActive ? '#7346F8' : 'black' }} />
         );
         break;
+      case 'Settings':
+        return (
+          <SettingOutlinedIcon
+            style={{ color: hasActive ? '#7346F8' : 'black' }}
+          />
+        );
+        break;
+      case 'Helper':
+        return (
+          <QuestionCircleOutlinedIcon
+            style={{ color: hasActive ? '#7346F8' : 'black' }}
+          />
+        );
+        break;
       default:
         return <></>;
         break;
@@ -56,7 +72,19 @@ const MenuItem = ({ label, pathActive }: MenuItemProps) => {
   const hasActive = label.toLowerCase() === pathActive;
 
   const handleNavigate = () => {
-    navigate(`/${pathParts[1]}/${pathParts[2]}/${label.toLowerCase()}`);
+    switch (label) {
+      case 'Settings':
+        navigate('/settings');
+        break;
+
+      case 'Helper':
+        navigate('/help');
+        break;
+
+      default:
+        navigate(`/${pathParts[1]}/${pathParts[2]}/${label.toLowerCase()}`);
+        break;
+    }
   };
 
   return (

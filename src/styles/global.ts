@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 
+import 'react-complex-tree/lib/style.css';
+
 const GlobalStyle = createGlobalStyle`
 
   * {
@@ -100,6 +102,50 @@ const GlobalStyle = createGlobalStyle`
 
   iframe {
     display: none;
+  }
+
+  .MuiTreeItem-label{
+    font-family: 'Roboto !important' ;
+    font-style: normal  !important;
+    font-weight: 500 !important;
+    font-size: 12px !important;
+    line-height: 20px !important;
+  }
+
+  .css-1g86id8-MuiTreeItem-content .MuiTreeItem-iconContainer svg {
+    font-size: 14px !important;
+  }
+
+  .css-1g86id8-MuiTreeItem-content.Mui-selected {
+    /* width: 100% !important; */
+    /* background-color: red !important; */
+  }
+
+  .ant-tree.ant-tree-block-node.ant-tree-directory {
+    width: 100% !important
+  }
+
+  .ant-tree.ant-tree-directory .ant-tree-treenode-selected::before {
+    background: #F6F0FF !important
+  }
+
+  .ant-tree-treenode .ant-tree-node-content-wrapper.ant-tree-node-selected{
+    font-family: 'Roboto' !important;
+    font-weight: 500 !important;
+    color: #7346F8 !important
+  }
+
+  .ant-tree-treenode-selected .ant-tree-switcher {
+    color: black !important
+  }
+
+  .ant.tree.title {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    line-height: 20px !important;
+    font-style: normal !important;
+    color: rgba(0, 0, 0, 0.85) !important;
+    font-family: 'Roboto' !important;
   }
 
 `;

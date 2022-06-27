@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { PlusOutlined } from '@ant-design/icons';
+import { FrownFilled, FrownOutlined, PlusOutlined } from '@ant-design/icons';
 
+import { Resizable } from 're-resizable';
+import Tree, { DataNode, TreeProps } from 'antd/lib/tree';
 import {
   LayoutSider1,
   MenuGroup1,
@@ -39,66 +41,395 @@ import {
   Content7,
   IconOutlinedPlus1,
 } from './styles';
+import RichObjectTreeView from '../TreeView';
+
+import mock from './input (1).json';
 
 const LayoutSiderPage = () => {
+  const dataTeste = [
+    {
+      key: '1',
+      title: 'SunChemical',
+      rootNamespace: 'SunChemical.InkControl',
+      children: [
+        {
+          key: '2',
+          title: 'Database',
+          children: [
+            {
+              key: '3',
+              title: 'DbInstances',
+              nodes: [
+                {
+                  key: 'dbi-1',
+                  type: 'input',
+                  data: {
+                    elementType: 'dbInstance',
+                    title: 'PostgreSqlInstance',
+                    type: 'PostgreSql',
+                    isRelationalDb: true,
+                  },
+                  position: {
+                    x: 0,
+                    y: 50,
+                  },
+                  sourcePosition: 'right',
+                },
+                {
+                  key: 'dbi-2',
+                  type: 'input',
+                  data: {
+                    elementType: 'dbInstance',
+                    title: 'SqlServerInstance',
+                    type: 'SqlServer',
+                    isRelationalDb: true,
+                  },
+                  position: {
+                    x: 0,
+                    y: 50,
+                  },
+                  sourcePosition: 'right',
+                },
+              ],
+              children: [
+                {
+                  key: '4',
+                  title: 'PostgreSqlInstance',
+                  nodes: [
+                    {
+                      key: 'db-1',
+                      type: 'input',
+                      data: {
+                        elementType: 'database',
+                        title: 'OrderDb',
+                        refDbInstanceId: 'dbi-1',
+                        addIdentityTables: false,
+                        defaultSchema: 'Order',
+                      },
+                      position: {
+                        x: 0,
+                        y: 50,
+                      },
+                      sourcePosition: 'right',
+                    },
+                    {
+                      key: 'db-3',
+                      type: 'input',
+                      data: {
+                        elementType: 'database',
+                        title: 'CustomerDb',
+                        refDbInstanceId: 'dbi-1',
+                        addIdentityTables: false,
+                        defaultSchema: null,
+                      },
+                      position: {
+                        x: 0,
+                        y: 50,
+                      },
+                      sourcePosition: 'right',
+                    },
+                  ],
+                  children: [
+                    {
+                      key: '5',
+                      title: 'OrderDb',
+                      nodes: [
+                        {
+                          key: 'ent-1',
+                          type: 'selectorNode',
+                          data: {
+                            elementType: 'entity',
+                            title: 'Order',
+                            keyType: 'int',
+                            entityType: 'Auditable',
+                            refDatabaseId: 'db-1',
+                            properties: [
+                              {
+                                title: 'key',
+                                type: 'int',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                              {
+                                title: 'ShippingCost',
+                                type: 'double',
+                                isArray: false,
+                                isNullable: true,
+                                defaultValue: 'Value(@ConstDouble::10)',
+                                checkReferencedEntityId: null,
+                              },
+                              {
+                                title: 'CustomerId',
+                                type: 'int',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                              {
+                                title: 'CreatedUtc',
+                                type: 'DateTimeOffset',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                              {
+                                title: 'ModifiedUtc',
+                                type: 'DateTimeOffset',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                            ],
+                          },
+                          style: {
+                            border: '1px solid #777',
+                            padding: 10,
+                          },
+                          position: {
+                            x: 300,
+                            y: 50,
+                          },
+                        },
+                      ],
+                      children: [
+                        {
+                          key: '6',
+                          title: 'Order',
+                        },
+                      ],
+                    },
+                    {
+                      key: '7',
+                      title: 'CustomerDb',
+                      nodes: [
+                        {
+                          key: 'ent-2',
+                          type: 'selectorNode',
+                          data: {
+                            elementType: 'entity',
+                            title: 'Customer',
+                            keyType: 'int',
+                            entityType: 'Auditable',
+                            refDatabaseId: 'db-3',
+                            properties: [
+                              {
+                                title: 'key',
+                                type: 'int',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                              {
+                                title: 'title',
+                                type: 'string',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                              {
+                                title: 'Metadata',
+                                type: 'Metadata',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                              {
+                                title: 'CustomerAddressId',
+                                type: 'int',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: 'ent-4',
+                              },
+                              {
+                                title: 'CustomerAddress',
+                                type: 'CustomerAddress',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                              {
+                                title: 'CreatedUtc',
+                                type: 'DateTimeOffset',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                              {
+                                title: 'ModifiedUtc',
+                                type: 'DateTimeOffset',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                            ],
+                          },
+                          style: {
+                            border: '1px solid #777',
+                            padding: 10,
+                          },
+                          position: {
+                            x: 300,
+                            y: 50,
+                          },
+                        },
+                        {
+                          key: 'ent-3',
+                          type: 'output',
+                          data: {
+                            elementType: 'entity',
+                            title: 'Metadata',
+                            keyType: null,
+                            entityType: 'Default',
+                            refDatabaseId: null,
+                            properties: [
+                              {
+                                title: 'Keywords',
+                                type: 'string',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                              {
+                                title: 'Description',
+                                type: 'string',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                            ],
+                          },
+                          position: {
+                            x: 650,
+                            y: 25,
+                          },
+                          targetPosition: 'left',
+                        },
+                        {
+                          key: 'ent-4',
+                          type: 'output',
+                          data: {
+                            elementType: 'entity',
+                            title: 'CustomerAddress',
+                            keyType: 'int',
+                            entityType: 'Persisted',
+                            refDatabaseId: 'db-3',
+                            properties: [
+                              {
+                                title: 'key',
+                                type: 'int',
+                                isArray: false,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                              {
+                                title: 'Address',
+                                type: 'string',
+                                isArray: true,
+                                isNullable: false,
+                                defaultValue: null,
+                                checkReferencedEntityId: null,
+                              },
+                            ],
+                          },
+                          position: {
+                            x: 650,
+                            y: 100,
+                          },
+                          targetPosition: 'left',
+                        },
+                      ],
+                      children: [
+                        {
+                          key: '8',
+                          title: 'Customer',
+                          icon: ({ selected }) =>
+                            selected ? <FrownFilled /> : <FrownOutlined />,
+                        },
+                        {
+                          key: '9',
+                          title: 'MetaData',
+                        },
+                        {
+                          key: '10',
+                          title: 'Address',
+                        },
+                      ],
+                    },
+                  ],
+                },
+                {
+                  key: '998',
+                  title: 'SqlServerInstance',
+                  nodes: [
+                    {
+                      key: 'db-2',
+                      type: 'input',
+                      data: {
+                        elementType: 'database',
+                        title: 'IdentityDb',
+                        refDbInstanceId: 'dbi-2',
+                        addIdentityTables: true,
+                        defaultSchema: null,
+                      },
+                      position: {
+                        x: 0,
+                        y: 50,
+                      },
+                      sourcePosition: 'right',
+                    },
+                  ],
+                  children: [
+                    {
+                      key: '999',
+                      title: 'IdentityDb',
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+  ];
+
+  const TesteItem = () => {
+    const onSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
+      console.log('selected', selectedKeys, info);
+    };
+
+    const onCheck: TreeProps['onCheck'] = (checkedKeys, info) => {
+      console.log('onCheck', checkedKeys, info);
+    };
+
+    return (
+      <Tree.DirectoryTree
+        defaultExpandedKeys={['1']}
+        onSelect={onSelect}
+        onCheck={onCheck}
+        treeData={dataTeste as DataNode}
+      />
+    );
+  };
+
   return (
     <LayoutSider1>
-      <MenuGroup1>
-        <Layers>
-          <TreeItem>
-            <Frame1>
-              <CaretDownOutlinedIcon />
-            </Frame1>
-            <Icon3>
-              <FolderOpenOutlinedIcon />
-            </Icon3>
-            <ItemWrapper>
-              <Database>SunChemical</Database>
-            </ItemWrapper>
-            <ButtonsButton1 type="text" icon={<PlusOutlined />} />
-          </TreeItem>
-          <TreeItem1>
-            <Frame11>
-              <IconOutlinedCaretDown1>
-                <Vector9 />
-              </IconOutlinedCaretDown1>
-            </Frame11>
-            <Icon4>
-              <IconOutlinedFolderOpen1>
-                <Vector10 />
-              </IconOutlinedFolderOpen1>
-            </Icon4>
-            <ItemWrapper1>
-              <Database1>Database</Database1>
-            </ItemWrapper1>
-            <ButtonsButton8>
-              <Content6>
-                <IconOutlinedPlus />
-              </Content6>
-            </ButtonsButton8>
-          </TreeItem1>
-          <TreeItem2>
-            <Frame12>
-              <IconOutlinedCaretDown2>
-                <Vector11 />
-              </IconOutlinedCaretDown2>
-            </Frame12>
-            <Icon5>
-              <IconOutlinedFolderOpen2>
-                <Vector12 />
-              </IconOutlinedFolderOpen2>
-            </Icon5>
-            <ItemWrapper2>
-              <Database2>Services</Database2>
-            </ItemWrapper2>
-            <ButtonsButton9>
-              <Content7>
-                <IconOutlinedPlus1 />
-              </Content7>
-            </ButtonsButton9>
-          </TreeItem2>
-        </Layers>
-      </MenuGroup1>
+      <TesteItem />
     </LayoutSider1>
   );
 };

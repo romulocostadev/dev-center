@@ -1,0 +1,2201 @@
+{
+  "id": "1",
+  "name": "SunChemical",
+  "rootNamespace": "SunChemical.InkControl",
+  "children": [
+    {
+      "id": "2",
+      "name": "Database",
+      "children": [
+        {
+          "id": "3",
+          "name": "DbInstances",
+          "nodes": [
+            {
+              "id": "dbi-1",
+              "type": "input",
+              "data": {
+                "elementType": "dbInstance",
+                "name": "PostgreSqlInstance",
+                "type": "PostgreSql",
+                "isRelationalDb": true
+              },
+              "position": {
+                "x": 0,
+                "y": 50
+              },
+              "sourcePosition": "right"
+            },
+            {
+              "id": "dbi-2",
+              "type": "input",
+              "data": {
+                "elementType": "dbInstance",
+                "name": "SqlServerInstance",
+                "type": "SqlServer",
+                "isRelationalDb": true
+              },
+              "position": {
+                "x": 0,
+                "y": 50
+              },
+              "sourcePosition": "right"
+            }
+          ],
+          "children": [
+            {
+              "id": "4",
+              "name": "PostgreSqlInstance",
+              "nodes": [
+                {
+                  "id": "db-1",
+                  "type": "input",
+                  "data": {
+                    "elementType": "database",
+                    "name": "OrderDb",
+                    "refDbInstanceId": "dbi-1",
+                    "addIdentityTables": false,
+                    "defaultSchema": "Order"
+                  },
+                  "position": {
+                    "x": 0,
+                    "y": 50
+                  },
+                  "sourcePosition": "right"
+                },
+                {
+                  "id": "db-3",
+                  "type": "input",
+                  "data": {
+                    "elementType": "database",
+                    "name": "CustomerDb",
+                    "refDbInstanceId": "dbi-1",
+                    "addIdentityTables": false,
+                    "defaultSchema": null
+                  },
+                  "position": {
+                    "x": 0,
+                    "y": 50
+                  },
+                  "sourcePosition": "right"
+                }
+              ],
+              "children": [
+                {
+                  "id": "5",
+                  "name": "OrderDb",
+                  "nodes": [
+                    {
+                      "id": "ent-1",
+                      "type": "selectorNode",
+                      "data": {
+                        "elementType": "entity",
+                        "name": "Order",
+                        "keyType": "int",
+                        "entityType": "Auditable",
+                        "refDatabaseId": "db-1",
+                        "properties": [
+                          {
+                            "name": "Id",
+                            "type": "int",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          },
+                          {
+                            "name": "ShippingCost",
+                            "type": "double",
+                            "isArray": false,
+                            "isNullable": true,
+                            "defaultValue": "Value(@ConstDouble::10)",
+                            "checkReferencedEntityId": null
+                          },
+                          {
+                            "name": "CustomerId",
+                            "type": "int",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          },
+                          {
+                            "name": "CreatedUtc",
+                            "type": "DateTimeOffset",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          },
+                          {
+                            "name": "ModifiedUtc",
+                            "type": "DateTimeOffset",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          }
+                        ]
+                      },
+                      "style": {
+                        "border": "1px solid #777",
+                        "padding": 10
+                      },
+                      "position": {
+                        "x": 300,
+                        "y": 50
+                      }
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "6",
+                      "name": "Order"
+                    }
+                  ]
+                },
+                {
+                  "id": "7",
+                  "name": "CustomerDb",
+                  "nodes": [
+                    {
+                      "id": "ent-2",
+                      "type": "selectorNode",
+                      "data": {
+                        "elementType": "entity",
+                        "name": "Customer",
+                        "keyType": "int",
+                        "entityType": "Auditable",
+                        "refDatabaseId": "db-3",
+                        "properties": [
+                          {
+                            "name": "Id",
+                            "type": "int",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          },
+                          {
+                            "name": "Name",
+                            "type": "string",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          },
+                          {
+                            "name": "Metadata",
+                            "type": "Metadata",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          },
+                          {
+                            "name": "CustomerAddressId",
+                            "type": "int",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": "ent-4"
+                          },
+                          {
+                            "name": "CustomerAddress",
+                            "type": "CustomerAddress",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          },
+                          {
+                            "name": "CreatedUtc",
+                            "type": "DateTimeOffset",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          },
+                          {
+                            "name": "ModifiedUtc",
+                            "type": "DateTimeOffset",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          }
+                        ]
+                      },
+                      "style": {
+                        "border": "1px solid #777",
+                        "padding": 10
+                      },
+                      "position": {
+                        "x": 300,
+                        "y": 50
+                      }
+                    },
+                    {
+                      "id": "ent-3",
+                      "type": "output",
+                      "data": {
+                        "elementType": "entity",
+                        "name": "Metadata",
+                        "keyType": null,
+                        "entityType": "Default",
+                        "refDatabaseId": null,
+                        "properties": [
+                          {
+                            "name": "Keywords",
+                            "type": "string",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          },
+                          {
+                            "name": "Description",
+                            "type": "string",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          }
+                        ]
+                      },
+                      "position": {
+                        "x": 650,
+                        "y": 25
+                      },
+                      "targetPosition": "left"
+                    },
+                    {
+                      "id": "ent-4",
+                      "type": "output",
+                      "data": {
+                        "elementType": "entity",
+                        "name": "CustomerAddress",
+                        "keyType": "int",
+                        "entityType": "Persisted",
+                        "refDatabaseId": "db-3",
+                        "properties": [
+                          {
+                            "name": "id",
+                            "type": "int",
+                            "isArray": false,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          },
+                          {
+                            "name": "Address",
+                            "type": "string",
+                            "isArray": true,
+                            "isNullable": false,
+                            "defaultValue": null,
+                            "checkReferencedEntityId": null
+                          }
+                        ]
+                      },
+                      "position": {
+                        "x": 650,
+                        "y": 100
+                      },
+                      "targetPosition": "left"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "8",
+                      "name": "Customer"
+                    },
+                    {
+                      "id": "9",
+                      "name": "MetaData"
+                    },
+                    {
+                      "id": "10",
+                      "name": "Address"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "998",
+              "name": "SqlServerInstance",
+              "nodes": [
+                {
+                  "id": "db-2",
+                  "type": "input",
+                  "data": {
+                    "elementType": "database",
+                    "name": "IdentityDb",
+                    "refDbInstanceId": "dbi-2",
+                    "addIdentityTables": true,
+                    "defaultSchema": null
+                  },
+                  "position": {
+                    "x": 0,
+                    "y": 50
+                  },
+                  "sourcePosition": "right"
+                }
+              ],
+              "children": [
+                {
+                  "id": "999",
+                  "name": "IdentityDb"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "name": "Services",
+      "nodes": [
+        {
+          "id": "svc-1",
+          "type": "input",
+          "data": {
+            "elementType": "service",
+            "name": "OrderService",
+            "type": "WebAPI",
+            "allowedScopes": ["CustomerService"],
+            "metadata": {
+              "version": "v1",
+              "title": "Order WebAPI",
+              "description": "A Rest Api for orders CRUD",
+              "termsOfServiceUrl": "https://mydomain.com/orderservice/service-terms",
+              "contactName": "Order WebAPI Team",
+              "contactEmail": "team@domain.com",
+              "contactUrl": "https://mydomain.com/contact",
+              "licenseInfo": "Use under MIT",
+              "licenseUrl": "https://mydomain.com/license"
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 50
+          },
+          "sourcePosition": "right"
+        },
+        {
+          "id": "svc-2",
+          "type": "input",
+          "data": {
+            "elementType": "service",
+            "name": "CustomerService",
+            "type": "WebAPI",
+            "allowedScopes": null,
+            "metadata": {
+              "version": null,
+              "title": null,
+              "description": null,
+              "termsOfServiceUrl": null,
+              "contactName": null,
+              "contactEmail": null,
+              "contactUrl": null,
+              "licenseInfo": null,
+              "licenseUrl": null
+            }
+          },
+          "position": {
+            "x": 0,
+            "y": 50
+          },
+          "sourcePosition": "right"
+        }
+      ],
+      "children": [
+        {
+          "id": "13",
+          "name": "OrderService",
+          "nodes": [
+            {
+              "id": "ctl-1",
+              "type": "input",
+              "data": {
+                "elementType": "controller",
+                "name": "Order",
+                "type": "CRUD",
+                "refServiceId": "svc-1",
+                "refEntityId": "ent-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 50
+              },
+              "sourcePosition": "right"
+            },
+            {
+              "id": "ctl-2",
+              "type": "input",
+              "data": {
+                "elementType": "controller",
+                "name": "OrderQuery",
+                "type": "QUERY",
+                "refServiceId": "svc-1",
+                "refEntityId": "ent-1"
+              },
+              "position": {
+                "x": 0,
+                "y": 50
+              },
+              "sourcePosition": "right"
+            }
+          ],
+          "children": [
+            {
+              "id": "14",
+              "name": "OrderController",
+              "children": [
+                {
+                  "id": "15",
+                  "name": "Contexts",
+                  "nodes": [
+                    {
+                      "id": "ctx-1",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "Create",
+                        "refControllerId": "ctl-1"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ctx-2",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "Update",
+                        "refControllerId": "ctl-1"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ctx-3",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "UpdatePartial",
+                        "refControllerId": "ctl-1"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ctx-4",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "Delete",
+                        "refControllerId": "ctl-1"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ctx-5",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "ReadAll",
+                        "refControllerId": "ctl-1"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ctx-6",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "ReadByKey",
+                        "refControllerId": "ctl-1"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "16",
+                      "name": "Create",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-1",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-1",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "17",
+                          "name": "Validations",
+                          "nodes": [
+                            {
+                              "id": "val-1",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextValidation",
+                                "name": "RequiredFields",
+                                "type": "PropertyValidation",
+                                "order": 1,
+                                "execValidationId": "ent-val-1",
+                                "conditionalValidationId": null,
+                                "refContextId": "ctx-1"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "18",
+                              "name": "RequiredFields"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "19",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-1",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "SetDefaultValues",
+                                "type": "SetPropertyValue",
+                                "order": 1,
+                                "execRuleId": "ent-rul-1",
+                                "refContextId": "ctx-1"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            },
+                            {
+                              "id": "rul-2",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "SaveOrder",
+                                "type": "WriteOperationRule",
+                                "order": 2,
+                                "execRuleId": null,
+                                "refContextId": "ctx-1"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "20",
+                              "name": "SetDefaultValues"
+                            },
+                            {
+                              "id": "21",
+                              "name": "SaveOrder"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "22",
+                      "name": "Update",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-2",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-2",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "23",
+                          "name": "Validations",
+                          "nodes": [
+                            {
+                              "id": "val-2",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextValidation",
+                                "name": "RequiredFields",
+                                "type": "PropertyValidation",
+                                "order": 1,
+                                "execValidationId": "ent-val-1",
+                                "conditionalValidationId": null,
+                                "refContextId": "ctx-2"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "24",
+                              "name": "RequiredFields"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "25",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-3",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "SetDefaultValues",
+                                "type": "SetPropertyValue",
+                                "order": 1,
+                                "execRuleId": "ent-rul-1",
+                                "refContextId": "ctx-2"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            },
+                            {
+                              "id": "rul-4",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "UpdateOrder",
+                                "type": "WriteOperationRule",
+                                "order": 2,
+                                "execRuleId": null,
+                                "refContextId": "ctx-2"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "26",
+                              "name": "SetDefaultValues"
+                            },
+                            {
+                              "id": "27",
+                              "name": "UpdateOrder"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "28",
+                      "name": "UpdatePartial",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-3",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-3",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "29",
+                          "name": "Validations"
+                        },
+                        {
+                          "id": "30",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-5",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "UpdateOrder",
+                                "type": "WriteOperationRule",
+                                "order": 1,
+                                "execRuleId": null,
+                                "refContextId": "ctx-3"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "31",
+                              "name": "UpdateOrder"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "32",
+                      "name": "Delete",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-4",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-4",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "33",
+                          "name": "Validations"
+                        },
+                        {
+                          "id": "34",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-6",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "DeleteOrder",
+                                "type": "WriteOperationRule",
+                                "order": 1,
+                                "execRuleId": null,
+                                "refContextId": "ctx-4"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "35",
+                              "name": "DeleteOrder"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "36",
+                      "name": "ReadAll",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-5",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-5",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "37",
+                          "name": "Validations"
+                        },
+                        {
+                          "id": "38",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-7",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "ReadOrders",
+                                "type": "ReadOperationRule",
+                                "order": 1,
+                                "execRuleId": null,
+                                "refContextId": "ctx-5"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "39",
+                              "name": "ReadOrders"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "40",
+                      "name": "ReadByKey",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-6",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-6",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "41",
+                          "name": "Validations"
+                        },
+                        {
+                          "id": "42",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-8",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "ReadOrderByKey",
+                                "type": "ReadOperationRule",
+                                "order": 1,
+                                "execRuleId": null,
+                                "refContextId": "ctx-6"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "43",
+                              "name": "ReadOrderByKey"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "44",
+                  "name": "Validations",
+                  "nodes": [
+                    {
+                      "id": "ent-val-1",
+                      "type": "input",
+                      "data": {
+                        "elementType": "entityValidation",
+                        "name": "RequiredFieldsMustBeFilled",
+                        "type": "PropertyValidation",
+                        "refEntityId": "ent-1"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "prop-val-1",
+                      "type": "input",
+                      "data": {
+                        "elementType": "propertyValidation",
+                        "propertyName": "ShippingCost",
+                        "stopOnFirstRuleFailure": true,
+                        "forEachRule": false,
+                        "refValidationId": "ent-val-1"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "prop-val-2",
+                      "type": "input",
+                      "data": {
+                        "elementType": "propertyValidation",
+                        "propertyName": "CustomerId",
+                        "stopOnFirstRuleFailure": true,
+                        "forEachRule": false,
+                        "refValidationId": "ent-val-1"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "prop-val-rul-1",
+                      "type": "input",
+                      "data": {
+                        "elementType": "propertyValidationRule",
+                        "type": "IsNotEmpty",
+                        "expressions": null,
+                        "errorCode": "Err01",
+                        "message": "ShippingCost is required.",
+                        "refPropertyValidationId": "prop-val-1"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "prop-val-rul-2",
+                      "type": "input",
+                      "data": {
+                        "elementType": "propertyValidationRule",
+                        "type": "IsNotEmpty",
+                        "expressions": null,
+                        "errorCode": "Err02",
+                        "message": "CustomerId is required.",
+                        "refPropertyValidationId": "prop-val-2"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "45",
+                      "name": "RequiredFieldsMustBeFilled"
+                    }
+                  ]
+                },
+                {
+                  "id": "46",
+                  "name": "Rules",
+                  "nodes": [
+                    {
+                      "id": "ent-rul-1",
+                      "type": "input",
+                      "data": {
+                        "elementType": "entityRule",
+                        "name": "OrderDefaultValues",
+                        "type": "SetPropertyValue",
+                        "refEntityId": "ent-1"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "prop-rul-1",
+                      "type": "input",
+                      "data": {
+                        "elementType": "setPropertyValue",
+                        "propertyName": "ShippingCost",
+                        "expression": "Value(@ConstDouble::10)",
+                        "replacementType": "IfIsEmpty",
+                        "refRuleId": "ent-rul-1"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "47",
+                      "name": "OrderDefaultValues"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "48",
+              "name": "OrderQueryController"
+            }
+          ]
+        },
+        {
+          "id": "49",
+          "name": "CustomerService",
+          "nodes": [
+            {
+              "id": "ctl-3",
+              "type": "input",
+              "data": {
+                "elementType": "controller",
+                "name": "Customer",
+                "type": "CRUD",
+                "refServiceId": "svc-2",
+                "refEntityId": "ent-2"
+              },
+              "position": {
+                "x": 0,
+                "y": 50
+              },
+              "sourcePosition": "right"
+            },
+            {
+              "id": "ctl-4",
+              "type": "input",
+              "data": {
+                "elementType": "controller",
+                "name": "CustomerAddress",
+                "type": "CRUD",
+                "refServiceId": "svc-2",
+                "refEntityId": "ent-4"
+              },
+              "position": {
+                "x": 0,
+                "y": 50
+              },
+              "sourcePosition": "right"
+            },
+            {
+              "id": "ctl-5",
+              "type": "input",
+              "data": {
+                "elementType": "controller",
+                "name": "CustomerQuery",
+                "type": "QUERY",
+                "refServiceId": "svc-2",
+                "refEntityId": "ent-2"
+              },
+              "position": {
+                "x": 0,
+                "y": 50
+              },
+              "sourcePosition": "right"
+            }
+          ],
+          "children": [
+            {
+              "id": "50",
+              "name": "CustomerController",
+              "children": [
+                {
+                  "id": "51",
+                  "name": "Contexts",
+                  "nodes": [
+                    {
+                      "id": "ctx-7",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "Create",
+                        "refControllerId": "ctl-3"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ctx-8",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "Update",
+                        "refControllerId": "ctl-3"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ctx-9",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "Delete",
+                        "refControllerId": "ctl-3"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ctx-10",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "ReadAll",
+                        "refControllerId": "ctl-3"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ctx-11",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "ReadByKey",
+                        "refControllerId": "ctl-3"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "52",
+                      "name": "Create",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-7",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-7",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "53",
+                          "name": "Validations",
+                          "nodes": [
+                            {
+                              "id": "val-3",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextValidation",
+                                "name": "AddressMustExists",
+                                "type": "ExistsReferenceById",
+                                "order": 1,
+                                "execValidationId": "ent-val-2",
+                                "conditionalValidationId": "ent-val-4",
+                                "refContextId": "ctx-7"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            },
+                            {
+                              "id": "val-4",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextValidation",
+                                "name": "DataMustBeValid",
+                                "type": "PropertyValidation",
+                                "order": 2,
+                                "execValidationId": "ent-val-3",
+                                "conditionalValidationId": null,
+                                "refContextId": "ctx-7"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "54",
+                              "name": "DataMustBeValid"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "55",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-9",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "SaveCustomer",
+                                "type": "WriteOperationRule",
+                                "order": 1,
+                                "execRuleId": null,
+                                "refContextId": "ctx-7"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "56",
+                              "name": "SaveCustomer"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "57",
+                      "name": "Update",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-8",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-8",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "58",
+                          "name": "Validations",
+                          "nodes": [
+                            {
+                              "id": "val-5",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextValidation",
+                                "name": "AddressMustExists",
+                                "type": "ExistsReferenceById",
+                                "order": 1,
+                                "execValidationId": "ent-val-2",
+                                "conditionalValidationId": "ent-val-4",
+                                "refContextId": "ctx-8"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            },
+                            {
+                              "id": "val-6",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextValidation",
+                                "name": "DataMustBeValid",
+                                "type": "PropertyValidation",
+                                "order": 2,
+                                "execValidationId": "ent-val-2",
+                                "conditionalValidationId": null,
+                                "refContextId": "ctx-8"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "59",
+                              "name": "DataMustBeValid"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "60",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-10",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "UpdateCustomer",
+                                "type": "WriteOperationRule",
+                                "order": 1,
+                                "execRuleId": null,
+                                "refContextId": "ctx-8"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "61",
+                              "name": "UpdateCustomer"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "62",
+                      "name": "Delete",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-9",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-9",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "63",
+                          "name": "Validations"
+                        },
+                        {
+                          "id": "64",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-11",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "DeleteCustomer",
+                                "type": "WriteOperationRule",
+                                "order": 1,
+                                "execRuleId": null,
+                                "refContextId": "ctx-9"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "65",
+                              "name": "DeleteCustomer"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "66",
+                      "name": "ReadAll",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-10",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-10",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "67",
+                          "name": "Validations"
+                        },
+                        {
+                          "id": "68",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-12",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "ReadCustomers",
+                                "type": "ReadOperationRule",
+                                "order": 1,
+                                "execRuleId": null,
+                                "refContextId": "ctx-10"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "69",
+                              "name": "ReadCustomers"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "70",
+                      "name": "ReadByKey",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-11",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-11",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "71",
+                          "name": "Validations"
+                        },
+                        {
+                          "id": "72",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-13",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "ReadCustomerByKey",
+                                "type": "ReadOperationRule",
+                                "order": 1,
+                                "execRuleId": null,
+                                "refContextId": "ctx-11"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "73",
+                              "name": "ReadCustomerByKey"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "74",
+                  "name": "Validations",
+                  "nodes": [
+                    {
+                      "id": "ent-val-2",
+                      "type": "input",
+                      "data": {
+                        "elementType": "entityValidation",
+                        "name": "CustomerAddressIdMustExistsInDb",
+                        "type": "ExistsReferenceById",
+                        "refEntityId": "ent-2"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "exist-ref-val-1",
+                      "type": "input",
+                      "data": {
+                        "elementType": "existsReferenceValidation",
+                        "propertyName": "CustomerAddressId",
+                        "errorCode": "ErrDb01",
+                        "message": "CustomerAddressId must exists in DB.",
+                        "refValidationId": "ent-val-2"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ent-val-3",
+                      "type": "input",
+                      "data": {
+                        "elementType": "entityValidation",
+                        "name": "CustomerDataMustBeValid",
+                        "type": "PropertyValidation",
+                        "refEntityId": "ent-2"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "prop-val-3",
+                      "type": "input",
+                      "data": {
+                        "elementType": "propertyValidation",
+                        "propertyName": "Name",
+                        "stopOnFirstRuleFailure": true,
+                        "forEachRule": false,
+                        "refValidationId": "ent-val-3"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "prop-val-rul-3",
+                      "type": "input",
+                      "data": {
+                        "elementType": "propertyValidationRule",
+                        "type": "IsNotEmpty",
+                        "expressions": null,
+                        "errorCode": "Err03",
+                        "message": "Name is required.",
+                        "refPropertyValidationId": "prop-val-3"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "prop-val-rul-4",
+                      "type": "input",
+                      "data": {
+                        "elementType": "propertyValidationRule",
+                        "type": "IsLengthBetween",
+                        "expressions": [
+                          "Value(@ConstShort::1)",
+                          "Value(@ConstShort::100)"
+                        ],
+                        "errorCode": "Err04",
+                        "message": "Name length must be between 1 and 100 characters.",
+                        "refPropertyValidationId": "prop-val-3"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ent-val-4",
+                      "type": "input",
+                      "data": {
+                        "elementType": "entityValidation",
+                        "name": "CustomerAddressIdNotEmpty",
+                        "type": "PropertyValidation",
+                        "refEntityId": "ent-2"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "prop-val-4",
+                      "type": "input",
+                      "data": {
+                        "elementType": "propertyValidation",
+                        "propertyName": "CustomerAddressId",
+                        "stopOnFirstRuleFailure": true,
+                        "forEachRule": false,
+                        "refValidationId": "ent-val-4"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "prop-val-rul-5",
+                      "type": "input",
+                      "data": {
+                        "elementType": "propertyValidationRule",
+                        "type": "IsNotEmpty",
+                        "expressions": null,
+                        "errorCode": null,
+                        "message": null,
+                        "refPropertyValidationId": "prop-val-4"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "75",
+                      "name": "CustomerAddressIdMustExistsInDb"
+                    },
+                    {
+                      "id": "76",
+                      "name": "CustomerDataMustBeValid"
+                    },
+                    {
+                      "id": "77",
+                      "name": "CustomerAddressIdNotEmpty"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "78",
+              "name": "CustomerAddressController",
+              "children": [
+                {
+                  "id": "79",
+                  "name": "Contexts",
+                  "nodes": [
+                    {
+                      "id": "ctx-12",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "Create",
+                        "refControllerId": "ctl-4"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ctx-13",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "Update",
+                        "refControllerId": "ctl-4"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    },
+                    {
+                      "id": "ctx-14",
+                      "type": "input",
+                      "data": {
+                        "elementType": "controllerContext",
+                        "name": "ReadByKey",
+                        "refControllerId": "ctl-4"
+                      },
+                      "position": {
+                        "x": 0,
+                        "y": 50
+                      },
+                      "sourcePosition": "right"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "id": "80",
+                      "name": "Create",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-12",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-12",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "81",
+                          "name": "Validations",
+                          "nodes": [
+                            {
+                              "id": "val-7",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextValidation",
+                                "name": "MyCustomValidation",
+                                "type": "BlankValidation",
+                                "order": 1,
+                                "execValidationId": null,
+                                "conditionalValidationId": null,
+                                "refContextId": "ctx-12"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "82",
+                              "name": "MyCustomValidation"
+                            }
+                          ]
+                        },
+                        {
+                          "id": "83",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-14",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "MyCustomRule",
+                                "type": "BlankRule",
+                                "order": 1,
+                                "execRuleId": null,
+                                "refContextId": "ctx-12"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            },
+                            {
+                              "id": "rul-15",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "SaveCustomerAddress",
+                                "type": "WriteOperationRule",
+                                "order": 2,
+                                "execRuleId": null,
+                                "refContextId": "ctx-12"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "84",
+                              "name": "MyCustomRule"
+                            },
+                            {
+                              "id": "85",
+                              "name": "SaveCustomerAddress"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "86",
+                      "name": "Update",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-13",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-13",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "87",
+                          "name": "Validations"
+                        },
+                        {
+                          "id": "88",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-16",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "UpdateCustomerAddress",
+                                "type": "WriteOperationRule",
+                                "order": 1,
+                                "execRuleId": null,
+                                "refContextId": "ctx-13"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "89",
+                              "name": "UpdateCustomerAddress"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "id": "90",
+                      "name": "ReadByKey",
+                      "nodes": [
+                        {
+                          "id": "ctx-val-14",
+                          "type": "input",
+                          "data": {
+                            "name": "Validations"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        },
+                        {
+                          "id": "ctx-rul-14",
+                          "type": "input",
+                          "data": {
+                            "name": "Rules"
+                          },
+                          "position": {
+                            "x": 0,
+                            "y": 50
+                          },
+                          "sourcePosition": "right"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "id": "91",
+                          "name": "Validations"
+                        },
+                        {
+                          "id": "92",
+                          "name": "Rules",
+                          "nodes": [
+                            {
+                              "id": "rul-17",
+                              "type": "input",
+                              "data": {
+                                "elementType": "contextRule",
+                                "name": "ReadCustomerAddressByKey",
+                                "type": "ReadOperationRule",
+                                "order": 1,
+                                "execRuleId": null,
+                                "refContextId": "ctx-14"
+                              },
+                              "position": {
+                                "x": 0,
+                                "y": 50
+                              },
+                              "sourcePosition": "right"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "id": "93",
+                              "name": "ReadCustomerAddressByKey"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "94",
+              "name": "CustomerQueryController"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { useTranslation } from 'react-i18next';
 import {
   SolutionWrapper,
   LessonsCard,
@@ -19,7 +18,6 @@ import {
 } from './styles';
 
 import SolutionList from '../../../../components/SolutionList';
-import { useAppDispatch } from '../../../../store/reduxHooks';
 
 const Page = () => {
   return (

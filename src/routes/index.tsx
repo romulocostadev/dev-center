@@ -11,6 +11,8 @@ import Index from '../pages/ComponentsExample';
 
 const IndexRoutes = () => (
   <Routes>
+    <Route path="/settings" element={<h1>settings</h1>} />
+    <Route path="/help" element={<h1>help</h1>} />
     <Route path="/" element={<Solution />} />
     <Route path="/solutions" element={<Solution />}>
       <Route index element={<List />} />
@@ -24,6 +26,7 @@ const IndexRoutes = () => (
         <Route index element={<DataCanvas />} />
       </Route>
     </Route>
+
     <Route path="/components-example" element={<Index />} />
   </Routes>
 );

@@ -24,10 +24,10 @@ const LayoutSiderPage = () => {
     activeMenu = 'plugins';
   }
   if (path.pathname.includes('settings')) {
-    activeMenu = 'plugins';
+    activeMenu = 'settings';
   }
-  if (path.pathname.includes('plugins')) {
-    activeMenu = 'plugins';
+  if (path.pathname.includes('helper')) {
+    activeMenu = 'helper';
   }
 
   return (

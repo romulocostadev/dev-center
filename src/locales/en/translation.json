@@ -3,5 +3,16 @@
   "modal-new-entity-title": "New Entity",
   "required-field": "Required field",
   "button-create-title": "Create",
-  "date-time-format": "MMM dd, yyyy, HH:mm"
+  "date-time-format": "MMM dd, yyyy, HH:mm",
+  "welcome-beatrix": "Welcome to Beatrix!",
+  "how-to-get-started": "See how to get started...",
+  "title-lessons": "Lessons",
+  "learn-use-beatrix": "Learn to use the Beatrix",
+  "start-learning": "Start learning",
+  "connect-figma-title": "Connect Figma",
+  "connect-figma-subtitle": "Connect to your Figma account.",
+  "connect-to-figma": "Connect to Figma",
+  "data-input-title": "Data Input",
+  "data-input-subtitle": "Start a solution by entering data.",
+  "get-started": "Get Started"
 }

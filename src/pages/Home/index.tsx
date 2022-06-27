@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useTranslation } from 'react-i18next';
+import { useLocation, useNavigate } from 'react-router-dom';
 import {
   Home1,
   Title3,
@@ -27,40 +29,52 @@ import {
 } from './styles';
 
 const HomePage = () => {
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+
+  const pathParts = pathname.split('/');
+
+  const handleNavigateData = () => {
+    navigate(`/${pathParts[1]}/${pathParts[2]}/data`);
+  };
+
   return (
     <Home1>
       <Title3>
-        <WelcometoBeatrix>Welcome to Beatrix!</WelcometoBeatrix>
-        <Seehowtogetstarted>See how to get started...</Seehowtogetstarted>
+        <WelcometoBeatrix>{t('welcome-beatrix')}!</WelcometoBeatrix>
+        <Seehowtogetstarted>{t('how-to-get-started')}</Seehowtogetstarted>
       </Title3>
       <Cards>
         <LessonsCard>
           <CardVector>
             <VectorComponentundrawyoutube />
           </CardVector>
-          <Lessons>Lessons</Lessons>
-          <LearntousetheBeatrix>Learn to use the Beatrix.</LearntousetheBeatrix>
-          <ButtonsButton3 type="primary">Start learning</ButtonsButton3>
+          <Lessons>{t('title-lessons')}</Lessons>
+          <LearntousetheBeatrix>{t('learn-use-beatrix')}</LearntousetheBeatrix>
+          <ButtonsButton3 type="primary">{t('start-learning')}</ButtonsButton3>
         </LessonsCard>
         <FigmaCard>
           <CardVector1>
             <VectorComponentundrawprototyp />
           </CardVector1>
-          <ConnectFigma>Connect Figma</ConnectFigma>
+          <ConnectFigma>{t('connect-figma-title')}</ConnectFigma>
           <TextComponentconnect>
-            Connect to your Figma account.
+            {t('connect-figma-subtitle')}
           </TextComponentconnect>
-          <ButtonsButton4 type="primary">Connect to Figma</ButtonsButton4>
+          <ButtonsButton4 type="primary">
+            {t('connect-to-figma')}
+          </ButtonsButton4>
         </FigmaCard>
         <InputCard>
           <CardVector2>
             <Undrawdatainputfxv21 />
           </CardVector2>
-          <Datainput>Data input</Datainput>
-          <TextComponentstart>
-            Start a solution by entering data.
-          </TextComponentstart>
-          <CreateData type="primary">Get started</CreateData>
+          <Datainput>{t('data-input-title')}</Datainput>
+          <TextComponentstart>{t('data-input-subtitle')}</TextComponentstart>
+          <CreateData type="primary" onClick={handleNavigateData}>
+            {t('get-started')}
+          </CreateData>
         </InputCard>
       </Cards>
     </Home1>

@@ -21,7 +21,7 @@ import {
   InputBasic3,
   Prefix,
   Input,
-  Divider3,
+  // Divider3,
 } from './styles';
 
 const DataCanvasPage = () => {
@@ -54,7 +54,7 @@ const DataCanvasPage = () => {
                 </InputBasic3>
               </Input3>
             </CollapseBody>
-            <Divider3 />
+            {/* <Divider3 /> */}
           </CollapseItem>
         </CollapseProperties>
       </MenuGroup2>

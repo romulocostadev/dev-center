@@ -3,6 +3,8 @@ import {
   PartitionOutlined,
   DatabaseOutlined,
   ApiOutlined,
+  QuestionCircleOutlined,
+  SettingOutlined,
 } from '@ant-design/icons';
 import { Button } from 'antd';
 import styled from 'styled-components';
@@ -50,6 +52,16 @@ export const DatabaseOutlinedIcon = styled(DatabaseOutlined)`
 `;
 
 export const ApiOutlinedIcon = styled(ApiOutlined)`
+  color: #444444;
+  font-size: 16px;
+`;
+
+export const QuestionCircleOutlinedIcon = styled(QuestionCircleOutlined)`
+  color: #444444;
+  font-size: 16px;
+`;
+
+export const SettingOutlinedIcon = styled(SettingOutlined)`
   color: #444444;
   font-size: 16px;
 `;

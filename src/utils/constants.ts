@@ -15,7 +15,7 @@ export const menuList = [
 
 export const menuConfigList = [
   {
-    label: 'Setting',
+    label: 'Settings',
   },
   {
     label: 'Helper',

@@ -8,16 +8,21 @@ import GenericText from '../../components/Text';
 
 export const DataCanvas = styled.div`
   height: 100%;
-  width: 1424px;
-  box-sizing: border-box;
-  background-color: rgba(115, 70, 248, 0.019999999552965164);
+  width: 99%;
+  display: flex;
+  justify-content: flex-end;
+  /* box-sizing: border-box; */
+  /* background-color: rgba(115, 70, 248, 0.019999999552965164);
+   */
+  /* justify-content: space-around; */
+  background: rgba(115, 70, 248, 0.02);
+  /* padding-left: 200px; */
 `;
 export const CardCreatingAStructure = styled.div`
   height: 402px;
-  width: 322px;
-  left: 552px;
-  top: 24px;
-  position: absolute;
+  /* width: 322px; */
+  margin-right: 20%;
+
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -60,15 +65,14 @@ export const HandleNewInstance = styled(GenericCodeButton)`
   width: 117px;
   height: 32px;
   border-radius: 2px;
-  height: 32px;
 `;
 
 export const MenuGroup2 = styled.div`
-  height: 100%;
-  width: 240px;
+  /* height: 100%; */
+  /* width: 240px;
   left: 1184px;
   top: 0px;
-  position: absolute;
+  position: absolute; */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -176,9 +180,9 @@ export const Input = styled(GenericText)`
   width: 72px;
 `;
 
-export const Divider3 = styled.div`
-  height: 2px;
-  width: 242px;
-  outline: 1px solid rgba(0, 0, 0, 0.1);
-  outline-offset: -0.5px;
-`;
+// export const Divider3 = styled.div`
+//   height: 2px;
+//   width: 242px;
+//   outline: 1px solid rgba(0, 0, 0, 0.1);
+//   outline-offset: -0.5px;
+// `;
