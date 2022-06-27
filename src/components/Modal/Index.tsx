@@ -11,12 +11,10 @@ const Modal = () => {
 
   const handleOk = () => {
     dispatch(setModalData({ visible: false }));
-    console.log(handleOk);
   };
 
   const handleCancel = () => {
     dispatch(setModalData({ visible: false }));
-    console.log(handleCancel);
   };
 
   return (

@@ -17,15 +17,7 @@ export interface LoginRequest {
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://stage10.beatrix.io/',
-    // prepareHeaders: (headers, { getState }) => {
-    //   // By default, if we have a token in the store, let's use that for authenticated requests
-    //   // const { token } = (getState() as RootState)?.auth;
-    //   // if (token) {
-    //   //   headers.set('authorization', `Bearer ${token}`);
-    //   // }
-    //   return headers;
-    // },
+    baseUrl: process.env.REACT_APP_URL_API,
   }),
   endpoints: builder => ({
     login: builder.mutation<UserResponse, LoginRequest>({

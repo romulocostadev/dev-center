@@ -108,7 +108,7 @@ export const ButtonViewAllLessons = styled(GenericCodeButton)`
 `;
 
 export const SolutionsListWrapper = styled.div`
-  height: 348px;
+  /* height: 348px; */
   /* width: 1200px; */
   display: flex;
   flex-direction: column;
@@ -118,7 +118,7 @@ export const SolutionsListWrapper = styled.div`
   align-items: flex-start;
 `;
 export const MySolutions = styled.div`
-  height: 240px;
+  /* height: 240px; */
   width: 1200px;
   display: flex;
   box-sizing: border-box;
@@ -127,7 +127,7 @@ export const MySolutions = styled.div`
   align-items: flex-start;
 `;
 export const SolutionCard = styled.div`
-  height: 242px;
+  /* height: 242px; */
   width: 226px;
   display: flex;
   flex-direction: column;

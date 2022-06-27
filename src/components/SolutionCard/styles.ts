@@ -14,6 +14,11 @@ export const SolutionCard = styled.div`
   border-radius: 8px;
   padding: 12px;
   background-color: #ffffff;
+  &:hover {
+    -webkit-box-shadow: 2px 6px 20px 6px rgba(132, 93, 249, 0.068);
+    box-shadow: 2px 6px 20px 6px rgba(132, 93, 249, 0.068);
+    cursor: pointer;
+  }
 `;
 export const ProjectLogo = styled.div`
   height: 100px;

@@ -1,6 +1,7 @@
 {
   "name": "Nome",
   "modal-new-entity-title": "New Entity",
+  "modal-new-solution": "New Solution",
   "required-field": "Required field",
   "button-create-title": "Create",
   "date-time-format": "MMM dd, yyyy, HH:mm",
@@ -14,5 +15,16 @@
   "connect-to-figma": "Connect to Figma",
   "data-input-title": "Data Input",
   "data-input-subtitle": "Start a solution by entering data.",
-  "get-started": "Get Started"
+  "get-started": "Get Started",
+  "solutions-title": "Solutions",
+  "new-solution-btn": "New solution",
+  "sort-by": "Sort by:",
+  "sort-by-name": "name",
+  "sort-by-last-modified": "last modified",
+  "sort-by-creation": "creation",
+  "error-title": "Validation Errors",
+  "error-default-message": "There was an error sending the request!",
+  "sucess-title": "Success!",
+  "sucess-message": "Operation performed successfully!",
+  "solution-name-input-title": "Give me "
 }

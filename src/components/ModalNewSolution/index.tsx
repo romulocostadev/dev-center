@@ -1,4 +1,4 @@
-import { Form } from 'antd';
+import { Form, notification } from 'antd';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useAddSolutionMutation } from '../../services/solution';
@@ -23,16 +23,28 @@ const ModalNewSolution = () => {
   ] = useAddSolutionMutation();
   const dispatch = useAppDispatch();
   const handleSubmit = (values: any) => {
-    const res = addSolution({
+    addSolution({
       Name: values.name,
-      TemplateId: '83E96851-D5FC-4290-8D37-B6625363174F',
-    });
-    console.log('foo handle ok', res);
-    dispatch(
-      setModalData({
-        visible: false,
-      }),
-    );
+      TemplateId: process.env.REACT_APP_TEMPLATE_ID,
+    })
+      .unwrap()
+      .then(() => {
+        dispatch(
+          setModalData({
+            visible: false,
+          }),
+        );
+        notification.success({
+          message: t('sucess-title'),
+          description: t('sucess-message'),
+        });
+      })
+      .catch(error => {
+        notification.error({
+          message: t('error-title'),
+          description: error.data.title || t('error-default-message'),
+        });
+      });
   };
 
   return (
@@ -43,7 +55,7 @@ const ModalNewSolution = () => {
             name="name"
             rules={[{ required: true, message: t('required-field') }]}
           >
-            <InputBasic placeholder="Give me a nice name" />
+            <InputBasic placeholder={t('solution-name-input-title')} />
           </GenericFormItem>
         </Frame>
       </InputsWrapper>

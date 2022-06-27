@@ -38,6 +38,9 @@ export const Beatrix1 = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   padding: 16px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 export const Vector14840549090884 = styled.div`
   height: 16px;
