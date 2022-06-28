@@ -8,7 +8,7 @@ import GenericText from '../../components/Text';
 
 export const DataCanvas = styled.div`
   height: 100%;
-  /* width: 99%; */
+  width: 100%;
   display: flex;
   justify-content: flex-end;
   /* box-sizing: border-box; */
@@ -16,7 +16,22 @@ export const DataCanvas = styled.div`
    */
   /* justify-content: space-around; */
   background: rgba(115, 70, 248, 0.02);
+  flex-direction: column;
   /* padding-left: 200px; */
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex: 1;
+  margin: 15px;
+`;
+
+export const ReactFlowWrapper = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  flex: 100;
 `;
 export const CardCreatingAStructure = styled.div`
   height: 402px;

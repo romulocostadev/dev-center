@@ -402,6 +402,12 @@ export const counterSlice = createSlice({
         state.activeWorkSpace.nodes = action.payload;
       }
     },
+    updateActiveWorkSpaceCurrentSelection: (
+      state,
+      action: PayloadAction<any>,
+    ) => {
+      state.activeWorkSpace.currentSelection = action.payload;
+    },
   },
   extraReducers: builder => {
     builder.addMatcher(
@@ -432,7 +438,11 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { setSolutions, updateActiveWorkSpace } = counterSlice.actions;
+export const {
+  setSolutions,
+  updateActiveWorkSpace,
+  updateActiveWorkSpaceCurrentSelection,
+} = counterSlice.actions;
 
 export const solutionsSortByName = (state: RootState) => {
   return state.solutions.solutions

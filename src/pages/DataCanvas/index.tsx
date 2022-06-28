@@ -1,3 +1,5 @@
+import { EllipsisOutlined, PlusCircleFilled } from '@ant-design/icons';
+import { Button, Dropdown, Menu } from 'antd';
 import React, { useEffect } from 'react';
 import ReactFlow, {
   useNodesState,
@@ -30,6 +32,8 @@ import {
   InputBasic3,
   Prefix,
   Input,
+  ButtonWrapper,
+  ReactFlowWrapper,
   // Divider3,
 } from './styles';
 
@@ -39,6 +43,9 @@ const nodeTypes = {
 
 const DataCanvasPage = () => {
   const nodes1 = useAppSelector(state => state.solutions.activeWorkSpace.nodes);
+  const currentSelection = useAppSelector(
+    state => state.solutions.activeWorkSpace.currentSelection,
+  );
 
   const [nodes, setNodes, onNodesChange] = useNodesState(nodes1);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -129,25 +136,46 @@ const DataCanvasPage = () => {
       },
     ]);
   }, []);
-
+  const menu = (
+    <Menu
+      onClick={() => console.log('click')}
+      items={[
+        {
+          label: 'Add entity',
+          key: '2',
+          icon: <PlusCircleFilled />,
+        },
+      ]}
+    />
+  );
   return (
     <DataCanvas>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        // onConnect={onConnect}
-        style={{ width: 800, height: 600 }}
-        nodeTypes={nodeTypes}
-        // connectionLineStyle={connectionLineStyle}
-        snapToGrid
-        snapGrid={[20, 20]}
-        defaultZoom={1.5}
-        fitView
-        attributionPosition="bottom-left"
-      >
-        {/* <MiniMap
+      <ButtonWrapper>
+        <Dropdown.Button overlay={menu} className="icon-rotate">
+          {currentSelection?.title}
+        </Dropdown.Button>
+      </ButtonWrapper>
+      <ReactFlowWrapper>
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          // onConnect={onConnect}
+
+          nodeTypes={nodeTypes}
+          // connectionLineStyle={connectionLineStyle}
+          snapToGrid
+          snapGrid={[20, 20]}
+          defaultZoom={1.5}
+          fitView
+          attributionPosition="bottom-left"
+        >
+          <Controls />
+        </ReactFlow>
+      </ReactFlowWrapper>
+
+      {/* <MiniMap
           nodeStrokeColor={n => {
             if (n.type === 'input') return '#0041d0';
             if (n.type === 'selectorNode') return bgColor;
@@ -158,8 +186,7 @@ const DataCanvasPage = () => {
             return '#fff';
           }}
         /> */}
-        <Controls />
-      </ReactFlow>
+
       {/* <CardCreatingAStructure>
         <VectorFrame>
           <CreatingAStructureVector />

@@ -6,7 +6,10 @@ import { FrownFilled, FrownOutlined, PlusOutlined } from '@ant-design/icons';
 import Tree, { DataNode, TreeProps } from 'antd/lib/tree';
 import { LayoutSider1 } from './styles';
 import { useAppDispatch, useAppSelector } from '../../../store/reduxHooks';
-import { updateActiveWorkSpace } from '../../../store/solution/solutionSlice';
+import {
+  updateActiveWorkSpace,
+  updateActiveWorkSpaceCurrentSelection,
+} from '../../../store/solution/solutionSlice';
 
 const LayoutSiderPage = () => {
   const solution = useAppSelector(state => state.solutions.solution);
@@ -377,6 +380,7 @@ const LayoutSiderPage = () => {
     const onSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
       console.log('selected', selectedKeys, info);
       dispatch(updateActiveWorkSpace(info?.node?.nodes));
+      dispatch(updateActiveWorkSpaceCurrentSelection(info?.node));
     };
 
     const onCheck: TreeProps['onCheck'] = (checkedKeys, info) => {
@@ -388,19 +392,8 @@ const LayoutSiderPage = () => {
         defaultExpandedKeys={['1']}
         onSelect={onSelect}
         onCheck={onCheck}
+        onRightClick={foo => console.log(foo)}
         treeData={[solution] as DataNode}
-        // titleRender={node => (
-        //   <div>
-        //     {node.title}{' '}
-        //     <button
-        //       type="button"
-        //       style={{ zIndex: 9999999 }}
-        //       onClick={() => console.log('oi')}
-        //     >
-        //       ...
-        //     </button>{' '}
-        //   </div>
-        // )}
       />
     );
   };

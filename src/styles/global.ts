@@ -44,10 +44,7 @@ const GlobalStyle = createGlobalStyle`
   .ant-collapse > .ant-collapse-item > .ant-collapse-header {
     padding: 0px
   }
-  .ant-menu-sub.ant-menu-inline, .ant-menu-submenu-arrow, .ant-menu .ant-menu-item, .ant-menu{
-    background: #000 !important;
-    color: #fff !important;
-  }
+ 
   .ant-tabs-nav{
     margin-bottom: 0px !important;
   }
@@ -115,6 +112,27 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal !important;
     color: rgba(0, 0, 0, 0.85) !important;
     font-family: 'Roboto' !important;
+  }
+
+  .ant-tabs-nav{
+    margin-bottom: 0px !important;
+  }
+  .ant-slide-up-appear, .ant-slide-up-enter, .ant-slide-up-leave {
+      animation-duration: 0s !important;
+  }
+  .nonanimating-button{
+    & [ant-click-animating-without-extra-node]:after {
+      animation: 0s !important;
+      // border-color: transparent !important;
+    }
+  }
+ .original .ant-modal-body{
+    padding: 20px !important;
+  }
+  .original .ant-modal-footer{
+  }
+  .icon-rotate .anticon-ellipsis{
+    transform: rotate(270deg) !important;
   }
 `;
 
