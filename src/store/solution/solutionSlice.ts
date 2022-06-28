@@ -398,15 +398,7 @@ export const counterSlice = createSlice({
       state.solution = action.payload.solution;
     },
     updateActiveWorkSpace: (state, action: PayloadAction<any[]>) => {
-      if (action.payload?.length > 0) {
-        state.activeWorkSpace.nodes = action.payload;
-      }
-    },
-    updateActiveWorkSpaceCurrentSelection: (
-      state,
-      action: PayloadAction<any>,
-    ) => {
-      state.activeWorkSpace.currentSelection = action.payload;
+      state.activeWorkSpace = action.payload;
     },
   },
   extraReducers: builder => {
@@ -438,11 +430,7 @@ export const counterSlice = createSlice({
   },
 });
 
-export const {
-  setSolutions,
-  updateActiveWorkSpace,
-  updateActiveWorkSpaceCurrentSelection,
-} = counterSlice.actions;
+export const { setSolutions, updateActiveWorkSpace } = counterSlice.actions;
 
 export const solutionsSortByName = (state: RootState) => {
   return state.solutions.solutions

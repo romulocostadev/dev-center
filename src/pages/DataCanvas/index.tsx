@@ -196,8 +196,8 @@ const DataCanvasPage = () => {
           A solution needs a instance.
         </Asolutionneedsainstance>
         <HandleNewInstance type="primary">New instance</HandleNewInstance>
-      </CardCreatingAStructure>
-      <MenuGroup2>
+      </CardCreatingAStructure> */}
+      {/* <MenuGroup2>
         <CollapseProperties>
           <CollapseItem>
             <CollapseHead>
@@ -214,7 +214,6 @@ const DataCanvasPage = () => {
                 </InputBasic3>
               </Input3>
             </CollapseBody>
-            <Divider3 />
           </CollapseItem>
         </CollapseProperties>
       </MenuGroup2> */}
