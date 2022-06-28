@@ -116,6 +116,24 @@ const GlobalStyle = createGlobalStyle`
     color: rgba(0, 0, 0, 0.85) !important;
     font-family: 'Roboto' !important;
   }
+  .react-flow__node {
+    cursor: -webkit-grab;
+    cursor: auto !important;
+}
+
+  .react-flow__node.react-flow__node-customNode.nopan.selectable {
+    border: none !important;
+    padding: 0px !important;
+  }
+
+  .react-flow__handle.react-flow__handle-top.nodrag.target.connectable{
+    background: transparent !important;
+    border: none !important
+  }
+
+  .react-flow__node.react-flow__node-customNode.nopan.selectable{
+    min-width: 234px !important
+  }
 `;
 
 export default GlobalStyle;
