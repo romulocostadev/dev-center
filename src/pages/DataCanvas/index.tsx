@@ -142,32 +142,33 @@ const DataCanvasPage = () => {
           </Button>
         )}
       </ButtonWrapper>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        style={{ width: 1248, height: 600 }}
-        nodeTypes={nodeTypes}
-        snapToGrid
-        snapGrid={[20, 20]}
-        defaultZoom={1.5}
-        fitView
-        attributionPosition="bottom-left"
-      >
-        <MiniMap
-          nodeStrokeColor={(n: any) => {
-            if (n.type === 'input') return '#0041d0';
-            if (n.type === 'selectorNode') return bgColor;
-            if (n.type === 'output') return '#ff0072';
-          }}
-          nodeColor={n => {
-            if (n.type === 'selectorNode') return bgColor;
-            return '#fff';
-          }}
-        />
-        <Controls />
-      </ReactFlow>
+      <ReactFlowWrapper>
+        <ReactFlow
+          nodes={nodes}
+          edges={edges}
+          onNodesChange={onNodesChange}
+          onEdgesChange={onEdgesChange}
+          nodeTypes={nodeTypes}
+          snapToGrid
+          snapGrid={[20, 20]}
+          defaultZoom={1.5}
+          fitView
+          attributionPosition="bottom-left"
+        >
+          <MiniMap
+            nodeStrokeColor={(n: any) => {
+              if (n.type === 'input') return '#0041d0';
+              if (n.type === 'selectorNode') return bgColor;
+              if (n.type === 'output') return '#ff0072';
+            }}
+            nodeColor={n => {
+              if (n.type === 'selectorNode') return bgColor;
+              return '#fff';
+            }}
+          />
+          <Controls />
+        </ReactFlow>
+      </ReactFlowWrapper>
       {/* <CardCreatingAStructure>
         <VectorFrame>
           <CreatingAStructureVector />
