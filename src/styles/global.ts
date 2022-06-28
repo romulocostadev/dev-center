@@ -44,7 +44,7 @@ const GlobalStyle = createGlobalStyle`
   .ant-collapse > .ant-collapse-item > .ant-collapse-header {
     padding: 0px
   }
- 
+
   .ant-tabs-nav{
     margin-bottom: 0px !important;
   }
@@ -112,6 +112,24 @@ const GlobalStyle = createGlobalStyle`
     font-style: normal !important;
     color: rgba(0, 0, 0, 0.85) !important;
     font-family: 'Roboto' !important;
+  }
+  .react-flow__node {
+    cursor: -webkit-grab;
+    cursor: auto !important;
+}
+
+  .react-flow__node.react-flow__node-customNode.nopan.selectable {
+    border: none !important;
+    padding: 0px !important;
+  }
+
+  .react-flow__handle.react-flow__handle-top.nodrag.target.connectable{
+    background: transparent !important;
+    border: none !important
+  }
+
+  .react-flow__node.react-flow__node-customNode.nopan.selectable{
+    min-width: 234px !important
   }
 
   .ant-tabs-nav{

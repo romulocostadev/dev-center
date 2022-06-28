@@ -1,20 +1,18 @@
+import React, { useEffect, useMemo, useState } from 'react';
 import {
   EllipsisOutlined,
   PlusCircleFilled,
   PlusCircleOutlined,
 } from '@ant-design/icons';
 import { Button, Dropdown, Menu } from 'antd';
-import React, { useEffect } from 'react';
 import ReactFlow, {
   useNodesState,
   useEdgesState,
-  addEdge,
   MiniMap,
   Controls,
-  Position,
 } from 'react-flow-renderer';
+import CardsAuditableEntityPage from '../../components/CardsAuditableEntity';
 import { useAppSelector } from '../../store/reduxHooks';
-import DataTeste from './ColorSelectorNode';
 import {
   DataCanvas,
   CardCreatingAStructure,
@@ -41,22 +39,39 @@ import {
   // Divider3,
 } from './styles';
 
-const nodeTypes = {
-  selectorNode: DataTeste,
-};
+// const nodeTypes = {
+//   selectorNode: CardsAuditableEntityPage,
+//   teste: ,
+// };
 
+const initBgColor = '#1A192B';
 const DataCanvasPage = () => {
-  const nodes1 = useAppSelector(state => state.solutions.activeWorkSpace.nodes);
   const properties = useAppSelector(
     state => state.solutions.activeWorkSpace.properties,
   );
 
-  const [nodes, setNodes, onNodesChange] = useNodesState(nodes1);
+  const nodeReducer = useAppSelector(
+    state => state.solutions.activeWorkSpace.nodes,
+  );
+
+  const currentSelection = useAppSelector(
+    state => state.solutions.activeWorkSpace.currentSelection,
+  );
+
+  const [nodes, setNodes, onNodesChange] = useNodesState(nodeReducer);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [bgColor, setBgColor] = useState(initBgColor);
 
   useEffect(() => {
-    setNodes(nodes1);
-  }, [nodes1, setNodes]);
+    setNodes(nodeReducer);
+  }, [nodeReducer, setNodes]);
+
+  const nodeTypes = useMemo(
+    () => ({
+      customNode: CardsAuditableEntityPage,
+    }),
+    [],
+  );
 
   const getButtonTitle = (elementType: string) => {
     switch (elementType) {
@@ -91,39 +106,6 @@ const DataCanvasPage = () => {
         }),
       );
     };
-
-    // setNodes([
-    //   {
-    //     id: 'dbi-1',
-    //     type: 'input',
-    //     data: {
-    //       elementType: 'dbInstance',
-    //       title: 'PostgreSqlInstance',
-    //       type: 'PostgreSql',
-    //       isRelationalDb: true,
-    //     },
-    //     position: {
-    //       x: 0,
-    //       y: 50,
-    //     },
-    //     sourcePosition: Position.Right,
-    //   },
-    //   {
-    //     id: 'dbi-2',
-    //     type: 'input',
-    //     data: {
-    //       elementType: 'dbInstance',
-    //       title: 'SqlServerInstance',
-    //       type: 'SqlServer',
-    //       isRelationalDb: true,
-    //     },
-    //     position: {
-    //       x: 0,
-    //       y: 50,
-    //     },
-    //     sourcePosition: 'right',
-    //   },
-    // ]);
 
     setEdges([
       {
@@ -160,28 +142,21 @@ const DataCanvasPage = () => {
           </Button>
         )}
       </ButtonWrapper>
-      <ReactFlowWrapper>
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          // onConnect={onConnect}
-
-          nodeTypes={nodeTypes}
-          // connectionLineStyle={connectionLineStyle}
-          snapToGrid
-          snapGrid={[20, 20]}
-          defaultZoom={1.5}
-          fitView
-          attributionPosition="bottom-left"
-        >
-          <Controls />
-        </ReactFlow>
-      </ReactFlowWrapper>
-
-      {/* <MiniMap
-          nodeStrokeColor={n => {
+      <ReactFlow
+        nodes={nodes}
+        edges={edges}
+        onNodesChange={onNodesChange}
+        onEdgesChange={onEdgesChange}
+        style={{ width: 1248, height: 600 }}
+        nodeTypes={nodeTypes}
+        snapToGrid
+        snapGrid={[20, 20]}
+        defaultZoom={1.5}
+        fitView
+        attributionPosition="bottom-left"
+      >
+        <MiniMap
+          nodeStrokeColor={(n: any) => {
             if (n.type === 'input') return '#0041d0';
             if (n.type === 'selectorNode') return bgColor;
             if (n.type === 'output') return '#ff0072';
@@ -190,8 +165,9 @@ const DataCanvasPage = () => {
             if (n.type === 'selectorNode') return bgColor;
             return '#fff';
           }}
-        /> */}
-
+        />
+        <Controls />
+      </ReactFlow>
       {/* <CardCreatingAStructure>
         <VectorFrame>
           <CreatingAStructureVector />

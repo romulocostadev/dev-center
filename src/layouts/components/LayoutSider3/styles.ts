@@ -19,6 +19,8 @@ export const LayoutSider1 = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   margin: 2px;
+  border-right: 1px solid #ccc;
+  overflow-x: scroll;
 `;
 export const MenuGroup1 = styled.div`
   height: 100%;

@@ -39,7 +39,7 @@ const initialState: SolutionProps = {
             nodes: [
               {
                 id: 'dbi-1',
-                type: 'input',
+                type: 'customNode',
                 data: {
                   elementType: 'dbInstance',
                   title: 'PostgreSqlInstance',
@@ -54,7 +54,7 @@ const initialState: SolutionProps = {
               },
               {
                 id: 'dbi-2',
-                type: 'input',
+                type: 'customNode',
                 data: {
                   elementType: 'dbInstance',
                   title: 'SqlServerInstance',
@@ -72,10 +72,16 @@ const initialState: SolutionProps = {
               {
                 key: '4',
                 title: 'PostgreSqlInstance',
+                // properties: {
+                //   elementType: 'dbInstance',
+                //   title: 'SqlServerInstance',
+                //   type: 'SqlServer',
+                //   isRelationalDb: true,
+                // },
                 nodes: [
                   {
                     id: 'db-1',
-                    type: 'input',
+                    type: 'customNode',
                     data: {
                       elementType: 'database',
                       title: 'OrderDb',
@@ -90,8 +96,8 @@ const initialState: SolutionProps = {
                     sourcePosition: 'right',
                   },
                   {
-                    key: 'db-3',
-                    type: 'input',
+                    id: 'db-3',
+                    type: 'customNode',
                     data: {
                       elementType: 'database',
                       title: 'CustomerDb',
@@ -113,7 +119,8 @@ const initialState: SolutionProps = {
                     nodes: [
                       {
                         id: 'ent-1',
-                        type: 'selectorNode',
+                        type: 'customNode',
+                        position: { x: 0, y: 0 },
                         data: {
                           elementType: 'entity',
                           title: 'Order',
@@ -167,10 +174,6 @@ const initialState: SolutionProps = {
                           border: '1px solid #777',
                           padding: 10,
                         },
-                        position: {
-                          x: 300,
-                          y: 50,
-                        },
                       },
                     ],
                     children: [
@@ -186,7 +189,7 @@ const initialState: SolutionProps = {
                     nodes: [
                       {
                         id: 'ent-2',
-                        type: 'selectorNode',
+                        type: 'customNode',
                         data: {
                           elementType: 'entity',
                           title: 'Customer',
@@ -263,7 +266,7 @@ const initialState: SolutionProps = {
                       },
                       {
                         id: 'ent-3',
-                        type: 'output',
+                        type: 'customNode',
                         data: {
                           elementType: 'entity',
                           title: 'Metadata',
@@ -297,7 +300,7 @@ const initialState: SolutionProps = {
                       },
                       {
                         id: 'ent-4',
-                        type: 'output',
+                        type: 'customNode',
                         data: {
                           elementType: 'entity',
                           title: 'CustomerAddress',
@@ -352,8 +355,8 @@ const initialState: SolutionProps = {
                 title: 'SqlServerInstance',
                 nodes: [
                   {
-                    key: 'db-2',
-                    type: 'input',
+                    id: 'db-2',
+                    type: 'customNode',
                     data: {
                       elementType: 'database',
                       title: 'IdentityDb',
