@@ -1,14 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import ReactFlow, {
   useNodesState,
   useEdgesState,
-  addEdge,
   MiniMap,
   Controls,
-  Position,
 } from 'react-flow-renderer';
+import CardsAuditableEntityPage from '../../components/CardsAuditableEntity';
 import { useAppSelector } from '../../store/reduxHooks';
-import DataTeste from './ColorSelectorNode';
 import {
   DataCanvas,
   CardCreatingAStructure,
@@ -33,19 +31,31 @@ import {
   // Divider3,
 } from './styles';
 
-const nodeTypes = {
-  selectorNode: DataTeste,
-};
+// const nodeTypes = {
+//   selectorNode: CardsAuditableEntityPage,
+//   teste: ,
+// };
 
+const initBgColor = '#1A192B';
 const DataCanvasPage = () => {
-  const nodes1 = useAppSelector(state => state.solutions.activeWorkSpace.nodes);
+  const nodeReducer = useAppSelector(
+    state => state.solutions.activeWorkSpace.nodes,
+  );
 
-  const [nodes, setNodes, onNodesChange] = useNodesState(nodes1);
+  const [nodes, setNodes, onNodesChange] = useNodesState(nodeReducer);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
+  const [bgColor, setBgColor] = useState(initBgColor);
 
   useEffect(() => {
     setNodes(nodes1);
   }, [nodes1, setNodes]);
+
+  const nodeTypes = useMemo(
+    () => ({
+      customNode: CardsAuditableEntityPage,
+    }),
+    [],
+  );
 
   useEffect(() => {
     const onChange = (event: any) => {
@@ -69,39 +79,6 @@ const DataCanvasPage = () => {
         }),
       );
     };
-
-    // setNodes([
-    //   {
-    //     id: 'dbi-1',
-    //     type: 'input',
-    //     data: {
-    //       elementType: 'dbInstance',
-    //       title: 'PostgreSqlInstance',
-    //       type: 'PostgreSql',
-    //       isRelationalDb: true,
-    //     },
-    //     position: {
-    //       x: 0,
-    //       y: 50,
-    //     },
-    //     sourcePosition: Position.Right,
-    //   },
-    //   {
-    //     id: 'dbi-2',
-    //     type: 'input',
-    //     data: {
-    //       elementType: 'dbInstance',
-    //       title: 'SqlServerInstance',
-    //       type: 'SqlServer',
-    //       isRelationalDb: true,
-    //     },
-    //     position: {
-    //       x: 0,
-    //       y: 50,
-    //     },
-    //     sourcePosition: 'right',
-    //   },
-    // ]);
 
     setEdges([
       {
@@ -137,18 +114,16 @@ const DataCanvasPage = () => {
         edges={edges}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
-        // onConnect={onConnect}
-        style={{ width: 800, height: 600 }}
+        style={{ width: 1248, height: 600 }}
         nodeTypes={nodeTypes}
-        // connectionLineStyle={connectionLineStyle}
         snapToGrid
         snapGrid={[20, 20]}
         defaultZoom={1.5}
         fitView
         attributionPosition="bottom-left"
       >
-        {/* <MiniMap
-          nodeStrokeColor={n => {
+        <MiniMap
+          nodeStrokeColor={(n: any) => {
             if (n.type === 'input') return '#0041d0';
             if (n.type === 'selectorNode') return bgColor;
             if (n.type === 'output') return '#ff0072';
@@ -157,7 +132,7 @@ const DataCanvasPage = () => {
             if (n.type === 'selectorNode') return bgColor;
             return '#fff';
           }}
-        /> */}
+        />
         <Controls />
       </ReactFlow>
       {/* <CardCreatingAStructure>

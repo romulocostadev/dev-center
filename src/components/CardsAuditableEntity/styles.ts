@@ -1,18 +1,19 @@
 import styled from 'styled-components';
 
+import { TableOutlined } from '@ant-design/icons';
 import InConnector1Image from './assets/2043_176062.png';
 import Vector2Image from './assets/I2043_176066_125_50204.png';
 import IconOutlinedPlusImage from './assets/I2043_176069_125_68244.png';
 import ExitConnector1Image from './assets/2043_176071.png';
 import GenericCodeButton from '../Button';
 import GenericText from '../Text';
+import sqlServerIcon from './assets/sqlServer.png';
+import postGresSqlIcon from './assets/post.svg';
+import databaseIcon from './assets/database.svg';
 
 export const CardsAuditableEntity = styled.div`
-  height: 186px;
-  width: 224px;
-  left: 496px;
-  top: 88px;
-  position: absolute;
+  /* height: 186px; */
+  /* min-width: 224px; */
   display: flex;
   flex-direction: column;
   border: 1px solid #dadada;
@@ -21,10 +22,19 @@ export const CardsAuditableEntity = styled.div`
   align-items: flex-start;
   border-radius: 8px;
   background-color: #ffffff;
+
+  &:active {
+    border: 1px solid #9970ff;
+  }
+
+  &:hover {
+    border: 1px solid #9970ff;
+    /* border-radius: 2px; */
+  }
 `;
 export const MainInfo = styled.div`
   height: 40px;
-  width: 222px;
+  width: 100%;
   display: flex;
   box-sizing: border-box;
   justify-content: flex-start;
@@ -48,7 +58,7 @@ export const InConnector1 = styled.div`
 `;
 export const Title13 = styled.div`
   height: 40px;
-  width: 214px;
+  width: 100%;
   display: flex;
   box-sizing: border-box;
   gap: 12px;
@@ -59,12 +69,12 @@ export const Title13 = styled.div`
 `;
 export const Title14 = styled.div`
   height: 22px;
-  width: 162px;
+  width: 100%;
   display: flex;
   box-sizing: border-box;
   gap: 8px;
   justify-content: flex-start;
-  align-items: flex-end;
+  align-items: center;
 `;
 export const Logo = styled.div`
   height: 22px;
@@ -78,32 +88,32 @@ export const Logo = styled.div`
 export const IconOutlinedTable = styled.div`
   height: 16px;
   width: 16px;
-  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 export const Vector2 = styled.div`
   height: 11px;
   width: 14px;
-  left: 1px;
-  top: 2.5px;
-  position: inherit;
-  box-sizing: border-box;
-  background-color: #444444;
+  /* left: 1px; */
+  /* top: 2.5px; */
+  /* position: inherit; */
   background: url(${Vector2Image});
-  background-repeat: no-repeat;
 `;
 export const Name390 = styled(GenericText)`
   font-weight: 500;
   color: rgba(0, 0, 0, 0.85);
   margin: 0px;
-  width: 39px;
+  /* width: 39px; */
   font-size: 14px;
+  width: 100%;
 `;
 
 export const AuditableEntity81 = styled(GenericText)`
   font-size: 12px;
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
-  width: 100px;
+  width: 100%;
   font-weight: 400;
 `;
 
@@ -157,41 +167,52 @@ export const Divider2 = styled.div`
   outline-offset: -0.5px;
 `;
 export const SecondaryInfo = styled.div`
-  height: 116px;
-  width: 222px;
+  /* height: 116px; */
+  width: 100%;
   display: flex;
   flex-direction: column;
-  box-sizing: border-box;
   gap: 4px;
   justify-content: flex-start;
   align-items: flex-start;
   padding: 4px 8px 4px 8px;
   background-color: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 `;
 export const CardsInfo = styled.div`
-  height: 24px;
+  /* height: 24px; */
   width: 206px;
   display: flex;
-  box-sizing: border-box;
   gap: 4px;
   justify-content: flex-start;
   align-items: center;
   border-radius: 2px;
   padding: 2px 8px 2px 8px;
+  cursor: pointer;
+
+  &:hover {
+    border: 1px solid #9970ff;
+    border-radius: 2px;
+  }
+
+  &:active {
+    background: #f6f0ff;
+    border-radius: 2px;
+  }
 `;
 export const Name391 = styled(GenericText)`
   font-size: 12px;
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
-  width: 69px;
   font-weight: 400;
+  width: auto;
 `;
 
 export const Value342 = styled(GenericText)`
   font-size: 12px;
   color: rgba(0, 0, 0, 0.85);
   margin: 0px;
-  width: 26px;
   font-weight: 400;
 `;
 
@@ -259,6 +280,7 @@ export const CardsInfo3 = styled.div`
   align-items: center;
   border-radius: 2px;
   padding: 2px 8px 2px 8px;
+  cursor: pointer;
 `;
 export const Name394 = styled(GenericText)`
   font-size: 12px;
@@ -291,5 +313,31 @@ export const ButtonsButton22 = styled(GenericCodeButton)`
   width: 16px;
   height: 16px;
   border-radius: 2px;
+  height: 16px;
+`;
+
+export const SqlServerIcon = styled.img.attrs({
+  src: sqlServerIcon,
+})`
+  width: 16px;
+  height: 16px;
+`;
+
+export const PostGreSQLIcon = styled.img.attrs({
+  src: postGresSqlIcon,
+})`
+  width: 16px;
+  height: 16px;
+`;
+
+export const EntityIcon = styled(TableOutlined)`
+  width: 16px;
+  height: 16px;
+`;
+
+export const DatabaseIcon = styled.img.attrs({
+  src: databaseIcon,
+})`
+  width: 16px;
   height: 16px;
 `;
