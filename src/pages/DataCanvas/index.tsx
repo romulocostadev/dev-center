@@ -1,4 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
+import { EllipsisOutlined, PlusCircleFilled } from '@ant-design/icons';
+import { Button, Dropdown, Menu } from 'antd';
 import ReactFlow, {
   useNodesState,
   useEdgesState,
@@ -28,6 +30,8 @@ import {
   InputBasic3,
   Prefix,
   Input,
+  ButtonWrapper,
+  ReactFlowWrapper,
   // Divider3,
 } from './styles';
 
@@ -42,13 +46,17 @@ const DataCanvasPage = () => {
     state => state.solutions.activeWorkSpace.nodes,
   );
 
+  const currentSelection = useAppSelector(
+    state => state.solutions.activeWorkSpace.currentSelection,
+  );
+
   const [nodes, setNodes, onNodesChange] = useNodesState(nodeReducer);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [bgColor, setBgColor] = useState(initBgColor);
 
   useEffect(() => {
-    setNodes(nodes1);
-  }, [nodes1, setNodes]);
+    setNodes(nodeReducer);
+  }, [nodeReducer, setNodes]);
 
   const nodeTypes = useMemo(
     () => ({
@@ -106,7 +114,18 @@ const DataCanvasPage = () => {
       },
     ]);
   }, []);
-
+  const menu = (
+    <Menu
+      onClick={() => console.log('click')}
+      items={[
+        {
+          label: 'Add entity',
+          key: '2',
+          icon: <PlusCircleFilled />,
+        },
+      ]}
+    />
+  );
   return (
     <DataCanvas>
       <ReactFlow
@@ -144,8 +163,8 @@ const DataCanvasPage = () => {
           A solution needs a instance.
         </Asolutionneedsainstance>
         <HandleNewInstance type="primary">New instance</HandleNewInstance>
-      </CardCreatingAStructure>
-      <MenuGroup2>
+      </CardCreatingAStructure> */}
+      {/* <MenuGroup2>
         <CollapseProperties>
           <CollapseItem>
             <CollapseHead>
@@ -162,7 +181,6 @@ const DataCanvasPage = () => {
                 </InputBasic3>
               </Input3>
             </CollapseBody>
-            <Divider3 />
           </CollapseItem>
         </CollapseProperties>
       </MenuGroup2> */}

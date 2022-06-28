@@ -401,9 +401,7 @@ export const counterSlice = createSlice({
       state.solution = action.payload.solution;
     },
     updateActiveWorkSpace: (state, action: PayloadAction<any[]>) => {
-      if (action.payload?.length > 0) {
-        state.activeWorkSpace.nodes = action.payload;
-      }
+      state.activeWorkSpace = action.payload;
     },
   },
   extraReducers: builder => {
