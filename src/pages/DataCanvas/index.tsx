@@ -1,4 +1,8 @@
-import { EllipsisOutlined, PlusCircleFilled } from '@ant-design/icons';
+import {
+  EllipsisOutlined,
+  PlusCircleFilled,
+  PlusCircleOutlined,
+} from '@ant-design/icons';
 import { Button, Dropdown, Menu } from 'antd';
 import React, { useEffect } from 'react';
 import ReactFlow, {
@@ -43,8 +47,8 @@ const nodeTypes = {
 
 const DataCanvasPage = () => {
   const nodes1 = useAppSelector(state => state.solutions.activeWorkSpace.nodes);
-  const currentSelection = useAppSelector(
-    state => state.solutions.activeWorkSpace.currentSelection,
+  const properties = useAppSelector(
+    state => state.solutions.activeWorkSpace.properties,
   );
 
   const [nodes, setNodes, onNodesChange] = useNodesState(nodes1);
@@ -53,6 +57,17 @@ const DataCanvasPage = () => {
   useEffect(() => {
     setNodes(nodes1);
   }, [nodes1, setNodes]);
+
+  const getButtonTitle = (elementType: string) => {
+    switch (elementType) {
+      case 'database':
+        return 'Create instance';
+      case 'dbInstance':
+        return 'Create database';
+      default:
+        return 'Add';
+    }
+  };
 
   useEffect(() => {
     const onChange = (event: any) => {
@@ -136,24 +151,14 @@ const DataCanvasPage = () => {
       },
     ]);
   }, []);
-  const menu = (
-    <Menu
-      onClick={() => console.log('click')}
-      items={[
-        {
-          label: 'Add entity',
-          key: '2',
-          icon: <PlusCircleFilled />,
-        },
-      ]}
-    />
-  );
   return (
     <DataCanvas>
       <ButtonWrapper>
-        <Dropdown.Button overlay={menu} className="icon-rotate">
-          {currentSelection?.title}
-        </Dropdown.Button>
+        {properties && properties?.elementType !== 'entity' && (
+          <Button icon={<PlusCircleOutlined />}>
+            {getButtonTitle(properties?.elementType)}
+          </Button>
+        )}
       </ButtonWrapper>
       <ReactFlowWrapper>
         <ReactFlow
