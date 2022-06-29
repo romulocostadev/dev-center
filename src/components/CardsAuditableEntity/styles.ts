@@ -28,7 +28,7 @@ export const CardsAuditableEntity = styled.div`
   }
 
   &:hover {
-    border: 1px solid #9970ff;
+    outline: 1px solid #9970ff;
     /* border-radius: 2px; */
   }
 `;
@@ -182,17 +182,17 @@ export const SecondaryInfo = styled.div`
 `;
 export const CardsInfo = styled.div`
   /* height: 24px; */
-  width: 206px;
+  width: 100%;
   display: flex;
   gap: 4px;
   justify-content: flex-start;
   align-items: center;
   border-radius: 2px;
-  padding: 2px 8px 2px 8px;
+  padding: 4px 8px 4px 8px;
   cursor: pointer;
 
   &:hover {
-    border: 1px solid #9970ff;
+    outline: 1px solid #9970ff;
     border-radius: 2px;
   }
 

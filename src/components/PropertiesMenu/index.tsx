@@ -1,4 +1,8 @@
-import React from 'react';
+import { render } from '@testing-library/react';
+import { Checkbox, Form, FormListFieldData } from 'antd';
+import { Footer } from 'antd/lib/layout/layout';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useAppSelector } from '../../store/reduxHooks';
 
 import {
   MenuGroup1,
@@ -39,67 +43,153 @@ import {
   Save,
   Cancel,
   Divider5,
+  FormItem,
+  Input,
+  Select,
 } from './styles';
 
-const MenuGroupPage2 = () => {
+const PropertiesMenu = () => {
+  const activeWorkSpace = useAppSelector(
+    state => state.solutions.activeWorkSpace,
+  );
+
+  const [formInitial, setFormInitial] = useState({});
+
+  const [form] = Form.useForm();
+
+  useEffect(() => {
+    if (activeWorkSpace.properties) {
+      activeWorkSpace.properties.forEach((data2): any => {
+        console.log(data2, 'data2');
+        form.setFieldsValue({
+          [data2.propertyName as string]: data2.propertyValue,
+        });
+      });
+    }
+  }, [activeWorkSpace.properties, form]);
+
+  const renderFormItem = (data: any) => {
+    console.log(data, 'data99');
+    if (data?.visible) {
+      switch (data.formType) {
+        case 'input':
+          return (
+            <Input211>
+              <InputBasic10>
+                <FormItem
+                  label={data.displayPropertyName}
+                  name={data.propertyName}
+                >
+                  <Input bordered={false} readOnly={data.readonly} />
+                </FormItem>
+              </InputBasic10>
+            </Input211>
+          );
+          break;
+        case 'checkbox':
+          return (
+            <Input211>
+              <InputBasic10>
+                <FormItem
+                  label={data.displayPropertyName}
+                  name={data.propertyName}
+                  valuePropName="checked"
+                >
+                  <Checkbox />
+                </FormItem>
+              </InputBasic10>
+            </Input211>
+          );
+          break;
+        case 'select':
+          return (
+            <Input211>
+              <InputBasic10>
+                <FormItem
+                  label={data.displayPropertyName}
+                  name={data.propertyName}
+                >
+                  <Select>
+                    {/* <Select.Option value={prop}>{prop}</Select.Option>; */}
+                  </Select>
+                </FormItem>
+              </InputBasic10>
+            </Input211>
+          );
+          break;
+
+        default:
+          break;
+      }
+    }
+  };
+
+  const renderColumns = () => {
+    const datakairo = [];
+
+    const foo2 = activeWorkSpace?.properties?.find(
+      a => a.propertyName === 'properties',
+    );
+
+    console.log(foo2, 'foo222');
+
+    activeWorkSpace?.properties
+      ?.find((a: any) => a.propertyName === 'properties')
+      ?.propertyValue.map(property => {
+        console.log(property, 'property123');
+
+        return datakairo.push(property);
+      });
+
+    console.log(datakairo, 'propsromulo');
+    // ?.propertyValue.map(foo => {
+    //   return renderFormItem(foo.propertyValue);
+    // })
+  };
+
   return (
     <MenuGroup1 className="box-magic-shadow">
-      <Divider3 />
       <Collapse1>
         <CollapseItem1>
           <CollapseHead1>
-            <IconOutlinedDown1>
-              <Vector3 />
-            </IconOutlinedDown1>
             <Properties56>Properties</Properties56>
             <IconOutlinedMenu1>
               <Vector4 />
             </IconOutlinedMenu1>
           </CollapseHead1>
-          <Divider4 />
-          <ViceriForm1>
-            <Input210>
-              <InputBasic9>
-                <Prefix202>Name:</Prefix202>
-                <Input202>RequiredFields</Input202>
-              </InputBasic9>
-            </Input210>
-            <Dropdown6>
-              <Prefix203>Type:</Prefix203>
-              <Input203>PropertyValidation</Input203>
-              <InstanceComponenticonoutlineddir1>
-                <Vector5 />
-              </InstanceComponenticonoutlineddir1>
-            </Dropdown6>
-            <Input211>
-              <InputBasic10>
-                <Prefix204>Order:</Prefix204>
-                <Input204>01</Input204>
-              </InputBasic10>
-            </Input211>
-            <Dropdown7>
-              <Prefix205>ExecValidationName:</Prefix205>
-              <Input205>Null</Input205>
-              <InstanceComponenticonoutlineddir2>
-                <Vector6 />
-              </InstanceComponenticonoutlineddir2>
-            </Dropdown7>
-            <Input212>
-              <InputBasic11>
-                <Prefix206>ConditionalValidationName:</Prefix206>
-                <Input206>Null</Input206>
-              </InputBasic11>
-            </Input212>
-          </ViceriForm1>
-          <Actions1>
-            <Save type="primary">Save</Save>
-            <Cancel type="default">Cancel</Cancel>
-          </Actions1>
-          <Divider5 />
+          {activeWorkSpace?.properties && (
+            <ViceriForm1
+              form={form}
+              initialValues={formInitial}
+              onFinish={values => console.log(values)}
+            >
+              {/* {activeWorkSpace.properties &&
+              Object.entries(activeWorkSpace.properties).map((key): any => {
+                return (
+                  <Input210>
+                    <InputBasic9>
+                      <Prefix202>{key[0]}</Prefix202>
+                      <Input202>{key[1]}</Input202>
+                    </InputBasic9>
+                  </Input210>
+                );
+              })} */}
+              {activeWorkSpace?.properties?.map(foo => {
+                return renderFormItem(foo);
+              })}
+              {renderColumns()}
+              <Actions1>
+                <Cancel type="default">Cancel</Cancel>
+                <Save htmlType="submit" type="primary">
+                  Save
+                </Save>
+              </Actions1>
+            </ViceriForm1>
+          )}
         </CollapseItem1>
       </Collapse1>
     </MenuGroup1>
   );
 };
 
-export default MenuGroupPage2;
+export default PropertiesMenu;

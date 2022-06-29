@@ -1,10 +1,7 @@
+/* eslint-disable consistent-return */
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  EllipsisOutlined,
-  PlusCircleFilled,
-  PlusCircleOutlined,
-} from '@ant-design/icons';
-import { Button, Dropdown, Menu } from 'antd';
+import { PlusCircleOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 import ReactFlow, {
   useNodesState,
   useEdgesState,
@@ -15,34 +12,11 @@ import CardsAuditableEntityPage from '../../components/CardsAuditableEntity';
 import { useAppSelector } from '../../store/reduxHooks';
 import {
   DataCanvas,
-  CardCreatingAStructure,
-  VectorFrame,
-  CreatingAStructureVector,
-  CreatingaStructure,
-  Asolutionneedsainstance,
-  HandleNewInstance,
-  MenuGroup2,
-  CollapseProperties,
-  CollapseItem,
-  CollapseHead,
-  DownOutlinedIcon,
-  Properties,
-  MenuOutlinedIcon,
-  Divider2,
-  CollapseBody,
-  Input3,
-  InputBasic3,
-  Prefix,
-  Input,
   ButtonWrapper,
   ReactFlowWrapper,
   // Divider3,
 } from './styles';
-
-// const nodeTypes = {
-//   selectorNode: CardsAuditableEntityPage,
-//   teste: ,
-// };
+import PropertiesMenu from '../../components/PropertiesMenu';
 
 const initBgColor = '#1A192B';
 const DataCanvasPage = () => {
@@ -135,13 +109,6 @@ const DataCanvasPage = () => {
   }, []);
   return (
     <DataCanvas>
-      <ButtonWrapper>
-        {properties && properties?.elementType !== 'entity' && (
-          <Button icon={<PlusCircleOutlined />}>
-            {getButtonTitle(properties?.elementType)}
-          </Button>
-        )}
-      </ButtonWrapper>
       <ReactFlowWrapper>
         <ReactFlow
           nodes={nodes}
@@ -158,7 +125,7 @@ const DataCanvasPage = () => {
           <MiniMap
             nodeStrokeColor={(n: any) => {
               if (n.type === 'input') return '#0041d0';
-              if (n.type === 'selectorNode') return bgColor;
+              if (n.type === 'customNode') return '#7346F8';
               if (n.type === 'output') return '#ff0072';
             }}
             nodeColor={n => {
@@ -168,6 +135,13 @@ const DataCanvasPage = () => {
           />
           <Controls />
         </ReactFlow>
+        <ButtonWrapper>
+          {properties && properties?.elementType !== 'entity' && (
+            <Button icon={<PlusCircleOutlined />}>
+              {getButtonTitle(properties?.elementType)}
+            </Button>
+          )}
+        </ButtonWrapper>
       </ReactFlowWrapper>
       {/* <CardCreatingAStructure>
         <VectorFrame>
@@ -179,26 +153,7 @@ const DataCanvasPage = () => {
         </Asolutionneedsainstance>
         <HandleNewInstance type="primary">New instance</HandleNewInstance>
       </CardCreatingAStructure> */}
-      {/* <MenuGroup2>
-        <CollapseProperties>
-          <CollapseItem>
-            <CollapseHead>
-              <DownOutlinedIcon />
-              <Properties>Properties</Properties>
-              <MenuOutlinedIcon />
-            </CollapseHead>
-            <Divider2 />
-            <CollapseBody>
-              <Input3>
-                <InputBasic3>
-                  <Prefix>Name:</Prefix>
-                  <Input>SunChemical</Input>
-                </InputBasic3>
-              </Input3>
-            </CollapseBody>
-          </CollapseItem>
-        </CollapseProperties>
-      </MenuGroup2> */}
+      <PropertiesMenu />
     </DataCanvas>
   );
 };

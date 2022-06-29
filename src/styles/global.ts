@@ -152,6 +152,28 @@ const GlobalStyle = createGlobalStyle`
   .icon-rotate .anticon-ellipsis{
     transform: rotate(270deg) !important;
   }
+
+  .ant-form-item-label > label {
+    font-size: 12px  !important;
+    font-family: 'Roboto'  !important;
+    font-weight: 400  !important;
+    color: rgba(0,0,0,0.45)  !important;
+    line-height: 20px  !important;
+  }
+
+  .ant-input {
+    font-size: 12px  !important;
+    color: rgba(0,0,0,0.85)  !important;
+
+  }
+
+  .ant-select-selector {
+    font-size: 12px  !important;
+    color: rgba(0,0,0,0.85)  !important;
+    border: none !important;
+    border-radius: 4px !important;
+    background-color: transparent !important;
+  }
 `;
 
 export default GlobalStyle;

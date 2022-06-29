@@ -11,20 +11,16 @@ export const DataCanvas = styled.div`
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  /* box-sizing: border-box; */
-  /* background-color: rgba(115, 70, 248, 0.019999999552965164);
-   */
-  /* justify-content: space-around; */
   background: rgba(115, 70, 248, 0.02);
-  flex-direction: column;
+  flex-direction: row;
+
   /* padding-left: 200px; */
 `;
 
 export const ButtonWrapper = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  flex: 1;
+  right: 240px;
+  z-index: 10000000;
+  position: absolute;
   margin: 15px;
 `;
 
@@ -94,6 +90,7 @@ export const MenuGroup2 = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   background-color: #ffffff;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
 `;
 export const CollapseProperties = styled.div`
   height: 104px;

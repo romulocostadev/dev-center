@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React, { memo } from 'react';
 
 import { useNavigate } from 'react-router-dom';
@@ -42,13 +43,40 @@ import {
   EntityIcon,
   DatabaseIcon,
 } from './styles';
+import { useAppDispatch } from '../../store/reduxHooks';
+import { updatePropertiesActiveWorkSpace } from '../../store/solution/solutionSlice';
 
 function CardsAuditableEntityPage({ data }: any) {
   console.log(data, 'fff');
 
+  let elementType = '';
+  let elementName = '';
+  let type = '';
+  let entityType = '';
+
+  const properties = data.find(a => a.propertyName === 'properties');
+  const dispatch = useAppDispatch();
+
+  data.map(foo => {
+    if (foo.propertyName === 'name') {
+      elementName = foo.propertyValue;
+    }
+    if (foo.propertyName === 'elementType') {
+      elementType = foo.propertyValue;
+    }
+    if (foo.propertyName === 'type') {
+      type = foo.propertyValue;
+    }
+    if (foo.propertyName === 'entityType') {
+      entityType = foo.propertyValue;
+    }
+  });
+
+  console.log(properties, 'type');
+
   const handleIcon = () => {
-    if (data.elementType === 'dbInstance') {
-      if (data.type === 'PostgreSql') {
+    if (elementType === 'dbInstance') {
+      if (type === 'PostgreSql') {
         return (
           <IconOutlinedTable>
             <PostGreSQLIcon />
@@ -56,7 +84,7 @@ function CardsAuditableEntityPage({ data }: any) {
         );
       }
 
-      if (data.type === 'SqlServer') {
+      if (type === 'SqlServer') {
         return (
           <IconOutlinedTable>
             <SqlServerIcon />
@@ -65,7 +93,7 @@ function CardsAuditableEntityPage({ data }: any) {
       }
     }
 
-    if (data.elementType === 'entity' && data.entityType !== 'default') {
+    if (elementType === 'entity' && entityType !== 'default') {
       return (
         <IconOutlinedTable>
           <EntityIcon />
@@ -73,13 +101,48 @@ function CardsAuditableEntityPage({ data }: any) {
       );
     }
 
-    if (data.elementType === 'database') {
+    if (elementType === 'database') {
       return (
         <IconOutlinedTable>
           <DatabaseIcon />
         </IconOutlinedTable>
       );
     }
+  };
+
+  const handleColumns = (columns): any => {
+    let name = '';
+    let type = '';
+
+    const column: { name: string; type: string }[] = [];
+
+    columns.map((prop): any => {
+      if (prop.propertyName === 'name') {
+        name = prop.propertyValue;
+      }
+      if (prop.propertyName === 'type') {
+        type = prop.propertyValue;
+      }
+      if (name && type) {
+        column.push({ name, type });
+        name = '';
+        type = '';
+      }
+    });
+    return column;
+  };
+
+  const handleSelectedColumn = column => {
+    const properties = data.find(a => a.propertyName === 'properties');
+    let columnProps = [];
+    const teste = properties.propertyValue.map(prop => {
+      prop.map(propColumn => {
+        if (propColumn.propertyValue === column.name) {
+          columnProps = prop;
+        }
+      });
+    });
+    dispatch(updatePropertiesActiveWorkSpace(columnProps));
   };
 
   return (
@@ -92,9 +155,9 @@ function CardsAuditableEntityPage({ data }: any) {
         <Title13 onClick={() => console.log(data)}>
           <Title14>
             <Logo>{handleIcon()}</Logo>
-            <Name390>{data.title}</Name390>
-            {data.elementType === 'entity' && (
-              <AuditableEntity81>{data?.entityType} Entity</AuditableEntity81>
+            <Name390>{elementName}</Name390>
+            {elementType === 'entity' && (
+              <AuditableEntity81>({entityType} Entity)</AuditableEntity81>
             )}
           </Title14>
         </Title13>
@@ -102,33 +165,25 @@ function CardsAuditableEntityPage({ data }: any) {
           <ExitConnector1 />
         </ExitConnector>
       </MainInfo>
-      {data.properties && (
+      {properties && (
         <SecondaryInfo style={{ zIndex: 10000000 }}>
-          {data?.properties?.map((column: any) => {
-            return (
-              <CardsInfo onClick={() => console.log('coluna', column)}>
-                <Name391>{column.title}:</Name391>
-                <Value342>{column.type}</Value342>
-              </CardsInfo>
-            );
+          {properties?.propertyValue?.map((propValue): any => {
+            console.log(propValue, 'propValue');
+            const columns = handleColumns(propValue);
+            return columns.map(column => {
+              if (column) {
+                console.log(column, 'column');
+                return (
+                  <CardsInfo onClick={() => handleSelectedColumn(column)}>
+                    <Name391>{column?.name}: </Name391>
+                    <Value342>{column?.type}</Value342>
+                  </CardsInfo>
+                );
+              }
+            });
           })}
-          {/* <CardsInfo1>
-            <Name392>ModifiedUTC:</Name392>
-            <Value343>Date</Value343>
-          </CardsInfo1>
-          <CardsInfo2>
-            <Name393>Id:</Name393>
-            <Value344>Int</Value344>
-          </CardsInfo2>
-          <CardsInfo3>
-            <Name394>Name:</Name394>
-            <Value345>String</Value345>
-          </CardsInfo3> */}
         </SecondaryInfo>
       )}
-      {/* <Action>
-        <GenericCodeButton type="text" icon={<PlusOutlined />} />
-      </Action> */}
     </CardsAuditableEntity>
   );
 }
