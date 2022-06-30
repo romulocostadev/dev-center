@@ -37,6 +37,10 @@ const DataCanvasPage = () => {
     state => state.solutions.activeWorkSpace.properties,
   );
 
+  const propertyType = useAppSelector(
+    state => state.solutions.activeWorkSpace.propertyType,
+  );
+
   const nodeReducer = useAppSelector(
     state => state.solutions.activeWorkSpace.nodes,
   );
@@ -54,6 +58,10 @@ const DataCanvasPage = () => {
   useEffect(() => {
     setNodes(nodeReducer);
   }, [nodeReducer, setNodes]);
+
+  useEffect(() => {
+    console.log('kairo log nodes', nodes);
+  }, [nodes]);
 
   const nodeTypes = useMemo(
     () => ({
@@ -126,7 +134,8 @@ const DataCanvasPage = () => {
   }, []);
 
   const handleClickButtonCreate = () => {
-    switch (properties?.elementType) {
+    console.log('properties kairo', properties);
+    switch (propertyType) {
       case 'database':
         dispatch(
           setModalData({
@@ -151,16 +160,6 @@ const DataCanvasPage = () => {
   };
   return (
     <DataCanvas>
-      <ButtonWrapper>
-        {properties && (
-          <Button
-            icon={<PlusCircleOutlined />}
-            onClick={handleClickButtonCreate}
-          >
-            {getButtonTitle(properties?.elementType)}
-          </Button>
-        )}
-      </ButtonWrapper>
       <ReactFlowWrapper>
         {nodes?.length > 0 && (
           <ReactFlow
@@ -193,8 +192,11 @@ const DataCanvasPage = () => {
         {properties && nodes?.length === 0 && <DataCanvasDatabasePage />}
         <ButtonWrapper>
           {properties && properties?.elementType !== 'entity' && (
-            <Button icon={<PlusCircleOutlined />}>
-              {getButtonTitle(properties?.elementType)}
+            <Button
+              icon={<PlusCircleOutlined />}
+              onClick={handleClickButtonCreate}
+            >
+              {getButtonTitle(propertyType)}
             </Button>
           )}
         </ButtonWrapper>

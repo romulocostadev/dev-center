@@ -8,7 +8,12 @@ import { updateActiveWorkSpace } from '../../../store/solution/solutionSlice';
 
 const findElementByTitleIntoNodes: any = (title: any, solution: any[]) => {
   console.log(solution, 'solution');
-  let objectToReturn = { parent: null, properties: null, current: null };
+  let objectToReturn = {
+    parent: null,
+    properties: null,
+    current: null,
+    propertyType: null,
+  };
   if (solution === undefined) return objectToReturn;
 
   if (!Array.isArray(solution))
@@ -25,6 +30,7 @@ const findElementByTitleIntoNodes: any = (title: any, solution: any[]) => {
           // console.log(node.data[1].propertyValue, 'kairo2');
           finded = true;
           objectToReturn.properties = node.data;
+          objectToReturn.propertyType = node.data[0].propertyValue;
           objectToReturn.parent = element;
         }
       });
@@ -53,14 +59,30 @@ const LayoutSiderPage = () => {
     state => state.solutions.activeWorkSpace.current,
   );
 
+  const currentNodes = useAppSelector(
+    state => state.solutions.activeWorkSpace.nodes,
+  );
+
   const dispatch = useAppDispatch();
 
   const TesteItem = () => {
     const onSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
       let finded = findElementByTitleIntoNodes(info?.node?.title, solution);
       // console.log(finded, 'finded');
-      Object.assign(finded, { nodes: info?.node?.nodes });
-      dispatch(updateActiveWorkSpace(finded));
+      console.log('kairo finded.propertyType', finded.propertyType);
+      if (finded.propertyType === 'entity') {
+        let newCurrentNodes = [...currentNodes];
+        console.log('newCurrentNodes kairo', newCurrentNodes);
+        let nodeObject = { ...newCurrentNodes[0] };
+        nodeObject.selected = true.valueOf;
+        newCurrentNodes[0] = nodeObject;
+        console.log('newCurrentNodes kairo selected', newCurrentNodes);
+        Object.assign(finded, { nodes: newCurrentNodes });
+        dispatch(updateActiveWorkSpace(finded));
+      } else {
+        Object.assign(finded, { nodes: info?.node?.nodes });
+        dispatch(updateActiveWorkSpace(finded));
+      }
     };
 
     const onCheck: TreeProps['onCheck'] = (checkedKeys, info) => {
@@ -70,7 +92,6 @@ const LayoutSiderPage = () => {
     return (
       <Tree.DirectoryTree
         defaultExpandAll
-        defaultSelectedKeys={current?.key}
         onSelect={onSelect}
         onCheck={onCheck}
         treeData={[solution] as DataNode}

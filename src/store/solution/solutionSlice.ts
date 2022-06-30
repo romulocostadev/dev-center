@@ -228,7 +228,7 @@ const initialState: SolutionProps = {
                     ],
                     position: {
                       x: 0,
-                      y: 100,
+                      y: 50,
                     },
                     sourcePosition: 'right',
                   },
@@ -556,7 +556,7 @@ const initialState: SolutionProps = {
                     ],
                     children: [
                       {
-                        key: '6',
+                        id: '6',
                         title: 'Order',
                       },
                     ],
@@ -1387,8 +1387,6 @@ const initialState: SolutionProps = {
                   {
                     key: '999',
                     title: 'IdentityDb',
-                    children: [],
-                    nodes: [],
                   },
                 ],
               },
@@ -1450,16 +1448,12 @@ export const counterSlice = createSlice({
   },
 });
 
-<<<<<<< HEAD
-export const { setSolutions, createSolution, updateActiveWorkSpace } =
-  counterSlice.actions;
-=======
 export const {
   setSolutions,
+  createSolution,
   updateActiveWorkSpace,
   updatePropertiesActiveWorkSpace,
 } = counterSlice.actions;
->>>>>>> bb4a233ee131a7e2a3d94a4a7f1a7447e8a1104f
 
 export const solutionsSortByName = (state: RootState) => {
   return state.solutions.solutions
