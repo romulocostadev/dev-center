@@ -7,6 +7,7 @@ import { setModalData } from '../../store/modal/modalSlice';
 import { useAppDispatch, useAppSelector } from '../../store/reduxHooks';
 import { GenericButtonWithLoadingStyle } from '../ButtonWithLoading/styles';
 import GenericFormItem from '../FormItem';
+
 import {
   createSolution,
   updateActiveWorkSpace,
@@ -19,6 +20,8 @@ import {
   InputBasic,
   FormFooter,
 } from './styles';
+import getNewChild, { getUuid } from '../../services/factories/common';
+import getNewNode from '../../services/factories/database';
 
 const ModalNewDatabase = () => {
   const { t } = useTranslation();
@@ -31,48 +34,23 @@ const ModalNewDatabase = () => {
   const getUpdatedChild = (parameterElement, current, title) => {
     let element = { ...parameterElement };
     let finded = false;
+    let id = getUuid();
     if (element.title === current.title) {
       finded = true;
       if (!element.children) element.children = [];
 
-      console.log('element.children', element.children, {
-        key: '0',
-        title,
-        nodes: [],
-        children: null,
-      });
+      let newChildItem = getNewChild(id, title);
       element.nodes = Object.assign([], element.nodes);
       element.children = Object.assign([], element.children);
-      element.children.push({
-        key: `${title}_${element.children.length + 1}`,
-        title,
-        nodes: [],
-        children: null,
-      });
-      element.nodes.push({
-        id: `dbi-${element.nodes.length + 1}`,
-        type: 'customNode',
-        data: {
-          elementType: 'database',
-          title,
-          refDbInstanceId: `dbi-${element.nodes.length + 1}`,
-          addIdentityTables: false,
-          defaultSchema: title,
-        },
-        position: {
-          x: 0,
-          y:
-            element.nodes.length > 0
-              ? element.nodes.slice(-1).pop().position.y + 50
-              : 50,
-        },
-        sourcePosition: 'right',
-      });
+      element.children.push(newChildItem);
+      let lastNode =
+        element.nodes.length > 0 ? element.nodes.slice(-1).pop() : null;
+      let newNode = getNewNode(id, title, lastNode);
+      element.nodes.push(newNode);
 
       let newActiveWorkSpace = { ...activeWorkSpace };
       newActiveWorkSpace.nodes = element.nodes;
       dispatch(updateActiveWorkSpace(newActiveWorkSpace));
-
       return element;
     }
     if (finded === false && element?.children?.length > 0) {

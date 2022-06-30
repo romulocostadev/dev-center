@@ -11,7 +11,8 @@ import GenericText from '../../components/Text';
 export const DataCanvasDatabase = styled.div`
   box-sizing: border-box;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 50px;
   display: flex;
   flex: 100;
 `;
@@ -217,6 +218,7 @@ export const AInstanceNeedsaDatabase = styled(GenericText)`
   color: #7447f9;
   margin: 0px;
   width: 211px;
+  text-align: center;
 `;
 
 export const TextComponentdont = styled(GenericText)`
@@ -224,6 +226,7 @@ export const TextComponentdont = styled(GenericText)`
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
   width: 222px;
+  text-align: center;
 `;
 
 export const HandleNewDatabase = styled(GenericCodeButton)`

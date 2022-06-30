@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import GenericCodeButton from '../../components/Button';
 import ModalNewDatabase from '../../components/ModalNewDatabase';
+import ModalNewDbInstance from '../../components/ModalNewDbInstance';
 import ModalNewEntity from '../../components/ModalNewEntity';
 import { setModalData } from '../../store/modal/modalSlice';
 import { useAppDispatch, useAppSelector } from '../../store/reduxHooks';
@@ -36,27 +37,22 @@ import {
   TextComponentdont,
 } from './styles';
 
-const getDataScreen = (elementType: string, activeWorkSpaceObj: any) => {
+const getDataScreen = (elementType: string) => {
   switch (elementType) {
-    case 'entity':
-      return {
-        title: 'A Database Needs a Instance',
-        buttonTitle: 'Create instance',
-      };
     case 'database':
       return {
         title: 'A Database Needs a Entity',
         buttonTitle: 'Create entity',
       };
-    case 'dbInstance':
+    case 'dbinstance-folder':
       return {
-        title: 'A DbInstance Needs a Database',
-        buttonTitle: 'Create database',
+        title: 'A Database Instance Needs a Database',
+        buttonTitle: 'Create Database',
       };
     default:
       return {
-        title: 'Nothing here',
-        buttonTitle: 'Nothing here',
+        title: 'A Solution Needs a Database Instance',
+        buttonTitle: 'Create DbInstance',
       };
   }
 };
@@ -64,19 +60,16 @@ const getDataScreen = (elementType: string, activeWorkSpaceObj: any) => {
 const DataCanvasDatabasePage = () => {
   const dispatch = useAppDispatch();
 
-  const properties = useAppSelector(
-    state => state.solutions.activeWorkSpace.properties,
+  const pathType = useAppSelector(
+    state => state.solutions.activeWorkSpace.current.pathType,
   );
 
-  const activeWorkSpaceObj = useAppSelector(
-    state => state.solutions.activeWorkSpace,
-  );
   const [data, setData] = useState({});
   useEffect(() => {
-    setData(getDataScreen(properties?.elementType, activeWorkSpaceObj));
-  }, [properties]);
+    setData(getDataScreen(pathType));
+  }, [pathType]);
   const handleClickButtonCreate = () => {
-    switch (properties?.elementType) {
+    switch (pathType) {
       case 'database':
         dispatch(
           setModalData({
@@ -86,7 +79,7 @@ const DataCanvasDatabasePage = () => {
           }),
         );
         break;
-      case 'dbInstance':
+      case 'dbinstance-folder':
         dispatch(
           setModalData({
             visible: true,
@@ -96,6 +89,13 @@ const DataCanvasDatabasePage = () => {
         );
         break;
       default:
+        dispatch(
+          setModalData({
+            visible: true,
+            title: t('modal-new-dbinstance'),
+            content: <ModalNewDbInstance />,
+          }),
+        );
         break;
     }
   };

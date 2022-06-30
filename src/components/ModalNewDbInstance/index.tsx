@@ -1,27 +1,32 @@
-import { Form, notification } from 'antd';
-import React, { useState } from 'react';
+import { Form, notification, Select } from 'antd';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import Checkbox from 'antd/lib/checkbox/Checkbox';
 import { useAddSolutionMutation } from '../../services/solution';
 import { setModalData } from '../../store/modal/modalSlice';
 import { useAppDispatch, useAppSelector } from '../../store/reduxHooks';
 import { GenericButtonWithLoadingStyle } from '../ButtonWithLoading/styles';
 import GenericFormItem from '../FormItem';
+
 import {
   createSolution,
   updateActiveWorkSpace,
 } from '../../store/solution/solutionSlice';
+
 import {
   FormNewSolution,
   InputsWrapper,
   Frame,
   InputBasic,
   FormFooter,
+  SelectDatabase,
+  SelectOption,
 } from './styles';
-import getNewNode from '../../services/factories/entity';
 import getNewChild, { getUuid } from '../../services/factories/common';
+import getNewNode from '../../services/factories/database';
 
-const ModalNewEntity = () => {
+const ModalNewDbInstance = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -29,33 +34,26 @@ const ModalNewEntity = () => {
     state => state.solutions.activeWorkSpace,
   );
 
-  const solution = useAppSelector(state => state.solutions.solution);
-
-  const dispatch = useAppDispatch();
-
   const getUpdatedChild = (parameterElement, current, title) => {
     let element = { ...parameterElement };
     let finded = false;
     let id = getUuid();
-    let refDatabaseId = 'db-1';
     if (element.title === current.title) {
       finded = true;
       if (!element.children) element.children = [];
 
+      let newChildItem = getNewChild(id, title);
       element.nodes = Object.assign([], element.nodes);
       element.children = Object.assign([], element.children);
-      let newChildItem = getNewChild(id, title);
       element.children.push(newChildItem);
       let lastNode =
         element.nodes.length > 0 ? element.nodes.slice(-1).pop() : null;
-      let newNode = getNewNode(id, title, refDatabaseId, lastNode);
+      let newNode = getNewNode(id, title, lastNode);
       element.nodes.push(newNode);
 
       let newActiveWorkSpace = { ...activeWorkSpace };
       newActiveWorkSpace.nodes = element.nodes;
-      newActiveWorkSpace.current = newChildItem;
       dispatch(updateActiveWorkSpace(newActiveWorkSpace));
-
       return element;
     }
     if (finded === false && element?.children?.length > 0) {
@@ -65,52 +63,93 @@ const ModalNewEntity = () => {
     }
     return element;
   };
-
   const updateSolutionData = (solution, current, databaseName) => {
     solution.children = solution?.children?.map(element =>
       getUpdatedChild(element, current, databaseName),
     );
     return solution;
   };
+  const solution = useAppSelector(state => state.solutions.solution);
+  const dbInstanceTypes = useAppSelector(
+    state => state.solutions.templateParams.DomainEntities.DbInstanceTypes,
+  );
+  const relationalDbInstanceTypes = useAppSelector(
+    state =>
+      state.solutions.templateParams.DomainEntities.RelationalDbInstanceTypes,
+  );
+
+  const dispatch = useAppDispatch();
 
   const handleSubmit = (values: any) => {
     notification.success({
       message: t('sucess-title'),
       description: t('sucess-message'),
     });
-    let newSolution = { ...solution };
-    newSolution = updateSolutionData(
-      newSolution,
-      activeWorkSpace.current,
-      values.name,
-    );
-
-    dispatch(
-      createSolution({
-        solution: newSolution,
-      }),
-    );
+    // let newSolution = { ...solution };
+    // newSolution = updateSolutionData(
+    //  newSolution,
+    //  activeWorkSpace.current,
+    //  values.name,
+    // );
+    //
     // dispatch(
     //  createSolution({
-    //    activeWorkSpace,
+    //    solution: newSolution,
     //  }),
     // );
+    /// / dispatch(
+    /// /  createSolution({
+    /// /    activeWorkSpace,
+    /// /  }),
+    /// / );
     dispatch(
       setModalData({
         visible: false,
       }),
     );
   };
+  const [isRelationalType, setIsRelationalType] = useState(false);
+
+  const handleChangeDbType = dbType => {
+    setIsRelationalType(relationalDbInstanceTypes.indexOf(dbType) >= 0);
+  };
+
+  useEffect(() => {
+    console.log('kairo dbInstanceTypes', dbInstanceTypes);
+  }, [dbInstanceTypes]);
 
   return (
     <FormNewSolution onFinish={handleSubmit}>
       <InputsWrapper>
         <Frame>
           <GenericFormItem
+            name="type"
+            rules={[{ required: true, message: t('required-field') }]}
+          >
+            <SelectDatabase
+              onChange={handleChangeDbType}
+              placeholder={t('dbtype-placeholder-dbinstance')}
+              style={{ width: '100%' }}
+            >
+              {dbInstanceTypes.map(element => (
+                <SelectOption key={element}>{element}</SelectOption>
+              ))}
+            </SelectDatabase>
+          </GenericFormItem>
+          <GenericFormItem
             name="name"
             rules={[{ required: true, message: t('required-field') }]}
           >
-            <InputBasic placeholder={t('entity-name-input-title')} />
+            <InputBasic placeholder={t('dbinstance-name-input-title')} />
+          </GenericFormItem>
+          <GenericFormItem name="relationalDatabase">
+            <Checkbox
+              disabled
+              checked={isRelationalType}
+              value={isRelationalType}
+            >
+              {t('dbinstance-is-relational-database')}
+            </Checkbox>
           </GenericFormItem>
         </Frame>
       </InputsWrapper>
@@ -123,4 +162,4 @@ const ModalNewEntity = () => {
   );
 };
 
-export default ModalNewEntity;
+export default ModalNewDbInstance;

@@ -21,6 +21,7 @@ interface SolutionProps {
   solutions: SolutionsResponse[];
   solution: any;
   activeWorkSpace: any;
+  templateParams: any;
 }
 
 const initialState: SolutionProps = {
@@ -33,10 +34,12 @@ const initialState: SolutionProps = {
       {
         key: '2',
         title: 'Database',
+        pathType: 'database-folder',
         children: [
           {
             key: '3',
             title: 'DbInstances',
+            pathType: 'dbinstance-folder',
             nodes: [
               {
                 id: 'dbi-1',
@@ -129,6 +132,7 @@ const initialState: SolutionProps = {
               {
                 key: '4',
                 title: 'PostgreSqlInstance',
+                pathType: 'database-instance',
                 nodes: [
                   {
                     id: 'db-1',
@@ -237,6 +241,7 @@ const initialState: SolutionProps = {
                   {
                     key: '5',
                     title: 'OrderDb',
+                    pathType: 'database',
                     nodes: [
                       {
                         id: 'ent-1',
@@ -564,6 +569,7 @@ const initialState: SolutionProps = {
                   {
                     key: '7',
                     title: 'CustomerDb',
+                    pathType: 'database',
                     nodes: [
                       {
                         id: 'ent-2',
@@ -1330,6 +1336,7 @@ const initialState: SolutionProps = {
               {
                 key: '998',
                 title: 'SqlServerInstance',
+                pathType: 'database-instance',
                 nodes: [
                   {
                     id: 'db-2',
@@ -1387,6 +1394,7 @@ const initialState: SolutionProps = {
                   {
                     key: '999',
                     title: 'IdentityDb',
+                    pathType: 'database',
                   },
                 ],
               },
@@ -1399,6 +1407,201 @@ const initialState: SolutionProps = {
   activeWorkSpace: {
     nodes: [],
     properties: null,
+    current: { pathType: '' },
+  },
+  templateParams: {
+    DomainEntities: {
+      DbInstanceTypes: ['MongoDb', 'MySql', 'PostgreSql', 'SqlServer'],
+      RelationalDbInstanceTypes: ['MySql', 'PostgreSql', 'SqlServer'],
+      EntityTypes: ['Auditable', 'Persisted', 'Default'],
+      EntityPropertyTypes: [
+        'bool',
+        'byte',
+        'sbyte',
+        'char',
+        'decimal',
+        'double',
+        'float',
+        'int',
+        'uint',
+        'long',
+        'ulong',
+        'short',
+        'ushort',
+        'string',
+        'Guid',
+        'DateTimeOffset',
+      ],
+      PropertyValidationRuleTypes: [
+        'IsCreditCard',
+        'IsEmailAddress',
+        'IsEmpty',
+        'IsNotEmpty',
+        'IsEqual',
+        'IsNotEqual',
+        'IsBetween',
+        'IsGreaterThan',
+        'IsGreaterThanOrEqual',
+        'IsLengthBetween',
+        'IsLessThan',
+        'IsLessThanOrEqual',
+        'IsMatchesTo',
+        'IsNull',
+        'IsNotNull',
+        'IsCpf',
+        'IsCnpj',
+        'IsValidation',
+      ],
+      RuleReplacementTypes: ['Always', 'IfIsEmpty'],
+      ServiceTypes: ['WebApi'],
+      ControllerTypes: ['Crud', 'Query'],
+      ControllerContextTypes: [
+        'Create',
+        'Update',
+        'UpdatePartial',
+        'Delete',
+        'ReadAll',
+        'ReadByKey',
+      ],
+      ContextValidationTypes: [
+        'PropertyValidation',
+        'ExistsReferenceById',
+        'BlankValidation',
+      ],
+      ContextRuleTypes: [
+        'WriteOperationRule',
+        'ReadOperationRule',
+        'BlankRule',
+        'SetPropertyValue',
+      ],
+    },
+    DomainEntityProperties: {
+      Base: {
+        displayPropertyName: 'string',
+        propertyName: 'string',
+        visible: 'bool',
+        propertyValue: 'any',
+        readonly: 'bool',
+        formType: 'string',
+      },
+      DbInstance: {
+        isRelationalDb: 'bool',
+        name: 'string',
+        type: 'RefDbInstanceType',
+        elementType: 'string',
+      },
+      Database: {
+        addIdentityTables: 'bool',
+        name: 'string',
+        refDbInstanceId: 'RefDbInstanceNode',
+        elementType: 'string',
+        defaultSchema: 'string',
+      },
+      Entity: {
+        refDatabaseId: 'RefDatabaseNode',
+        properties: 'EntityPropertyArray',
+        name: 'string',
+        keyType: 'RefEntityPropertyType',
+        elementType: 'string',
+        entityType: 'RefEntityType',
+      },
+      EntityProperty: {
+        checkReferencedEntityId: 'RefEntityNode',
+        isNullable: 'bool',
+        name: 'string',
+        type: 'RefEntityPropertyType',
+        defaultValue: 'string',
+        isArray: 'bool',
+      },
+      EntityValidation: {
+        name: 'string',
+        type: 'string',
+        elementType: 'string',
+        refEntityId: 'RefEntityNode',
+      },
+      PropertyValidation: {
+        forEachRule: 'bool',
+        refValidationId: 'RefEntityValidationNode',
+        propertyName: 'RefEntityPropertyNode',
+        elementType: 'string',
+        stopOnFirstRuleFailure: 'bool',
+      },
+      PropertyValidationRule: {
+        errorCode: 'string',
+        refPropertyValidationId: 'RefPropertyValidationNode',
+        type: 'RefPropertyValidationRuleType',
+        expressions: 'stringArray',
+        message: 'string',
+        elementType: 'string',
+      },
+      ExistsReferenceValidation: {
+        errorCode: 'string',
+        refValidationId: 'RefEntityValidationNode',
+        propertyName: 'RefEntityPropertyNode',
+        message: 'string',
+        elementType: 'string',
+      },
+      EntityRule: {
+        name: 'string',
+        type: 'string',
+        elementType: 'string',
+        refEntityId: 'RefEntityNode',
+      },
+      SetPropertyValue: {
+        expression: 'string',
+        propertyName: 'RefEntityPropertyNode',
+        refRuleId: 'RefEntityRuleNode',
+        elementType: 'string',
+        replacementType: 'RefRuleReplacementType',
+      },
+      Service: {
+        name: 'string',
+        type: 'RefServiceType',
+        metadata: 'ServiceMetadataObject',
+        elementType: 'string',
+        allowedScopes: 'stringArray',
+      },
+      ServiceMetadata: {
+        termsOfServiceUrl: 'string',
+        licenseInfo: 'string',
+        contactUrl: 'string',
+        title: 'string',
+        version: 'string',
+        description: 'string',
+        licenseUrl: 'string',
+        contactName: 'string',
+        contactEmail: 'string',
+      },
+      Controller: {
+        name: 'string',
+        type: 'RefControllerType',
+        refServiceId: 'RefServiceNode',
+        elementType: 'string',
+        refEntityId: 'RefEntityNode',
+      },
+      ControllerContext: {
+        refControllerId: 'RefControllerNode',
+        name: 'string',
+        elementType: 'string',
+      },
+      ContextValidation: {
+        name: 'string',
+        type: 'RefContextValidationType',
+        execValidationId: 'RefEntityValidationNode',
+        conditionalValidationId: 'RefEntityValidationNode',
+        elementType: 'string',
+        order: 'number',
+        refContextId: 'RefControllerContextNode',
+      },
+      ContextRule: {
+        name: 'string',
+        type: 'RefContextRuleType',
+        elementType: 'string',
+        order: 'number',
+        refContextId: 'RefControllerContextNode',
+        execRuleId: 'RefEntityRuleNode',
+      },
+    },
   },
 };
 
@@ -1417,6 +1620,9 @@ export const counterSlice = createSlice({
     },
     updatePropertiesActiveWorkSpace: (state, action: PayloadAction<any[]>) => {
       state.activeWorkSpace.properties = action.payload;
+    },
+    updateCurrent: (state, action: PayloadAction<any>) => {
+      state.activeWorkSpace.current = action.payload;
     },
   },
   extraReducers: builder => {
@@ -1453,6 +1659,7 @@ export const {
   createSolution,
   updateActiveWorkSpace,
   updatePropertiesActiveWorkSpace,
+  updateCurrent,
 } = counterSlice.actions;
 
 export const solutionsSortByName = (state: RootState) => {

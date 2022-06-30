@@ -28,6 +28,7 @@ import ModalNewEntity from '../../components/ModalNewEntity';
 //   teste: ,
 // };
 import PropertiesMenu from '../../components/PropertiesMenu';
+import ModalNewDbInstance from '../../components/ModalNewDbInstance';
 
 const initBgColor = '#1A192B';
 const DataCanvasPage = () => {
@@ -37,18 +38,12 @@ const DataCanvasPage = () => {
     state => state.solutions.activeWorkSpace.properties,
   );
 
-  const propertyType = useAppSelector(
-    state => state.solutions.activeWorkSpace.propertyType,
+  const activeWorkSpace = useAppSelector(
+    state => state.solutions.activeWorkSpace,
   );
 
   const nodeReducer = useAppSelector(
     state => state.solutions.activeWorkSpace.nodes,
-  );
-
-  const solution = useAppSelector(state => state.solutions.solution);
-
-  const currentSelection = useAppSelector(
-    state => state.solutions.activeWorkSpace.currentSelection,
   );
 
   const [nodes, setNodes, onNodesChange] = useNodesState(nodeReducer);
@@ -59,10 +54,6 @@ const DataCanvasPage = () => {
     setNodes(nodeReducer);
   }, [nodeReducer, setNodes]);
 
-  useEffect(() => {
-    console.log('kairo log nodes', nodes);
-  }, [nodes]);
-
   const nodeTypes = useMemo(
     () => ({
       customNode: CardsAuditableEntityPage,
@@ -72,11 +63,11 @@ const DataCanvasPage = () => {
 
   const getButtonTitle = (elementType: string) => {
     switch (elementType) {
-      case 'entity':
-        return 'Create instance';
+      case 'dbinstance-folder':
+        return 'Create DbInstance';
       case 'database':
         return 'Create entity';
-      case 'dbInstance':
+      case 'database-instance':
         return 'Create database';
       default:
         return 'Add';
@@ -134,8 +125,7 @@ const DataCanvasPage = () => {
   }, []);
 
   const handleClickButtonCreate = () => {
-    console.log('properties kairo', properties);
-    switch (propertyType) {
+    switch (activeWorkSpace?.current?.pathType) {
       case 'database':
         dispatch(
           setModalData({
@@ -145,7 +135,7 @@ const DataCanvasPage = () => {
           }),
         );
         break;
-      case 'dbInstance':
+      case 'database-instance':
         dispatch(
           setModalData({
             visible: true,
@@ -155,6 +145,13 @@ const DataCanvasPage = () => {
         );
         break;
       default:
+        dispatch(
+          setModalData({
+            visible: true,
+            title: t('modal-new-dbinstance'),
+            content: <ModalNewDbInstance />,
+          }),
+        );
         break;
     }
   };
@@ -189,14 +186,14 @@ const DataCanvasPage = () => {
             <Controls />
           </ReactFlow>
         )}
-        {properties && nodes?.length === 0 && <DataCanvasDatabasePage />}
+        {(!nodes || nodes?.length === 0) && <DataCanvasDatabasePage />}
         <ButtonWrapper>
-          {properties && properties?.elementType !== 'entity' && (
+          {nodes && (
             <Button
               icon={<PlusCircleOutlined />}
               onClick={handleClickButtonCreate}
             >
-              {getButtonTitle(propertyType)}
+              {getButtonTitle(activeWorkSpace?.current?.pathType)}
             </Button>
           )}
         </ButtonWrapper>

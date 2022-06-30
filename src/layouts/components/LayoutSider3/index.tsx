@@ -4,10 +4,12 @@ import { FrownFilled, FrownOutlined, PlusOutlined } from '@ant-design/icons';
 import Tree, { DataNode, TreeProps } from 'antd/lib/tree';
 import { LayoutSider1 } from './styles';
 import { useAppDispatch, useAppSelector } from '../../../store/reduxHooks';
-import { updateActiveWorkSpace } from '../../../store/solution/solutionSlice';
+import {
+  updateActiveWorkSpace,
+  updateCurrent,
+} from '../../../store/solution/solutionSlice';
 
 const findElementByTitleIntoNodes: any = (title: any, solution: any[]) => {
-  console.log(solution, 'solution');
   let objectToReturn = {
     parent: null,
     properties: null,
@@ -16,8 +18,9 @@ const findElementByTitleIntoNodes: any = (title: any, solution: any[]) => {
   };
   if (solution === undefined) return objectToReturn;
 
-  if (!Array.isArray(solution))
-    return findElementByTitleIntoNodes(title, solution?.children);
+  if (!Array.isArray(solution)) {
+    return findElementByTitleIntoNodes(title, [solution]);
+  }
 
   for (let index = 0; index < solution.length; index++) {
     const element = solution[index];
@@ -25,9 +28,7 @@ const findElementByTitleIntoNodes: any = (title: any, solution: any[]) => {
 
     if (element?.nodes?.length > 0) {
       element.nodes.forEach((node: any) => {
-        // console.log(node, title, 'kairo');
         if (node.data[1].propertyValue === title) {
-          // console.log(node.data[1].propertyValue, 'kairo2');
           finded = true;
           objectToReturn.properties = node.data;
           objectToReturn.propertyType = node.data[0].propertyValue;
@@ -49,40 +50,59 @@ const findElementByTitleIntoNodes: any = (title: any, solution: any[]) => {
       return objectToReturn;
     }
 
-    return findElementByTitleIntoNodes(title, element.children);
+    let objectRecursive = findElementByTitleIntoNodes(title, element?.children);
+    if (objectRecursive.current !== null) {
+      return objectRecursive;
+    }
   }
 };
 
 const LayoutSiderPage = () => {
   const solution = useAppSelector(state => state.solutions.solution);
-  const current = useAppSelector(
-    state => state.solutions.activeWorkSpace.current,
-  );
-
-  const currentNodes = useAppSelector(
-    state => state.solutions.activeWorkSpace.nodes,
-  );
 
   const dispatch = useAppDispatch();
 
   const TesteItem = () => {
+    const setCurrent = async (id: string, data: any[]) => {
+      if (!Array.isArray(data)) {
+        return setCurrent(id, [data]);
+      }
+      for (let index = 0; index < data.length; index++) {
+        const element = data[index];
+        if (element?.children?.length > 0) {
+          element.children.forEach((child: any) => {
+            if (child.id === id) {
+              dispatch(updateCurrent(child));
+            }
+          });
+        }
+      }
+    };
+
     const onSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
+      console.log('kairo info', info);
+      console.log('kairo selectedKeys', selectedKeys);
+
       let finded = findElementByTitleIntoNodes(info?.node?.title, solution);
-      // console.log(finded, 'finded');
-      console.log('kairo finded.propertyType', finded.propertyType);
+
       if (finded.propertyType === 'entity') {
-        let newCurrentNodes = [...currentNodes];
-        console.log('newCurrentNodes kairo', newCurrentNodes);
-        let nodeObject = { ...newCurrentNodes[0] };
-        nodeObject.selected = true.valueOf;
-        newCurrentNodes[0] = nodeObject;
-        console.log('newCurrentNodes kairo selected', newCurrentNodes);
+        let newCurrentNodes = [...finded.parent.nodes];
+
+        for (let index = 0; index < newCurrentNodes.length; index++) {
+          let nodeObject = { ...newCurrentNodes[index] };
+          let nodeTitle = nodeObject.data[1].propertyValue;
+          nodeObject.selected = info?.node?.title === nodeTitle;
+          newCurrentNodes[index] = nodeObject;
+        }
+
         Object.assign(finded, { nodes: newCurrentNodes });
         dispatch(updateActiveWorkSpace(finded));
       } else {
         Object.assign(finded, { nodes: info?.node?.nodes });
         dispatch(updateActiveWorkSpace(finded));
       }
+
+      setCurrent(selectedKeys[0].toString(), solution);
     };
 
     const onCheck: TreeProps['onCheck'] = (checkedKeys, info) => {
