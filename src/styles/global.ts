@@ -181,6 +181,28 @@ const GlobalStyle = createGlobalStyle`
     outline: 1px solid rgba(132, 93, 249, 0.38);
     border-radius: 8px;
   }
+
+  .ant-form-item-label > label {
+    font-size: 12px  !important;
+    font-family: 'Roboto'  !important;
+    font-weight: 400  !important;
+    color: rgba(0,0,0,0.45)  !important;
+    line-height: 20px  !important;
+  }
+
+  .ant-input {
+    font-size: 12px  !important;
+    color: rgba(0,0,0,0.85)  !important;
+
+  }
+
+  .ant-select-selector {
+    font-size: 12px  !important;
+    color: rgba(0,0,0,0.85)  !important;
+    border: none !important;
+    border-radius: 4px !important;
+    background-color: transparent !important;
+  }
 `;
 
 export default GlobalStyle;

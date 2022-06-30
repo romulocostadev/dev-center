@@ -1,10 +1,7 @@
+/* eslint-disable consistent-return */
 import React, { useEffect, useMemo, useState } from 'react';
-import {
-  EllipsisOutlined,
-  PlusCircleFilled,
-  PlusCircleOutlined,
-} from '@ant-design/icons';
-import { Button, Dropdown, Menu } from 'antd';
+import { PlusCircleOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 import ReactFlow, {
   useNodesState,
   useEdgesState,
@@ -16,25 +13,6 @@ import CardsAuditableEntityPage from '../../components/CardsAuditableEntity';
 import { useAppDispatch, useAppSelector } from '../../store/reduxHooks';
 import {
   DataCanvas,
-  CardCreatingAStructure,
-  VectorFrame,
-  CreatingAStructureVector,
-  CreatingaStructure,
-  Asolutionneedsainstance,
-  HandleNewInstance,
-  MenuGroup2,
-  CollapseProperties,
-  CollapseItem,
-  CollapseHead,
-  DownOutlinedIcon,
-  Properties,
-  MenuOutlinedIcon,
-  Divider2,
-  CollapseBody,
-  Input3,
-  InputBasic3,
-  Prefix,
-  Input,
   ButtonWrapper,
   ReactFlowWrapper,
   // Divider3,
@@ -49,6 +27,7 @@ import ModalNewEntity from '../../components/ModalNewEntity';
 //   selectorNode: CardsAuditableEntityPage,
 //   teste: ,
 // };
+import PropertiesMenu from '../../components/PropertiesMenu';
 
 const initBgColor = '#1A192B';
 const DataCanvasPage = () => {
@@ -212,6 +191,13 @@ const DataCanvasPage = () => {
           </ReactFlow>
         )}
         {properties && nodes?.length === 0 && <DataCanvasDatabasePage />}
+        <ButtonWrapper>
+          {properties && properties?.elementType !== 'entity' && (
+            <Button icon={<PlusCircleOutlined />}>
+              {getButtonTitle(properties?.elementType)}
+            </Button>
+          )}
+        </ButtonWrapper>
       </ReactFlowWrapper>
       {/* <CardCreatingAStructure>
         <VectorFrame>
@@ -223,26 +209,7 @@ const DataCanvasPage = () => {
         </Asolutionneedsainstance>
         <HandleNewInstance type="primary">New instance</HandleNewInstance>
       </CardCreatingAStructure> */}
-      {/* <MenuGroup2>
-        <CollapseProperties>
-          <CollapseItem>
-            <CollapseHead>
-              <DownOutlinedIcon />
-              <Properties>Properties</Properties>
-              <MenuOutlinedIcon />
-            </CollapseHead>
-            <Divider2 />
-            <CollapseBody>
-              <Input3>
-                <InputBasic3>
-                  <Prefix>Name:</Prefix>
-                  <Input>SunChemical</Input>
-                </InputBasic3>
-              </Input3>
-            </CollapseBody>
-          </CollapseItem>
-        </CollapseProperties>
-      </MenuGroup2> */}
+      <PropertiesMenu />
     </DataCanvas>
   );
 };

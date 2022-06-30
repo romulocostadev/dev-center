@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Form } from 'antd';
+import { Form, Input as InputAnt, Select as SelectAnt } from 'antd';
 import Vector3Image from './assets/I2056_136741_125_49364.png';
 import Vector4Image from './assets/I2056_136743_125_50061.png';
 import Vector5Image from './assets/I2056_136747_918_110189_1_4801.png';
@@ -9,17 +9,15 @@ import GenericCodeButton from '../Button';
 import GenericText from '../Text';
 
 export const MenuGroup1 = styled.div`
-  height: 100%;
-  width: 240px;
-  left: 800px;
-  top: 66px;
-  position: absolute;
+  /* height: 100%; */
+  /* width: 240px; */
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   justify-content: flex-start;
   align-items: flex-start;
   background-color: #ffffff;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
 `;
 export const Divider3 = styled.div`
   height: 2px;
@@ -28,8 +26,8 @@ export const Divider3 = styled.div`
   outline-offset: -0.5px;
 `;
 export const Collapse1 = styled.div`
-  height: 302px;
-  width: 240px;
+  /* height: 302px; */
+  width: 100%;
   display: flex;
   gap: 10px;
   justify-content: flex-start;
@@ -37,7 +35,7 @@ export const Collapse1 = styled.div`
   background-color: #dadada;
 `;
 export const CollapseItem1 = styled.div`
-  height: 302px;
+  /* height: 302px; */
   width: 240px;
   display: flex;
   flex-direction: column;
@@ -47,14 +45,15 @@ export const CollapseItem1 = styled.div`
 `;
 export const CollapseHead1 = styled.div`
   height: 46px;
-  width: 240px;
+  width: 100%;
   display: flex;
   box-sizing: border-box;
   gap: 8px;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   padding: 12px 16px 12px 16px;
   background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `;
 export const IconOutlinedDown1 = styled.div`
   height: 16px;
@@ -75,7 +74,7 @@ export const Vector3 = styled.div`
 export const Properties56 = styled(GenericText)`
   color: rgba(0, 0, 0, 0.85);
   margin: 0px;
-  width: 161px;
+  width: 100%;
   font-weight: 400;
   font-size: 14px;
 `;
@@ -86,15 +85,13 @@ export const IconOutlinedMenu1 = styled.div`
   box-sizing: border-box;
 `;
 export const Vector4 = styled.div`
-  height: 11px;
-  width: 12px;
-  left: 1.75px;
-  top: 2.5px;
-  position: inherit;
+  height: 16px;
+  width: 16px;
   box-sizing: border-box;
   background-color: rgba(0, 0, 0, 0.44999998807907104);
   background: url(${Vector4Image});
   background-repeat: no-repeat;
+  margin-top: 2px;
 `;
 export const Divider4 = styled.div`
   height: 2px;
@@ -103,8 +100,8 @@ export const Divider4 = styled.div`
   outline-offset: -0.5px;
 `;
 export const ViceriForm1 = styled(Form)`
-  height: 192px;
-  width: 240px;
+  /* height: 192px; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -113,6 +110,7 @@ export const ViceriForm1 = styled(Form)`
   align-items: flex-start;
   padding: 8px;
   background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 `;
 export const Input210 = styled.div`
   height: 32px;
@@ -138,14 +136,14 @@ export const Prefix202 = styled(GenericText)`
   font-size: 12px;
   color: rgba(0, 0, 0, 0.45);
   margin: 0px;
-  width: 36px;
+  width: 100%;
 `;
 
 export const Input202 = styled(GenericText)`
   font-size: 12px;
   color: rgba(0, 0, 0, 0.85);
   margin: 0px;
-  width: 81px;
+  width: 100%;
 `;
 
 export const Dropdown6 = styled.div`
@@ -300,7 +298,7 @@ export const Input206 = styled(GenericText)`
 
 export const Actions1 = styled.div`
   height: 64px;
-  width: 240px;
+  width: 100%;
   display: flex;
   box-sizing: border-box;
   gap: 16px;
@@ -327,4 +325,22 @@ export const Divider5 = styled.div`
   width: 242px;
   outline: 1px solid rgba(0, 0, 0, 0.1);
   outline-offset: -0.5px;
+`;
+
+export const FormItem = styled(Form.Item)`
+  display: flex;
+  align-items: center;
+  width: 100%;
+`;
+
+export const Input = styled(InputAnt)`
+  &:hover {
+    outline: 1px solid #9970ff;
+  }
+`;
+
+export const Select = styled(SelectAnt)`
+  &:hover {
+    outline: 1px solid #9970ff;
+  }
 `;

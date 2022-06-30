@@ -1,15 +1,13 @@
 /* eslint-disable prettier/prettier */
 import React, { useState, useEffect } from 'react';
-
 import { FrownFilled, FrownOutlined, PlusOutlined } from '@ant-design/icons';
-
 import Tree, { DataNode, TreeProps } from 'antd/lib/tree';
-import { Key } from 'antd/lib/table/interface';
 import { LayoutSider1 } from './styles';
 import { useAppDispatch, useAppSelector } from '../../../store/reduxHooks';
 import { updateActiveWorkSpace } from '../../../store/solution/solutionSlice';
 
 const findElementByTitleIntoNodes: any = (title: any, solution: any[]) => {
+  console.log(solution, 'solution');
   let objectToReturn = { parent: null, properties: null, current: null };
   if (solution === undefined) return objectToReturn;
 
@@ -22,7 +20,9 @@ const findElementByTitleIntoNodes: any = (title: any, solution: any[]) => {
 
     if (element?.nodes?.length > 0) {
       element.nodes.forEach((node: any) => {
-        if (node.data.title === title) {
+        // console.log(node, title, 'kairo');
+        if (node.data[1].propertyValue === title) {
+          // console.log(node.data[1].propertyValue, 'kairo2');
           finded = true;
           objectToReturn.properties = node.data;
           objectToReturn.parent = element;
@@ -58,6 +58,7 @@ const LayoutSiderPage = () => {
   const TesteItem = () => {
     const onSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
       let finded = findElementByTitleIntoNodes(info?.node?.title, solution);
+      // console.log(finded, 'finded');
       Object.assign(finded, { nodes: info?.node?.nodes });
       dispatch(updateActiveWorkSpace(finded));
     };

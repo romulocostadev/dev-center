@@ -6,7 +6,7 @@ import List from '../pages/List';
 import Application from '../layouts/Application';
 import Home from '../pages/Home';
 import CanvasLayout from '../layouts/CanvasLayout';
-import DataCanvas from '../pages/DataCanvas';
+import Workspace from '../pages/Workspace';
 import Index from '../pages/ComponentsExample';
 
 const IndexRoutes = () => (
@@ -23,7 +23,7 @@ const IndexRoutes = () => (
       <Route path=":id/workflow" element={<Home />} />
       <Route path=":id/plugins" element={<Home />} />
       <Route path=":id/data" element={<CanvasLayout />}>
-        <Route index element={<DataCanvas />} />
+        <Route index element={<Workspace />} />
       </Route>
     </Route>
 
