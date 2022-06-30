@@ -1,7 +1,8 @@
 {
   "name": "Nome",
-  "modal-new-entity-title": "New Entity",
+  "modal-new-entity": "New Entity",
   "modal-new-solution": "New Solution",
+  "modal-new-database": "New Database",
   "required-field": "Required field",
   "button-create-title": "Create",
   "date-time-format": "MMM dd, yyyy, HH:mm",
@@ -35,5 +36,7 @@
   "button-yes-title": "Yes",
   "button-no-title": "No",
   "button-cancel-title": "Cancel",
-  "button-ok-title": "Ok"
+  "button-ok-title": "Ok",
+  "database-name-input-title": "Give me a nice name",
+  "entity-name-input-title": "Give me a nice name"
 }

@@ -20,17 +20,13 @@ import {
   FormFooter,
 } from './styles';
 
-const ModalNewEntity = () => {
+const ModalNewDatabase = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
 
   const activeWorkSpace = useAppSelector(
     state => state.solutions.activeWorkSpace,
   );
-
-  const solution = useAppSelector(state => state.solutions.solution);
-
-  const dispatch = useAppDispatch();
 
   const getUpdatedChild = (parameterElement, current, title) => {
     let element = { ...parameterElement };
@@ -39,6 +35,12 @@ const ModalNewEntity = () => {
       finded = true;
       if (!element.children) element.children = [];
 
+      console.log('element.children', element.children, {
+        key: '0',
+        title,
+        nodes: [],
+        children: null,
+      });
       element.nodes = Object.assign([], element.nodes);
       element.children = Object.assign([], element.children);
       element.children.push({
@@ -48,58 +50,29 @@ const ModalNewEntity = () => {
         children: null,
       });
       element.nodes.push({
-        id: `ent-${element.nodes.length + 1}`,
+        id: `dbi-${element.nodes.length + 1}`,
         type: 'customNode',
-        selectable: true,
         data: {
-          elementType: 'entity',
+          elementType: 'database',
           title,
-          keyType: 'int',
-          entityType: 'Auditable',
-          refDatabaseId: 'db-3',
-          properties: [
-            {
-              title: 'key',
-              type: 'int',
-              isArray: false,
-              isNullable: false,
-              defaultValue: null,
-              checkReferencedEntityId: null,
-            },
-            {
-              title: 'CreatedUtc',
-              type: 'DateTimeOffset',
-              isArray: false,
-              isNullable: false,
-              defaultValue: null,
-              checkReferencedEntityId: null,
-            },
-            {
-              title: 'ModifiedUtc',
-              type: 'DateTimeOffset',
-              isArray: false,
-              isNullable: false,
-              defaultValue: null,
-              checkReferencedEntityId: null,
-            },
-          ],
-        },
-        style: {
-          border: '1px solid #777',
-          padding: 10,
+          refDbInstanceId: `dbi-${element.nodes.length + 1}`,
+          addIdentityTables: false,
+          defaultSchema: title,
         },
         position: {
-          x:
+          x: 0,
+          y:
             element.nodes.length > 0
-              ? element.nodes.slice(-1).pop().position.x + 300
-              : 300,
-          y: 50,
+              ? element.nodes.slice(-1).pop().position.y + 50
+              : 50,
         },
+        sourcePosition: 'right',
       });
 
       let newActiveWorkSpace = { ...activeWorkSpace };
       newActiveWorkSpace.nodes = element.nodes;
       dispatch(updateActiveWorkSpace(newActiveWorkSpace));
+
       return element;
     }
     if (finded === false && element?.children?.length > 0) {
@@ -109,13 +82,15 @@ const ModalNewEntity = () => {
     }
     return element;
   };
-
   const updateSolutionData = (solution, current, databaseName) => {
     solution.children = solution?.children?.map(element =>
       getUpdatedChild(element, current, databaseName),
     );
     return solution;
   };
+  const solution = useAppSelector(state => state.solutions.solution);
+
+  const dispatch = useAppDispatch();
 
   const handleSubmit = (values: any) => {
     notification.success({
@@ -154,7 +129,7 @@ const ModalNewEntity = () => {
             name="name"
             rules={[{ required: true, message: t('required-field') }]}
           >
-            <InputBasic placeholder={t('entity-name-input-title')} />
+            <InputBasic placeholder={t('database-name-input-title')} />
           </GenericFormItem>
         </Frame>
       </InputsWrapper>
@@ -167,4 +142,4 @@ const ModalNewEntity = () => {
   );
 };
 
-export default ModalNewEntity;
+export default ModalNewDatabase;

@@ -13,14 +13,12 @@ import GenericText from '../../../components/Text';
 
 export const LayoutSider1 = styled.div`
   height: 100%;
-  width: 252px;
   display: flex;
   box-sizing: border-box;
   justify-content: flex-start;
   align-items: flex-start;
   margin: 2px;
   border-right: 1px solid #ccc;
-  overflow-x: scroll;
 `;
 export const MenuGroup1 = styled.div`
   height: 100%;

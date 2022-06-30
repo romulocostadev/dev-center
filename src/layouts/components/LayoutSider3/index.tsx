@@ -1,10 +1,10 @@
 /* eslint-disable prettier/prettier */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { FrownFilled, FrownOutlined, PlusOutlined } from '@ant-design/icons';
 
 import Tree, { DataNode, TreeProps } from 'antd/lib/tree';
-import Enumerable from 'linq';
+import { Key } from 'antd/lib/table/interface';
 import { LayoutSider1 } from './styles';
 import { useAppDispatch, useAppSelector } from '../../../store/reduxHooks';
 import { updateActiveWorkSpace } from '../../../store/solution/solutionSlice';
@@ -49,6 +49,9 @@ const findElementByTitleIntoNodes: any = (title: any, solution: any[]) => {
 
 const LayoutSiderPage = () => {
   const solution = useAppSelector(state => state.solutions.solution);
+  const current = useAppSelector(
+    state => state.solutions.activeWorkSpace.current,
+  );
 
   const dispatch = useAppDispatch();
 
@@ -65,7 +68,8 @@ const LayoutSiderPage = () => {
 
     return (
       <Tree.DirectoryTree
-        defaultExpandedKeys={['1']}
+        defaultExpandAll
+        defaultSelectedKeys={current?.key}
         onSelect={onSelect}
         onCheck={onCheck}
         treeData={[solution] as DataNode}

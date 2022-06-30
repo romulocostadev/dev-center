@@ -9,10 +9,11 @@ import GenericCodeButton from '../../components/Button';
 import GenericText from '../../components/Text';
 
 export const DataCanvasDatabase = styled.div`
-  height: 100%;
-  width: 1424px;
   box-sizing: border-box;
-  background-color: rgba(115, 70, 248, 0.019999999552965164);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex: 100;
 `;
 export const MenuGroup3 = styled.div`
   height: 100%;
@@ -187,9 +188,6 @@ export const Divider5 = styled.div`
 export const AInstanceNeedsADatabase = styled.div`
   height: 402px;
   width: 322px;
-  left: 552px;
-  top: 24px;
-  position: absolute;
   display: flex;
   flex-direction: column;
   border: 1px solid rgba(0, 0, 0, 0.1);

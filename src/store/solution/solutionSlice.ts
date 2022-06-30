@@ -72,12 +72,12 @@ const initialState: SolutionProps = {
               {
                 key: '4',
                 title: 'PostgreSqlInstance',
-                // properties: {
-                //   elementType: 'dbInstance',
-                //   title: 'SqlServerInstance',
-                //   type: 'SqlServer',
-                //   isRelationalDb: true,
-                // },
+                properties: {
+                  elementType: 'dbInstance',
+                  title: 'SqlServerInstance',
+                  type: 'SqlServer',
+                  isRelationalDb: true,
+                },
                 nodes: [
                   {
                     id: 'db-1',
@@ -107,7 +107,7 @@ const initialState: SolutionProps = {
                     },
                     position: {
                       x: 0,
-                      y: 50,
+                      y: 100,
                     },
                     sourcePosition: 'right',
                   },
@@ -178,7 +178,7 @@ const initialState: SolutionProps = {
                     ],
                     children: [
                       {
-                        id: '6',
+                        key: '6',
                         title: 'Order',
                       },
                     ],
@@ -375,6 +375,8 @@ const initialState: SolutionProps = {
                   {
                     key: '999',
                     title: 'IdentityDb',
+                    children: [],
+                    nodes: [],
                   },
                 ],
               },
@@ -433,7 +435,8 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { setSolutions, updateActiveWorkSpace } = counterSlice.actions;
+export const { setSolutions, createSolution, updateActiveWorkSpace } =
+  counterSlice.actions;
 
 export const solutionsSortByName = (state: RootState) => {
   return state.solutions.solutions

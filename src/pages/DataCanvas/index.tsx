@@ -11,8 +11,9 @@ import ReactFlow, {
   MiniMap,
   Controls,
 } from 'react-flow-renderer';
+import { t } from 'i18next';
 import CardsAuditableEntityPage from '../../components/CardsAuditableEntity';
-import { useAppSelector } from '../../store/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../store/reduxHooks';
 import {
   DataCanvas,
   CardCreatingAStructure,
@@ -38,6 +39,11 @@ import {
   ReactFlowWrapper,
   // Divider3,
 } from './styles';
+import { setModalData } from '../../store/modal/modalSlice';
+import ModalNewDatabase from '../../components/ModalNewDatabase';
+import DataCanvasDatabasePage from '../DataCanvasDatabase';
+import NewEntityPage from '../NewEntityPage';
+import ModalNewEntity from '../../components/ModalNewEntity';
 
 // const nodeTypes = {
 //   selectorNode: CardsAuditableEntityPage,
@@ -46,6 +52,8 @@ import {
 
 const initBgColor = '#1A192B';
 const DataCanvasPage = () => {
+  const dispatch = useAppDispatch();
+
   const properties = useAppSelector(
     state => state.solutions.activeWorkSpace.properties,
   );
@@ -53,6 +61,8 @@ const DataCanvasPage = () => {
   const nodeReducer = useAppSelector(
     state => state.solutions.activeWorkSpace.nodes,
   );
+
+  const solution = useAppSelector(state => state.solutions.solution);
 
   const currentSelection = useAppSelector(
     state => state.solutions.activeWorkSpace.currentSelection,
@@ -75,8 +85,10 @@ const DataCanvasPage = () => {
 
   const getButtonTitle = (elementType: string) => {
     switch (elementType) {
-      case 'database':
+      case 'entity':
         return 'Create instance';
+      case 'database':
+        return 'Create entity';
       case 'dbInstance':
         return 'Create database';
       default:
@@ -133,41 +145,73 @@ const DataCanvasPage = () => {
       },
     ]);
   }, []);
+
+  const handleClickButtonCreate = () => {
+    switch (properties?.elementType) {
+      case 'database':
+        dispatch(
+          setModalData({
+            visible: true,
+            title: t('modal-new-entity'),
+            content: <ModalNewEntity />,
+          }),
+        );
+        break;
+      case 'dbInstance':
+        dispatch(
+          setModalData({
+            visible: true,
+            title: t('modal-new-database'),
+            content: <ModalNewDatabase />,
+          }),
+        );
+        break;
+      default:
+        break;
+    }
+  };
   return (
     <DataCanvas>
       <ButtonWrapper>
-        {properties && properties?.elementType !== 'entity' && (
-          <Button icon={<PlusCircleOutlined />}>
+        {properties && (
+          <Button
+            icon={<PlusCircleOutlined />}
+            onClick={handleClickButtonCreate}
+          >
             {getButtonTitle(properties?.elementType)}
           </Button>
         )}
       </ButtonWrapper>
       <ReactFlowWrapper>
-        <ReactFlow
-          nodes={nodes}
-          edges={edges}
-          onNodesChange={onNodesChange}
-          onEdgesChange={onEdgesChange}
-          nodeTypes={nodeTypes}
-          snapToGrid
-          snapGrid={[20, 20]}
-          defaultZoom={1.5}
-          fitView
-          attributionPosition="bottom-left"
-        >
-          <MiniMap
-            nodeStrokeColor={(n: any) => {
-              if (n.type === 'input') return '#0041d0';
-              if (n.type === 'selectorNode') return bgColor;
-              if (n.type === 'output') return '#ff0072';
-            }}
-            nodeColor={n => {
-              if (n.type === 'selectorNode') return bgColor;
-              return '#fff';
-            }}
-          />
-          <Controls />
-        </ReactFlow>
+        {nodes?.length > 0 && (
+          <ReactFlow
+            nodes={nodes}
+            edges={edges}
+            onNodesChange={onNodesChange}
+            onEdgesChange={onEdgesChange}
+            nodeTypes={nodeTypes}
+            snapToGrid
+            snapGrid={[20, 20]}
+            defaultZoom={1.5}
+            fitView
+            elementsSelectable
+            attributionPosition="bottom-left"
+          >
+            <MiniMap
+              nodeStrokeColor={(n: any) => {
+                if (n.type === 'input') return '#0041d0';
+                if (n.type === 'selectorNode') return bgColor;
+                if (n.type === 'output') return '#ff0072';
+              }}
+              nodeColor={n => {
+                if (n.type === 'selectorNode') return bgColor;
+                return '#fff';
+              }}
+            />
+            <Controls />
+          </ReactFlow>
+        )}
+        {properties && nodes?.length === 0 && <DataCanvasDatabasePage />}
       </ReactFlowWrapper>
       {/* <CardCreatingAStructure>
         <VectorFrame>

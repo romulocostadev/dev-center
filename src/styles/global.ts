@@ -16,6 +16,19 @@ const GlobalStyle = createGlobalStyle`
     color: rgba(0, 0, 0, 0.85);
     font-weight: 500;
 }
+/* ::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+::-webkit-scrollbar-track {
+    background-color: #e4e4e471;
+    border-radius: 5px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    background-color: #e4e4e4;
+    border-radius: 5px;
+} */
 .ant-form-item-label > label {
   height: 0px !important
 }
@@ -92,11 +105,19 @@ const GlobalStyle = createGlobalStyle`
     /* background-color: red !important; */
   }
   .ant-tree.ant-tree-block-node.ant-tree-directory {
-    width: 100% !important
+    width: 100% !important;
+    min-width: 300px !important;
+    max-width: 350px !important;
+    max-height: 100vh !important;
+    min-height: 100% !important;
+    overflow-x: auto!important;
+    overflow-y: auto!important;
   }
   .ant-tree.ant-tree-directory .ant-tree-treenode-selected::before {
     background: #F6F0FF !important
   }
+
+  
   .ant-tree-treenode .ant-tree-node-content-wrapper.ant-tree-node-selected{
     font-family: 'Roboto' !important;
     font-weight: 500 !important;
@@ -151,6 +172,14 @@ const GlobalStyle = createGlobalStyle`
   }
   .icon-rotate .anticon-ellipsis{
     transform: rotate(270deg) !important;
+  }
+  .selected {
+    //outline: 5px solid black !important;
+    //background-color: black !important;
+    -webkit-box-shadow: 2px 3px 11px 5px rgba(132, 93, 249, 0.068)!important;
+    box-shadow: 2px 3px 11px 5px rgba(132, 93, 249, 0.068)!important;
+    outline: 1px solid rgba(132, 93, 249, 0.38);
+    border-radius: 8px;
   }
 `;
 
