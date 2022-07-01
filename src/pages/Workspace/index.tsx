@@ -30,6 +30,7 @@ import ModalNewEntity from '../../components/ModalNewEntity';
 import PropertiesMenu from '../../components/PropertiesMenu';
 import ModalNewDbInstance from '../../components/ModalNewDbInstance';
 import { PathType } from '../../services/factories/common';
+import { updateCurrent } from '../../store/solution/solutionSlice';
 
 const initBgColor = '#1A192B';
 const DataCanvasPage = () => {
@@ -46,6 +47,8 @@ const DataCanvasPage = () => {
   const nodeReducer = useAppSelector(
     state => state.solutions.activeWorkSpace.nodes,
   );
+
+  const solution = useAppSelector(state => state.solutions.solution);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(nodeReducer);
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
@@ -156,6 +159,34 @@ const DataCanvasPage = () => {
         break;
     }
   };
+  const setCurrent = async (id: string, data: any[]) => {
+    if (!Array.isArray(data)) {
+      return setCurrent(id, [data]);
+    }
+    for (let index = 0; index < data.length; index++) {
+      const element = data[index];
+      if (element.key === id) {
+        dispatch(updateCurrent(element));
+        return false;
+      }
+      if (element?.children?.length > 0) {
+        element.children.forEach((child: any) => {
+          if (child.key === id) {
+            dispatch(updateCurrent(child));
+            return false;
+          }
+        });
+        element.children.forEach((child: any) => {
+          if (child.children) {
+            setCurrent(id, child.children);
+          }
+        });
+      }
+    }
+  };
+  const handleOnSelect = (event, node) => {
+    setCurrent(node.id, solution);
+  };
   return (
     <DataCanvas>
       <ReactFlowWrapper>
@@ -165,6 +196,8 @@ const DataCanvasPage = () => {
             edges={edges}
             onNodesChange={onNodesChange}
             onEdgesChange={onEdgesChange}
+            onSelect={handleOnSelect}
+            onNodeClick={handleOnSelect}
             nodeTypes={nodeTypes}
             snapToGrid
             snapGrid={[20, 20]}
