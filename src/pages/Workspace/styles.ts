@@ -19,7 +19,7 @@ export const DataCanvas = styled.div`
 
 export const ButtonWrapper = styled.div`
   right: 240px;
-  z-index: 10000000;
+  z-index: 4;
   position: absolute;
   margin: 15px;
 `;

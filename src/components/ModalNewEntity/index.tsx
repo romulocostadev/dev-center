@@ -19,7 +19,11 @@ import {
   FormFooter,
 } from './styles';
 import getNewNode from '../../services/factories/entity';
-import getNewChild, { getUuid } from '../../services/factories/common';
+import getNewChild, {
+  getUuid,
+  NewChildRequestParams,
+  PathType,
+} from '../../services/factories/common';
 
 const ModalNewEntity = () => {
   const { t } = useTranslation();
@@ -37,14 +41,18 @@ const ModalNewEntity = () => {
     let element = { ...parameterElement };
     let finded = false;
     let id = getUuid();
-    let refDatabaseId = 'db-1';
+    let refDatabaseId = getUuid();
     if (element.title === current.title) {
       finded = true;
       if (!element.children) element.children = [];
 
       element.nodes = Object.assign([], element.nodes);
       element.children = Object.assign([], element.children);
-      let newChildItem = getNewChild(id, title);
+      const params = new NewChildRequestParams();
+      params.id = id;
+      params.title = title;
+      params.pathType = PathType.Entity;
+      let newChildItem = getNewChild(params);
       element.children.push(newChildItem);
       let lastNode =
         element.nodes.length > 0 ? element.nodes.slice(-1).pop() : null;

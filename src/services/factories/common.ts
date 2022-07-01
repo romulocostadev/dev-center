@@ -1,11 +1,28 @@
 import { v4 } from 'uuid';
 
-const getNewChild = (id: string, title: string) => {
+enum PathType {
+  SolutionFolder = 'solution-folder',
+  DatabaseFolder = 'database-folder',
+  DBinstanceFolder = 'dbinstance-folder',
+  DatabaseInstance = 'database-instance',
+  Database = 'database',
+  Entity = 'entity',
+}
+class NewChildRequestParams {
+  id: string;
+
+  title: string;
+
+  pathType: PathType;
+}
+
+const getNewChild = (requestParams: NewChildRequestParams) => {
   return {
-    key: id,
-    title,
+    key: requestParams.id,
+    title: requestParams.title,
     nodes: [],
     children: null,
+    pathType: requestParams.pathType,
   };
 };
 
@@ -14,4 +31,4 @@ const getUuid = () => {
 };
 
 export default getNewChild;
-export { getUuid, getNewChild };
+export { getUuid, getNewChild, NewChildRequestParams, PathType };

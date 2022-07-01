@@ -15,29 +15,14 @@ import {
   Title14,
   Logo,
   IconOutlinedTable,
-  Vector2,
   Name390,
   AuditableEntity81,
-  ButtonsButton26,
-  Content1,
-  IconOutlinedPlus,
   ExitConnector,
   ExitConnector1,
-  Divider2,
   SecondaryInfo,
   CardsInfo,
   Name391,
   Value342,
-  CardsInfo1,
-  Name392,
-  Value343,
-  CardsInfo2,
-  Name393,
-  Value344,
-  CardsInfo3,
-  Name394,
-  Value345,
-  Action,
   SqlServerIcon,
   PostGreSQLIcon,
   EntityIcon,
@@ -47,8 +32,6 @@ import { useAppDispatch } from '../../store/reduxHooks';
 import { updatePropertiesActiveWorkSpace } from '../../store/solution/solutionSlice';
 
 function CardsAuditableEntityPage({ data }: any) {
-  console.log(data, 'fff');
-
   let elementType = '';
   let elementName = '';
   let type = '';
@@ -71,8 +54,6 @@ function CardsAuditableEntityPage({ data }: any) {
       entityType = foo.propertyValue;
     }
   });
-
-  console.log(properties, 'type');
 
   const handleIcon = () => {
     if (elementType === 'dbInstance') {
@@ -152,7 +133,7 @@ function CardsAuditableEntityPage({ data }: any) {
         <InConnector>
           <InConnector1 />
         </InConnector>
-        <Title13 onClick={() => console.log(data)}>
+        <Title13>
           <Title14>
             <Logo>{handleIcon()}</Logo>
             <Name390>{elementName}</Name390>
@@ -168,11 +149,9 @@ function CardsAuditableEntityPage({ data }: any) {
       {properties && (
         <SecondaryInfo style={{ zIndex: 10000000 }}>
           {properties?.propertyValue?.map((propValue): any => {
-            console.log(propValue, 'propValue');
             const columns = handleColumns(propValue);
             return columns.map(column => {
               if (column) {
-                console.log(column, 'column');
                 return (
                   <CardsInfo onClick={() => handleSelectedColumn(column)}>
                     <Name391>{column?.name}: </Name391>

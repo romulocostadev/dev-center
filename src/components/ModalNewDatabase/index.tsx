@@ -20,7 +20,11 @@ import {
   InputBasic,
   FormFooter,
 } from './styles';
-import getNewChild, { getUuid } from '../../services/factories/common';
+import getNewChild, {
+  getUuid,
+  NewChildRequestParams,
+  PathType,
+} from '../../services/factories/common';
 import getNewNode from '../../services/factories/database';
 
 const ModalNewDatabase = () => {
@@ -39,7 +43,11 @@ const ModalNewDatabase = () => {
       finded = true;
       if (!element.children) element.children = [];
 
-      let newChildItem = getNewChild(id, title);
+      const params = new NewChildRequestParams();
+      params.id = id;
+      params.title = title;
+      params.pathType = PathType.Database;
+      let newChildItem = getNewChild(params);
       element.nodes = Object.assign([], element.nodes);
       element.children = Object.assign([], element.children);
       element.children.push(newChildItem);

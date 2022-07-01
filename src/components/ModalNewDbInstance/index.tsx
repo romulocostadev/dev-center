@@ -23,8 +23,12 @@ import {
   SelectDatabase,
   SelectOption,
 } from './styles';
-import getNewChild, { getUuid } from '../../services/factories/common';
-import getNewNode from '../../services/factories/database';
+import getNewChild, {
+  getUuid,
+  NewChildRequestParams,
+  PathType,
+} from '../../services/factories/common';
+import getNewNode from '../../services/factories/databaseInstance';
 
 const ModalNewDbInstance = () => {
   const { t } = useTranslation();
@@ -34,21 +38,38 @@ const ModalNewDbInstance = () => {
     state => state.solutions.activeWorkSpace,
   );
 
-  const getUpdatedChild = (parameterElement, current, title) => {
+  const getUpdatedChild = (
+    parameterElement,
+    current,
+    title,
+    databaseEngine,
+    isRelational,
+  ) => {
     let element = { ...parameterElement };
     let finded = false;
     let id = getUuid();
-    if (element.title === current.title) {
+    if (element.title === 'DbInstances') {
       finded = true;
       if (!element.children) element.children = [];
 
-      let newChildItem = getNewChild(id, title);
+      const params = new NewChildRequestParams();
+      params.id = id;
+      params.title = title;
+      params.pathType = PathType.DatabaseInstance;
+      let newChildItem = getNewChild(params);
+
       element.nodes = Object.assign([], element.nodes);
       element.children = Object.assign([], element.children);
       element.children.push(newChildItem);
       let lastNode =
         element.nodes.length > 0 ? element.nodes.slice(-1).pop() : null;
-      let newNode = getNewNode(id, title, lastNode);
+      let newNode = getNewNode(
+        id,
+        title,
+        lastNode,
+        databaseEngine,
+        isRelational,
+      );
       element.nodes.push(newNode);
 
       let newActiveWorkSpace = { ...activeWorkSpace };
@@ -58,14 +79,32 @@ const ModalNewDbInstance = () => {
     }
     if (finded === false && element?.children?.length > 0) {
       element.children = element?.children?.map(recursiveElement =>
-        getUpdatedChild(recursiveElement, current, title),
+        getUpdatedChild(
+          recursiveElement,
+          current,
+          title,
+          databaseEngine,
+          isRelational,
+        ),
       );
     }
     return element;
   };
-  const updateSolutionData = (solution, current, databaseName) => {
+  const updateSolutionData = (
+    solution,
+    current,
+    databaseName,
+    databaseEngine,
+    isRelational,
+  ) => {
     solution.children = solution?.children?.map(element =>
-      getUpdatedChild(element, current, databaseName),
+      getUpdatedChild(
+        element,
+        current,
+        databaseName,
+        databaseEngine,
+        isRelational,
+      ),
     );
     return solution;
   };
@@ -79,44 +118,42 @@ const ModalNewDbInstance = () => {
   );
 
   const dispatch = useAppDispatch();
+  const [isRelationalDatabase, setIsRelationalDatabase] = useState(false);
 
   const handleSubmit = (values: any) => {
     notification.success({
       message: t('sucess-title'),
       description: t('sucess-message'),
     });
-    // let newSolution = { ...solution };
-    // newSolution = updateSolutionData(
-    //  newSolution,
-    //  activeWorkSpace.current,
-    //  values.name,
-    // );
-    //
+    let newSolution = { ...solution };
+    newSolution = updateSolutionData(
+      newSolution,
+      activeWorkSpace.current,
+      values.name,
+      values.type,
+      isRelationalDatabase,
+    );
+
+    dispatch(
+      createSolution({
+        solution: newSolution,
+      }),
+    );
     // dispatch(
     //  createSolution({
-    //    solution: newSolution,
+    //    activeWorkSpace,
     //  }),
     // );
-    /// / dispatch(
-    /// /  createSolution({
-    /// /    activeWorkSpace,
-    /// /  }),
-    /// / );
     dispatch(
       setModalData({
         visible: false,
       }),
     );
   };
-  const [isRelationalType, setIsRelationalType] = useState(false);
 
   const handleChangeDbType = dbType => {
-    setIsRelationalType(relationalDbInstanceTypes.indexOf(dbType) >= 0);
+    setIsRelationalDatabase(relationalDbInstanceTypes.indexOf(dbType) >= 0);
   };
-
-  useEffect(() => {
-    console.log('kairo dbInstanceTypes', dbInstanceTypes);
-  }, [dbInstanceTypes]);
 
   return (
     <FormNewSolution onFinish={handleSubmit}>
@@ -145,8 +182,8 @@ const ModalNewDbInstance = () => {
           <GenericFormItem name="relationalDatabase">
             <Checkbox
               disabled
-              checked={isRelationalType}
-              value={isRelationalType}
+              checked={isRelationalDatabase}
+              value={isRelationalDatabase}
             >
               {t('dbinstance-is-relational-database')}
             </Checkbox>

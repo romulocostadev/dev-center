@@ -60,7 +60,6 @@ const PropertiesMenu = () => {
   useEffect(() => {
     if (activeWorkSpace.properties) {
       activeWorkSpace.properties.forEach((data2): any => {
-        console.log(data2, 'data2');
         form.setFieldsValue({
           [data2.propertyName as string]: data2.propertyValue,
         });
@@ -69,7 +68,6 @@ const PropertiesMenu = () => {
   }, [activeWorkSpace.properties, form]);
 
   const renderFormItem = (data: any) => {
-    console.log(data, 'data99');
     if (data?.visible) {
       switch (data.formType) {
         case 'input':
@@ -131,17 +129,12 @@ const PropertiesMenu = () => {
       a => a.propertyName === 'properties',
     );
 
-    console.log(foo2, 'foo222');
-
     activeWorkSpace?.properties
       ?.find((a: any) => a.propertyName === 'properties')
       ?.propertyValue.map(property => {
-        console.log(property, 'property123');
-
         return datakairo.push(property);
       });
 
-    console.log(datakairo, 'propsromulo');
     // ?.propertyValue.map(foo => {
     //   return renderFormItem(foo.propertyValue);
     // })
@@ -158,11 +151,7 @@ const PropertiesMenu = () => {
             </IconOutlinedMenu1>
           </CollapseHead1>
           {activeWorkSpace?.properties && (
-            <ViceriForm1
-              form={form}
-              initialValues={formInitial}
-              onFinish={values => console.log(values)}
-            >
+            <ViceriForm1 form={form} initialValues={formInitial}>
               {/* {activeWorkSpace.properties &&
               Object.entries(activeWorkSpace.properties).map((key): any => {
                 return (

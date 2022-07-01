@@ -29,6 +29,7 @@ import ModalNewEntity from '../../components/ModalNewEntity';
 // };
 import PropertiesMenu from '../../components/PropertiesMenu';
 import ModalNewDbInstance from '../../components/ModalNewDbInstance';
+import { PathType } from '../../services/factories/common';
 
 const initBgColor = '#1A192B';
 const DataCanvasPage = () => {
@@ -186,9 +187,13 @@ const DataCanvasPage = () => {
             <Controls />
           </ReactFlow>
         )}
-        {(!nodes || nodes?.length === 0) && <DataCanvasDatabasePage />}
+        {(!nodes ||
+          (nodes?.length === 0 &&
+            activeWorkSpace?.current?.pathType != PathType.Entity)) && (
+          <DataCanvasDatabasePage />
+        )}
         <ButtonWrapper>
-          {nodes && (
+          {nodes && activeWorkSpace?.current?.pathType != PathType.Entity && (
             <Button
               icon={<PlusCircleOutlined />}
               onClick={handleClickButtonCreate}

@@ -5,6 +5,7 @@ import GenericCodeButton from '../../components/Button';
 import ModalNewDatabase from '../../components/ModalNewDatabase';
 import ModalNewDbInstance from '../../components/ModalNewDbInstance';
 import ModalNewEntity from '../../components/ModalNewEntity';
+import { PathType } from '../../services/factories/common';
 import { setModalData } from '../../store/modal/modalSlice';
 import { useAppDispatch, useAppSelector } from '../../store/reduxHooks';
 
@@ -39,12 +40,12 @@ import {
 
 const getDataScreen = (elementType: string) => {
   switch (elementType) {
-    case 'database':
+    case PathType.Database:
       return {
         title: 'A Database Needs a Entity',
         buttonTitle: 'Create entity',
       };
-    case 'dbinstance-folder':
+    case PathType.DatabaseInstance:
       return {
         title: 'A Database Instance Needs a Database',
         buttonTitle: 'Create Database',
@@ -60,16 +61,16 @@ const getDataScreen = (elementType: string) => {
 const DataCanvasDatabasePage = () => {
   const dispatch = useAppDispatch();
 
-  const pathType = useAppSelector(
-    state => state.solutions.activeWorkSpace.current.pathType,
+  const activeWorkSpace = useAppSelector(
+    state => state.solutions.activeWorkSpace,
   );
 
   const [data, setData] = useState({});
   useEffect(() => {
-    setData(getDataScreen(pathType));
-  }, [pathType]);
+    setData(getDataScreen(activeWorkSpace?.current?.pathType));
+  }, [activeWorkSpace?.current?.pathType]);
   const handleClickButtonCreate = () => {
-    switch (pathType) {
+    switch (activeWorkSpace?.current?.pathType) {
       case 'database':
         dispatch(
           setModalData({
@@ -79,7 +80,7 @@ const DataCanvasDatabasePage = () => {
           }),
         );
         break;
-      case 'dbinstance-folder':
+      case 'database-instance':
         dispatch(
           setModalData({
             visible: true,
