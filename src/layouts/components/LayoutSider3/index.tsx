@@ -108,19 +108,47 @@ const LayoutSiderPage = () => {
       }
     };
 
-    const onSelect: TreeProps['onSelect'] = (selectedKeys, info) => {
+    const setSelectedAndNodes = async (id: string, data: any[]) => {
+      if (!Array.isArray(data)) {
+        return setSelectedAndNodes(id, [data]);
+      }
+
+      for (let index = 0; index < data.length; index++) {
+        const element = data[index];
+
+        if (element?.children?.length > 0) {
+          setSelectedAndNodes(id, element.children);
+        }
+
+        let found = false;
+
+        let copyNodes = [];
+        element?.nodes?.forEach(node => {
+          let copyNode = { ...node };
+          copyNodes.push(copyNode);
+          if (node.id === id) {
+            found = true;
+            copyNode.selected = true;
+          }
+        });
+        if (found) {
+          dispatch(updateNodes(copyNodes));
+        }
+      }
+    };
+
+    const onSelect: TreeProps['onSelect'] = async (selectedKeys, info) => {
       const key = selectedKeys[0].toString();
       // let finded = findElementByTitleIntoNodes(key, solution);
 
-      setCurrent(key, solution);
-      setAttributes(key, solution);
+      await setCurrent(key, solution);
+      await setAttributes(key, solution);
 
-      const nodes =
-        info?.node?.nodes?.length > 0
-          ? info?.node?.nodes
-          : activeWorkSpace?.parent?.nodes;
-
-      dispatch(updateNodes(nodes));
+      if (info?.node?.nodes?.length > 0) {
+        dispatch(updateNodes(info?.node?.nodes));
+      } else {
+        setSelectedAndNodes(key, solution);
+      }
     };
 
     const onCheck: TreeProps['onCheck'] = (checkedKeys, info) => {};
@@ -131,6 +159,8 @@ const LayoutSiderPage = () => {
         onSelect={onSelect}
         onCheck={onCheck}
         treeData={[solution] as DataNode}
+        defaultSelectedKeys={[activeWorkSpace?.current?.key]}
+        selectedKeys={[activeWorkSpace?.current?.key]}
       />
     );
   };
