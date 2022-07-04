@@ -7,6 +7,7 @@ import ReactFlow, {
   useEdgesState,
   MiniMap,
   Controls,
+  ReactFlowProvider,
 } from 'react-flow-renderer';
 import { t } from 'i18next';
 import CardsAuditableEntityPage from '../../components/CardsAuditableEntity';
@@ -31,10 +32,12 @@ import PropertiesMenu from '../../components/PropertiesMenu';
 import ModalNewDbInstance from '../../components/ModalNewDbInstance';
 import { PathType } from '../../services/factories/common';
 import { updateCurrent } from '../../store/solution/solutionSlice';
+import useWorkspace from '../../hooks/useWorkspace';
 
 const initBgColor = '#1A192B';
 const DataCanvasPage = () => {
   const dispatch = useAppDispatch();
+  const [setCurrent] = useWorkspace();
 
   const properties = useAppSelector(
     state => state.solutions.activeWorkSpace.properties,
@@ -67,6 +70,8 @@ const DataCanvasPage = () => {
 
   const getButtonTitle = (elementType: string) => {
     switch (elementType) {
+      case 'solution-folder':
+      case 'database-folder':
       case 'dbinstance-folder':
         return 'Create DbInstance';
       case 'database':
@@ -79,6 +84,7 @@ const DataCanvasPage = () => {
   };
 
   useEffect(() => {
+    console.log('useeffect');
     const onChange = (event: any) => {
       setNodes(nds =>
         nds.map(node => {
@@ -159,83 +165,60 @@ const DataCanvasPage = () => {
         break;
     }
   };
-  const setCurrent = async (id: string, data: any[]) => {
-    if (!Array.isArray(data)) {
-      return setCurrent(id, [data]);
-    }
-    for (let index = 0; index < data.length; index++) {
-      const element = data[index];
-      if (element.key === id) {
-        dispatch(updateCurrent(element));
-        return false;
-      }
-      if (element?.children?.length > 0) {
-        element.children.forEach((child: any) => {
-          if (child.key === id) {
-            dispatch(updateCurrent(child));
-            return false;
-          }
-        });
-        element.children.forEach((child: any) => {
-          if (child.children) {
-            setCurrent(id, child.children);
-          }
-        });
-      }
-    }
-  };
+
   const handleOnSelect = (event, node) => {
     setCurrent(node.id, solution);
   };
   return (
     <DataCanvas>
-      <ReactFlowWrapper>
-        {nodes?.length > 0 && (
-          <ReactFlow
-            nodes={nodes}
-            edges={edges}
-            onNodesChange={onNodesChange}
-            onEdgesChange={onEdgesChange}
-            onSelect={handleOnSelect}
-            onNodeClick={handleOnSelect}
-            nodeTypes={nodeTypes}
-            snapToGrid
-            snapGrid={[20, 20]}
-            defaultZoom={1.5}
-            fitView
-            elementsSelectable
-            attributionPosition="bottom-left"
-          >
-            <MiniMap
-              nodeStrokeColor={(n: any) => {
-                if (n.type === 'input') return '#0041d0';
-                if (n.type === 'selectorNode') return bgColor;
-                if (n.type === 'output') return '#ff0072';
-              }}
-              nodeColor={n => {
-                if (n.type === 'selectorNode') return bgColor;
-                return '#fff';
-              }}
-            />
-            <Controls />
-          </ReactFlow>
-        )}
-        {(!nodes ||
-          (nodes?.length === 0 &&
-            activeWorkSpace?.current?.pathType != PathType.Entity)) && (
-          <DataCanvasDatabasePage />
-        )}
-        <ButtonWrapper>
-          {nodes && activeWorkSpace?.current?.pathType != PathType.Entity && (
-            <Button
-              icon={<PlusCircleOutlined />}
-              onClick={handleClickButtonCreate}
+      <ReactFlowProvider>
+        <ReactFlowWrapper>
+          {nodes?.length > 0 && (
+            <ReactFlow
+              nodes={nodes}
+              edges={edges}
+              onNodesChange={onNodesChange}
+              onEdgesChange={onEdgesChange}
+              onNodeClick={handleOnSelect}
+              nodeTypes={nodeTypes}
+              snapToGrid
+              snapGrid={[20, 20]}
+              defaultZoom={1.5}
+              fitView
+              elementsSelectable
+              attributionPosition="bottom-left"
             >
-              {getButtonTitle(activeWorkSpace?.current?.pathType)}
-            </Button>
+              <MiniMap
+                nodeStrokeColor={(n: any) => {
+                  if (n.type === 'input') return '#0041d0';
+                  if (n.type === 'selectorNode') return bgColor;
+                  if (n.type === 'output') return '#ff0072';
+                }}
+                nodeColor={n => {
+                  if (n.type === 'selectorNode') return bgColor;
+                  return '#fff';
+                }}
+              />
+              <Controls />
+            </ReactFlow>
           )}
-        </ButtonWrapper>
-      </ReactFlowWrapper>
+          {(!nodes ||
+            (nodes?.length === 0 &&
+              activeWorkSpace?.current?.pathType != PathType.Entity)) && (
+            <DataCanvasDatabasePage />
+          )}
+          <ButtonWrapper>
+            {nodes && activeWorkSpace?.current?.pathType != PathType.Entity && (
+              <Button
+                icon={<PlusCircleOutlined />}
+                onClick={handleClickButtonCreate}
+              >
+                {getButtonTitle(activeWorkSpace?.current?.pathType)}
+              </Button>
+            )}
+          </ButtonWrapper>
+        </ReactFlowWrapper>
+      </ReactFlowProvider>
       {/* <CardCreatingAStructure>
         <VectorFrame>
           <CreatingAStructureVector />

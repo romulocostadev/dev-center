@@ -20,8 +20,6 @@ const getNewChild = (requestParams: NewChildRequestParams) => {
   return {
     key: requestParams.id,
     title: requestParams.title,
-    nodes: [],
-    children: null,
     pathType: requestParams.pathType,
   };
 };

@@ -28,6 +28,7 @@
   "sucess-title": "Success!",
   "sucess-message": "Operation performed successfully!",
   "solution-name-input-title": "Give me a nice name",
+  "solution-namespace-input-title": "Namespace",
   "solution-rename-title": "Rename",
   "solution-edit-title": "Rename Solution",
   "solution-edit-message": "This feature is not yet available. Try again later.",

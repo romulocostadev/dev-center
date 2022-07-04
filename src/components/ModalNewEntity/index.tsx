@@ -40,24 +40,26 @@ const ModalNewEntity = () => {
   const getUpdatedChild = (parameterElement, current, title) => {
     let element = { ...parameterElement };
     let finded = false;
-    let id = getUuid();
-    let refDatabaseId = getUuid();
+    let refDatabaseId = activeWorkSpace?.current?.key;
     if (element.title === current.title) {
       finded = true;
       if (!element.children) element.children = [];
-
-      element.nodes = Object.assign([], element.nodes);
-      element.children = Object.assign([], element.children);
-      const params = new NewChildRequestParams();
-      params.id = id;
-      params.title = title;
-      params.pathType = PathType.Entity;
-      let newChildItem = getNewChild(params);
-      element.children.push(newChildItem);
-      let lastNode =
-        element.nodes.length > 0 ? element.nodes.slice(-1).pop() : null;
-      let newNode = getNewNode(id, title, refDatabaseId, lastNode);
-      element.nodes.push(newNode);
+      let newChildItem = null;
+      for (let index = 0; index < 50; index++) {
+        let id = getUuid();
+        element.nodes = Object.assign([], element.nodes);
+        element.children = Object.assign([], element.children);
+        const params = new NewChildRequestParams();
+        params.id = id;
+        params.title = title + index;
+        params.pathType = PathType.Entity;
+        newChildItem = getNewChild(params);
+        element.children.push(newChildItem);
+        let lastNode =
+          element.nodes.length > 0 ? element.nodes.slice(-1).pop() : null;
+        let newNode = getNewNode(id, title, refDatabaseId, lastNode);
+        element.nodes.push(newNode);
+      }
 
       let newActiveWorkSpace = { ...activeWorkSpace };
       newActiveWorkSpace.nodes = element.nodes;

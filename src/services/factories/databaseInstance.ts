@@ -35,8 +35,8 @@ const getNewNode = (
       },
       {
         displayPropertyName: null,
-        propertyName: relationalDatabase,
-        propertyValue: true,
+        propertyName: 'isRelationalDb',
+        propertyValue: relationalDatabase,
         formType: null,
         visible: false,
         readonly: false,

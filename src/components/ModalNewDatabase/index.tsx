@@ -53,7 +53,12 @@ const ModalNewDatabase = () => {
       element.children.push(newChildItem);
       let lastNode =
         element.nodes.length > 0 ? element.nodes.slice(-1).pop() : null;
-      let newNode = getNewNode(id, title, lastNode);
+      let newNode = getNewNode(
+        id,
+        title,
+        lastNode,
+        activeWorkSpace?.current?.key,
+      );
       element.nodes.push(newNode);
 
       let newActiveWorkSpace = { ...activeWorkSpace };

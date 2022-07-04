@@ -1,4 +1,9 @@
-const getNewNode = (id: string, title: string, lastNode: any) => {
+const getNewNode = (
+  id: string,
+  title: string,
+  lastNode: any,
+  idDbInstance: string,
+) => {
   let nodeObject = {
     id,
     type: 'customNode',
@@ -38,7 +43,7 @@ const getNewNode = (id: string, title: string, lastNode: any) => {
       {
         displayPropertyName: null,
         propertyName: 'refDbInstanceId',
-        propertyValue: id,
+        propertyValue: idDbInstance,
         formType: null,
         visible: false,
         readonly: false,

@@ -61,6 +61,12 @@ const ModalNewSolution = () => {
           >
             <InputBasic placeholder={t('solution-name-input-title')} />
           </GenericFormItem>
+          <GenericFormItem
+            name="namespace"
+            rules={[{ required: true, message: t('required-field') }]}
+          >
+            <InputBasic placeholder={t('solution-namespace-input-title')} />
+          </GenericFormItem>
         </Frame>
       </InputsWrapper>
       <FormFooter className="ant-modal-footer">

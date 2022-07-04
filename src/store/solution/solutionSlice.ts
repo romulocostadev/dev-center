@@ -30,7 +30,7 @@ const initialState: SolutionProps = {
   solution: {
     key: 'eca944ca-f1a0-43a1-9d97-19cf5b6d4462',
     title: 'SunChemical',
-    rootNameSpace: 'SunChemical',
+    rootNamespace: 'SunChemical',
     pathType: 'solution-folder',
     children: [
       {
@@ -1707,7 +1707,7 @@ export const counterSlice = createSlice({
         state.solution = {
           key: getUuid(),
           title: payload.Name,
-          rootNameSpace: payload.Name,
+          rootNamespace: payload.Name,
           pathType: PathType.SolutionFolder,
           children: [
             {

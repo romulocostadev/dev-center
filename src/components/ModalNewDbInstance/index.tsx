@@ -139,11 +139,6 @@ const ModalNewDbInstance = () => {
         solution: newSolution,
       }),
     );
-    // dispatch(
-    //  createSolution({
-    //    activeWorkSpace,
-    //  }),
-    // );
     dispatch(
       setModalData({
         visible: false,
