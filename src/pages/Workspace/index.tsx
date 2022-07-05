@@ -1,5 +1,5 @@
 /* eslint-disable consistent-return */
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { PlusCircleOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import ReactFlow, {
@@ -58,6 +58,7 @@ const DataCanvasPage = () => {
   const [bgColor, setBgColor] = useState(initBgColor);
 
   useEffect(() => {
+    console.log('oi');
     setNodes(nodeReducer);
   }, [nodeReducer, setNodes]);
 
@@ -166,9 +167,12 @@ const DataCanvasPage = () => {
     }
   };
 
-  const handleOnSelect = (event, node) => {
+  // const handleOnSelect = (event, node) => {};
+
+  const handleOnSelect = useCallback((event, node) => {
     setCurrent(node.id, solution);
-  };
+  }, []);
+
   return (
     <DataCanvas>
       <ReactFlowProvider>
