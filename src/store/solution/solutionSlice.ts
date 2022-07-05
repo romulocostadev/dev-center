@@ -1722,6 +1722,11 @@ export const counterSlice = createSlice({
                 },
               ],
             },
+            {
+              key: getUuid(),
+              title: 'Services',
+              pathType: PathType.ServiceFolder,
+            },
           ],
         };
       },

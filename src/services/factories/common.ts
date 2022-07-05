@@ -7,6 +7,9 @@ enum PathType {
   DatabaseInstance = 'database-instance',
   Database = 'database',
   Entity = 'entity',
+  ServiceFolder = 'service-folder',
+  Controller = 'controller',
+  ContextFolder = 'context-folder',
 }
 class NewChildRequestParams {
   id: string;

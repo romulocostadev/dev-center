@@ -50,6 +50,11 @@ const getDataScreen = (elementType: string) => {
         title: 'A Database Instance Needs a Database',
         buttonTitle: 'Create Database',
       };
+    case PathType.ServiceFolder:
+      return {
+        title: 'A Service Needs a Controller',
+        buttonTitle: 'Create Controller',
+      };
     default:
       return {
         title: 'A Solution Needs a Database Instance',
