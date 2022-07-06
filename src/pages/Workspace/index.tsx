@@ -33,6 +33,8 @@ import ModalNewDbInstance from '../../components/ModalNewDbInstance';
 import { PathType } from '../../services/factories/common';
 import { updateCurrent } from '../../store/solution/solutionSlice';
 import useWorkspace from '../../hooks/useWorkspace';
+import ModalNewService from '../../components/ModalNewService';
+import ModalNewMetaData from '../../components/ModalNewMetaData';
 
 const initBgColor = '#1A192B';
 const DataCanvasPage = () => {
@@ -58,7 +60,6 @@ const DataCanvasPage = () => {
   const [bgColor, setBgColor] = useState(initBgColor);
 
   useEffect(() => {
-    console.log('oi');
     setNodes(nodeReducer);
   }, [nodeReducer, setNodes]);
 
@@ -79,6 +80,10 @@ const DataCanvasPage = () => {
         return 'Create entity';
       case 'database-instance':
         return 'Create database';
+      case PathType.ServiceFolder:
+        return 'Create service';
+      case PathType.Service:
+        return 'Create controller';
       default:
         return 'Add';
     }
@@ -155,6 +160,24 @@ const DataCanvasPage = () => {
           }),
         );
         break;
+      case PathType.ServiceFolder:
+        dispatch(
+          setModalData({
+            visible: true,
+            title: t('modal-new-service'),
+            content: <ModalNewService />,
+          }),
+        );
+        break;
+      case PathType.Service:
+        dispatch(
+          setModalData({
+            visible: true,
+            title: t('modal-new-controller'),
+            content: <ModalNewService />,
+          }),
+        );
+        break;
       default:
         dispatch(
           setModalData({
@@ -167,11 +190,12 @@ const DataCanvasPage = () => {
     }
   };
 
-  // const handleOnSelect = (event, node) => {};
-
-  const handleOnSelect = useCallback((event, node) => {
-    setCurrent(node.id, solution);
-  }, []);
+  const handleOnSelect = useCallback(
+    (event, node) => {
+      setCurrent(node.id, solution);
+    },
+    [solution],
+  );
 
   return (
     <DataCanvas>
@@ -186,7 +210,7 @@ const DataCanvasPage = () => {
               onNodeClick={handleOnSelect}
               nodeTypes={nodeTypes}
               snapToGrid
-              snapGrid={[20, 20]}
+              snapGrid={[5, 5]}
               defaultZoom={1.5}
               fitView
               elementsSelectable
@@ -212,14 +236,17 @@ const DataCanvasPage = () => {
             <DataCanvasDatabasePage />
           )}
           <ButtonWrapper>
-            {nodes && activeWorkSpace?.current?.pathType != PathType.Entity && (
-              <Button
-                icon={<PlusCircleOutlined />}
-                onClick={handleClickButtonCreate}
-              >
-                {getButtonTitle(activeWorkSpace?.current?.pathType)}
-              </Button>
-            )}
+            {nodes &&
+              activeWorkSpace?.current?.pathType !== PathType.Entity &&
+              activeWorkSpace?.current?.pathType !==
+                PathType.ServiceMetadata && (
+                <Button
+                  icon={<PlusCircleOutlined />}
+                  onClick={handleClickButtonCreate}
+                >
+                  {getButtonTitle(activeWorkSpace?.current?.pathType)}
+                </Button>
+              )}
           </ButtonWrapper>
         </ReactFlowWrapper>
       </ReactFlowProvider>

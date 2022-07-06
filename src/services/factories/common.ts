@@ -8,6 +8,8 @@ enum PathType {
   Database = 'database',
   Entity = 'entity',
   ServiceFolder = 'service-folder',
+  Service = 'service',
+  ServiceMetadata = 'service-metadata',
   Controller = 'controller',
   ContextFolder = 'context-folder',
 }

@@ -5,6 +5,7 @@ import GenericCodeButton from '../../components/Button';
 import ModalNewDatabase from '../../components/ModalNewDatabase';
 import ModalNewDbInstance from '../../components/ModalNewDbInstance';
 import ModalNewEntity from '../../components/ModalNewEntity';
+import ModalNewService from '../../components/ModalNewService';
 import { PathType } from '../../services/factories/common';
 import { setModalData } from '../../store/modal/modalSlice';
 import { useAppDispatch, useAppSelector } from '../../store/reduxHooks';
@@ -52,6 +53,11 @@ const getDataScreen = (elementType: string) => {
       };
     case PathType.ServiceFolder:
       return {
+        title: 'A Solution Needs a Service',
+        buttonTitle: 'Create Service',
+      };
+    case PathType.Service:
+      return {
         title: 'A Service Needs a Controller',
         buttonTitle: 'Create Controller',
       };
@@ -76,7 +82,7 @@ const DataCanvasDatabasePage = () => {
   }, [activeWorkSpace?.current?.pathType]);
   const handleClickButtonCreate = () => {
     switch (activeWorkSpace?.current?.pathType) {
-      case 'database':
+      case PathType.Database:
         dispatch(
           setModalData({
             visible: true,
@@ -85,12 +91,30 @@ const DataCanvasDatabasePage = () => {
           }),
         );
         break;
-      case 'database-instance':
+      case PathType.DatabaseInstance:
         dispatch(
           setModalData({
             visible: true,
             title: t('modal-new-database'),
             content: <ModalNewDatabase />,
+          }),
+        );
+        break;
+      case PathType.ServiceFolder:
+        dispatch(
+          setModalData({
+            visible: true,
+            title: t('modal-new-service'),
+            content: <ModalNewService />,
+          }),
+        );
+        break;
+      case PathType.Service:
+        dispatch(
+          setModalData({
+            visible: true,
+            title: t('modal-new-controller'),
+            content: <ModalNewService />,
           }),
         );
         break;

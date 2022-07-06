@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { FrownFilled, FrownOutlined, PlusOutlined } from '@ant-design/icons';
 import Tree, { DataNode, TreeProps } from 'antd/lib/tree';
 import { LayoutSider1 } from './styles';
@@ -25,18 +25,23 @@ const LayoutSiderPage = () => {
   const TesteItem = () => {
     const [setCurrent, setSelectedAndNodes, setAttributes] = useWorkspace();
 
-    const onSelect: TreeProps['onSelect'] = async (selectedKeys, info) => {
-      const key = selectedKeys[0].toString();
+    const onSelect: TreeProps['onSelect'] = useCallback(
+      (selectedKeys, info) => {
+        const key = selectedKeys[0].toString();
 
-      setCurrent(key, solution);
-      setAttributes(key, solution);
+        setCurrent(key, solution);
+        setAttributes(key, solution);
 
-      if (info?.node?.nodes?.length > 0) {
-        dispatch(updateNodes(info?.node?.nodes));
-      } else {
-        setSelectedAndNodes(key, solution);
-      }
-    };
+        if (info?.node?.nodes?.length > 0) {
+          dispatch(updateNodes(info?.node?.nodes));
+        } else {
+          setSelectedAndNodes(key, solution);
+        }
+      },
+      [],
+    );
+
+    // const onSelect: TreeProps['onSelect'] = async (selectedKeys, info) => {};
 
     const onCheck: TreeProps['onCheck'] = (checkedKeys, info) => {};
 

@@ -43,5 +43,19 @@
   "dbinstance-name-input-title": "Give me a nice name",
   "modal-new-dbinstance": "New DBInstance",
   "dbtype-placeholder-dbinstance": "Select a database type",
-  "dbinstance-is-relational-database": "Is relational Database"
+  "dbinstance-is-relational-database": "Is relational Database",
+  "modal-new-service": "New service",
+  "allowed-scopes-placeholder-service": "Allowed Scopes",
+  "servicetype-placeholder-service": "Service Type",
+  "modal-new-controller": "New controller",
+  "modal-new-metadata": "New metadata",
+  "new-metadata-name-input-title": "Give me a nice name",
+  "new-metadata-name-input-version": "Version number",
+  "new-metadata-name-input-terms-of-service-url": "Terms of service URL",
+  "new-metadata-name-input-description": "Description",
+  "new-metadata-name-input-license-info": "License info",
+  "new-metadata-name-input-contact-url": "Contact URL",
+  "new-metadata-name-input-license-url": "License URL",
+  "new-metadata-name-input-contact-name": "Contact Name",
+  "new-metadata-name-input-contact-email": "Contact E-mail"
 }
